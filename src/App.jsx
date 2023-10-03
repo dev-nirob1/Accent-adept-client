@@ -1,10 +1,11 @@
-import './App.css'
+import { useContext } from "react"
+import { AuthContext } from "./AuthProvider/AuthProvider"
 
 function App() {
-
+const {user} = useContext(AuthContext)
   return (
     <>
-      <h3>ki khobor boss</h3>
+      <h3 className="text-center ">ki khobor boss = {user}</h3>
     </>
   )
 }

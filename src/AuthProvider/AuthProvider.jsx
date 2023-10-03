@@ -1,9 +1,16 @@
+import { createContext } from "react";
 
-const AuthProvider = () => {
+export const AuthContext = createContext()
+
+const AuthProvider = ({ children }) => {
+    const user = 'nirob';
+    const authInfo = {
+        user
+    }
     return (
-        <div>
-            
-        </div>
+        <AuthContext.Provider value={authInfo} >
+            {children}
+        </AuthContext.Provider>
     );
 };
 
