@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .swiper-button-prev{
-    color: red !important;
-    position: absolute !important;
-    top: 90% !important;
-    left: 90% !important;
-} */
+.swiper-button-prev, .swiper-button-next{
+    color: white !important;
+}

@@ -9,14 +9,16 @@ const Navbar = () => {
         if (window.scrollY > 200 && location.pathname === '/') {
             setNavbar(true)
         }
-        else{
+        else {
             setNavbar(false)
         }
     }
     window.addEventListener('scroll', changeBg)
 
+    const bgOpacity = location.pathname === "/" ? "bg-opacity-10" : "bg-opacity-100 sticky top-0 ";
+
     return (
-        <div className={`flex justify-between fixed z-10 w-full container mx-auto items-center bg-blue-600 shadow bg-opacity-100 ${navbar ? 'md:bg-opacity-100 transition-opacity' : 'md:bg-opacity-10 transition-opacity'} md:px-8 md:py-3`}>
+        <div className={`flex justify-between fixed z-10 w-full container mx-auto items-center bg-blue-600 shadow ${navbar ? 'md:bg-opacity-100 transition-opacity' : `md:${bgOpacity} transition-opacity`} md:px-8 md:py-3`}>
             <div>
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost text-white md:hidden">
@@ -32,11 +34,12 @@ const Navbar = () => {
             </div>
 
             <div className="md:flex hidden">
-                <ul className="space-x-8 menu-horizontal items-center font-semibold text-white text-base px-4">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/'>About</Link></li>
-                    <li><Link to='/'>Blog</Link></li>
-                    <li><a className="btn">Button</a></li>
+                <ul className="space-x-5 menu-horizontal items-center font-semibold text-white text-base px-4">
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Home</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>About</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Blog</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/register'>Register</Link></li>
+                    <li><Link to='/login' className="border-2 px-5 p-2 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white">Login</Link></li>
                 </ul>
             </div>
             <a className="border-2 px-3 py-1 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white md:hidden mr-4">Login</a>

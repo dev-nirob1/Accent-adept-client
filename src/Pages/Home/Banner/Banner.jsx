@@ -5,6 +5,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import { Pagination, Navigation } from 'swiper/modules';
+
+//TODO: customize banner
 const Banner = () => {
     const [bannerData, setBannerData] = useState([])
     useEffect(() => {
