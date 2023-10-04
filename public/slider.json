@@ -1,0 +1,29 @@
+[
+    {
+      "imageURL": "https://i.ibb.co/QrDxmBN/chinese-character-background.jpg",
+      "headline": "Unlock the Power of Language",
+      "subheadline": "At AccentAdept, we're dedicated to helping you master the nuances of accents and dialects from around the world. Explore our diverse range of courses and embark on a journey to become a confident and effective communicator.",
+      "ctaButton": {
+        "text": "Explore Courses",
+        "link": "Courses"
+      }
+    },
+    {
+      "imageURL": "https://i.ibb.co/chW25j7/ryan-wallace-az-A1h-Lbj-BBo-unsplash.jpg",
+      "headline": "Personalized Language Coaching",
+      "subheadline": "Our experienced instructors provide one-on-one coaching tailored to your specific language learning goals. Accelerate your language proficiency with our private coaching sessions.",
+      "ctaButton": {
+        "text": "Learn More",
+        "link": "private-coaching"
+      }
+    },
+    {
+      "imageURL": "https://i.ibb.co/9VXNppT/sven-brandsma-C5-SUk-YZT7n-U-unsplash.jpg",
+      "headline": "Language Immersion Workshops",
+      "subheadline": "Immerse yourself in the richness of languages through our intensive workshops. Enhance your language skills and cultural understanding in a supportive and immersive environment.",
+      "ctaButton": {
+        "text": "Join Workshops",
+        "link": "Workshops"
+      }
+    }
+  ]
