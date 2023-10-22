@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
     const location = useLocation()
+
     const changeBg = () => {
         console.log(window.scrollY)
         if (window.scrollY > 200 && location.pathname === '/') {
@@ -13,7 +14,12 @@ const Navbar = () => {
             setNavbar(false)
         }
     }
-    window.addEventListener('scroll', changeBg)
+    useEffect(() => {
+        window.addEventListener('scroll', changeBg);
+        return () => {
+            window.removeEventListener('scroll', changeBg);
+        }
+    }, []);
 
     const bgOpacity = location.pathname === "/" ? "bg-opacity-10" : "bg-opacity-100 sticky top-0 ";
 

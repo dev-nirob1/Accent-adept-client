@@ -4,9 +4,9 @@ import groovyWalkAnimation from "./../../assets/animation_lnbsqrcr.json";
 const Login = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content w-3/4 bg-gradient-to-tr from-teal-50 to-teal-100 items-center flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-1/2">
-                    <Lottie animationData={groovyWalkAnimation} loop={true} />;
+                    <Lottie animationData={groovyWalkAnimation} loop={true} />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form className="card-body">
