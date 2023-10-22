@@ -31,7 +31,7 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <p className="text-center">&copy; Accent Adept {new Date().getFullYear()}</p>
+                <p className="text-center font-medium text-base">&copy; Accent Adept {new Date().getFullYear()}</p>
             </div>
         </footer>
     );

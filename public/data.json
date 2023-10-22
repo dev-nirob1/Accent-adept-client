@@ -1,0 +1,182 @@
+[
+    {
+        "instructor": {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@example.com",
+            "classesTaken": 5,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 1,
+                "className": "English 101",
+                "totalStudents": 20,
+                "totalSeats": 30,
+                "availableSeats": 10,
+                "price": 49.99,
+                "image": "class1.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 2,
+            "name": "Jane Smith",
+            "email": "jane@example.com",
+            "classesTaken": 3,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 2,
+                "className": "French for Beginners",
+                "totalStudents": 15,
+                "totalSeats": 25,
+                "availableSeats": 10,
+                "price": 39.99,
+                "image": "class2.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 3,
+            "name": "Alice Johnson",
+            "email": "alice@example.com",
+            "classesTaken": 4,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 3,
+                "className": "Intermediate Spanish",
+                "totalStudents": 18,
+                "totalSeats": 20,
+                "availableSeats": 2,
+                "price": 59.99,
+                "image": "class3.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 4,
+            "name": "David Lee",
+            "email": "david@example.com",
+            "classesTaken": 6,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 4,
+                "className": "German 101",
+                "totalStudents": 25,
+                "totalSeats": 30,
+                "availableSeats": 5,
+                "price": 54.99,
+                "image": "class4.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 5,
+            "name": "Emma White",
+            "email": "emma@example.com",
+            "classesTaken": 4,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 5,
+                "className": "Italian for Beginners",
+                "totalStudents": 20,
+                "totalSeats": 25,
+                "availableSeats": 5,
+                "price": 44.99,
+                "image": "class5.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 6,
+            "name": "Michael Brown",
+            "email": "michael@example.com",
+            "classesTaken": 7,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 6,
+                "className": "Chinese 101",
+                "totalStudents": 15,
+                "totalSeats": 20,
+                "availableSeats": 5,
+                "price": 59.99,
+                "image": "class6.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 7,
+            "name": "Sarah Johnson",
+            "email": "sarah@example.com",
+            "classesTaken": 5,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 7,
+                "className": "Spanish 201",
+                "totalStudents": 22,
+                "totalSeats": 25,
+                "availableSeats": 3,
+                "price": 49.99,
+                "image": "class7.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 8,
+            "name": "Mark Anderson",
+            "email": "mark@example.com",
+            "classesTaken": 3,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 8,
+                "className": "Japanese for Beginners",
+                "totalStudents": 18,
+                "totalSeats": 20,
+                "availableSeats": 2,
+                "price": 59.99,
+                "image": "class8.jpg"
+            }
+        ]
+    },
+    {
+        "instructor": {
+            "id": 9,
+            "name": "Olivia Parker",
+            "email": "olivia@example.com",
+            "classesTaken": 4,
+            "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg"
+        },
+        "classes": [
+            {
+                "id": 9,
+                "className": "Korean 101",
+                "totalStudents": 20,
+                "totalSeats": 30,
+                "availableSeats": 10,
+                "price": 54.99,
+                "image": "class9.jpg"
+            }
+        ]
+    }
+]

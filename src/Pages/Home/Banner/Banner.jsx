@@ -33,7 +33,7 @@ const Banner = () => {
                     bannerData.map((banner, index) => <SwiperSlide key={index}>
                         <div className='w-full h-[500px] md:h-screen'>
                             <div className='bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 h-full w-full text-white flex items-center justify-between px-9 md:pl-24 '>
-                                <div className={`space-y-5 ${index === 1? 'md:w-1/2 ml-auto mr-8' : 'md:w-1/2'}`}>
+                                <div className={`space-y-5 ${index === 1 ? 'md:w-1/2 ml-auto mr-8' : 'md:w-1/2'}`}>
                                     <h3 className='text-4xl md:text-5xl font-semibold text-gray-100'>{banner.headline}</h3>
                                     <p className='text-base md:text-lg text-gray-100'>{banner.subheadline}</p>
 
