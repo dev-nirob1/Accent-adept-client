@@ -19,13 +19,23 @@ const Instructors = () => {
                 heading="Meet Our Expert Instructors"
                 description="Get to know our talented instructors who make language learning a breeze. Explore their classes and start your journey to fluency today.Each instructor brings a unique teaching style and cultural perspective."
             ></SectionTitle>
-            {
-                instructors.map(ins => (<div key={ins.instructor.id}>
-                    <p>{ins.instructor.name}</p>
-                    <img src={ins.instructor.image} alt="iamge" />
-                </div>
-                ))
-            }
+            <div className="grid grid-cols-2 gap-6">
+                {
+                    instructors.map(ins => (<div key={ins.instructor.id} className="card lg:card-side bg-base-100 shadow-xl">
+                        <figure><img className="w-[380px]" src={ins.instructor.image} alt="Album" /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{ins.instructor.name}</h2>
+                            <p className="text-lg">{ins.instructor.email}</p>
+                                <p className="text-lg">Classes Taken: {ins.instructor.classesTaken}</p>
+                                <p className="text-base">Name Of Class: {ins.classes[0].className}</p>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-primary">Listen</button>
+                            </div>
+                        </div>
+                    </div>
+                    ))
+                }
+            </div>
         </div>
     );
 };
