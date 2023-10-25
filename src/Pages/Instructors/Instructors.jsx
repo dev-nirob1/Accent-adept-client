@@ -1,7 +1,7 @@
 // import { useEffect, useState } from "react";
 import SectionTitle from "../../Components/SectionTitle";
-import InstructorsDetails from "./InstructorsDetails";
 import { useLoaderData } from "react-router-dom";
+import InstructorsCard from "./InstructorsCard";
 
 const Instructors = () => {
     const instructors = useLoaderData()
@@ -14,7 +14,7 @@ const Instructors = () => {
             ></SectionTitle>
             <div className="grid grid-cols-2 gap-6">
                 {
-                    instructors.map(instructor => (<InstructorsDetails key={instructor._id} instructor={instructor}></InstructorsDetails>
+                    instructors.map(instructor => (<InstructorsCard key={instructor._id} instructor={instructor}></InstructorsCard>
                     ))
                 }
             </div>

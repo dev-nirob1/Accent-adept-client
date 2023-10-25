@@ -23,7 +23,7 @@ const router = createBrowserRouter([
          {
             path: '/classes',
             element: <Classes></Classes>,
-            loader: ()=>fetch('http://localhost:5000/instructors')
+            loader: ()=>fetch('http://localhost:5000/classes')
          },
          {
             path: '/login',
