@@ -42,7 +42,7 @@ const Login = () => {
                             />
                             {errors.password && <p className="text-red-600 mt-1">Password is required.</p>}
                         </div>
-                        <p><small>Already have an account? <Link className="text-blue-500 hover:underline" to="/login">Login here</Link></small></p>
+                        <p><small>New to Accent-Adept? <Link className="text-blue-500 hover:underline" to="/register">Register here</Link></small></p>
                         <button
                             type="submit"
                             className="bg-blue-500 btn-block text-white p-2 rounded hover:bg-blue-600"

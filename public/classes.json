@@ -1,0 +1,128 @@
+[
+    {
+        "className": "English 101",
+        "totalStudents": 20,
+        "totalSeats": 30,
+        "availableSeats": 10,
+        "price": 49.99,
+        "image": "class1.jpg",
+        "ratings": 4.5,
+        "hashtags": [
+            "#English",
+            "#Language"
+        ],
+        "description": "English 101 is a comprehensive course designed for beginners. Learn English grammar, vocabulary, and practical communication skills in a friendly and supportive environment. John's teaching approach focuses on real-life situations and interactive activities to boost your English proficiency."
+    },
+    {
+        "className": "French for Beginners",
+        "totalStudents": 15,
+        "totalSeats": 25,
+        "availableSeats": 10,
+        "price": 39.99,
+        "image": "class2.jpg",
+        "ratings": 4.0,
+        "hashtags": [
+            "#French",
+            "#Language"
+        ],
+        "description": "French for Beginners is the perfect class to start your French language learning journey. Learn the basics of French pronunciation, vocabulary, and simple conversations. Jane's classes are designed to immerse you in French language and culture through engaging activities and authentic experiences."
+    },
+    {
+        "className": "Intermediate Spanish",
+        "totalStudents": 18,
+        "totalSeats": 20,
+        "availableSeats": 2,
+        "price": 59.99,
+        "image": "class3.jpg",
+        "ratings": 4.2,
+        "hashtags": [
+            "#Spanish",
+            "#Language"
+        ],
+        "description": "Intermediate Spanish is designed for those who already have a foundation in Spanish. Enhance your conversational skills, grammar, and cultural knowledge in this engaging class. Alice's teaching method integrates language learning with a deep appreciation for Spanish-speaking countries and their traditions."
+    },
+    {
+        "className": "German 101",
+        "totalStudents": 25,
+        "totalSeats": 30,
+        "availableSeats": 5,
+        "price": 54.99,
+        "image": "class4.jpg",
+        "ratings": 4.7,
+        "hashtags": [
+            "#German",
+            "#Language"
+        ],
+        "description": "German 101 is designed for beginners who want to learn the German language. Dive into essential German grammar, vocabulary, and practical conversations in a fun and interactive class. David's teaching style emphasizes real-life language use and cultural understanding."
+    },
+    {
+        "className": "Italian for Beginners",
+        "totalStudents": 20,
+        "totalSeats": 25,
+        "availableSeats": 5,
+        "price": 44.99,
+        "image": "class5.jpg",
+        "ratings": 4.3,
+        "hashtags": [
+            "#Italian",
+            "#Language"
+        ],
+        "description": "Italian for Beginners is a fun and informative class that introduces you to the Italian language. Learn Italian pronunciation, basic phrases, and explore the rich Italian culture. Emma's classes are a journey into the heart of Italy's language and heritage."
+    },
+    {
+        "className": "Chinese 101",
+        "totalStudents": 15,
+        "totalSeats": 20,
+        "availableSeats": 5,
+        "price": 59.99,
+        "image": "class6.jpg",
+        "ratings": 4.8,
+        "hashtags": [
+            "#Chinese",
+            "#Language"
+        ],
+        "description": "Chinese 101 is your gateway to learning Mandarin Chinese. Discover the fundamentals of Chinese characters, tones, and everyday expressions with Michael's engaging teaching style. Join the class to explore the depths of the Chinese language and culture."
+    },
+    {
+        "className": "Spanish 201",
+        "totalStudents": 22,
+        "totalSeats": 25,
+        "availableSeats": 3,
+        "price": 49.99,
+        "image": "class7.jpg",
+        "ratings": 4.4,
+        "hashtags": [
+            "#Spanish",
+            "#Language"
+        ],
+        "description": "Spanish 201 is designed for those who want to further their Spanish language skills. Dive into advanced Spanish conversation, grammar, and cultural topics with Sarah's guidance. Experience the richness of Spanish language and culture in each class."
+    },
+    {
+        "className": "Japanese for Beginners",
+        "totalStudents": 18,
+        "totalSeats": 20,
+        "availableSeats": 2,
+        "price": 59.99,
+        "image": "class8.jpg",
+        "ratings": 4.1,
+        "hashtags": [
+            "#Japanese",
+            "#Language"
+        ],
+        "description": "Japanese for Beginners is the perfect class to start your Japanese language learning journey. Learn the basics of Japanese characters, vocabulary, and simple conversations. Mark's classes offer an immersive experience into the world of Japan's language and culture."
+    },
+    {
+        "className": "Korean 101",
+        "totalStudents": 20,
+        "totalSeats": 30,
+        "availableSeats": 10,
+        "price": 54.99,
+        "image": "class9.jpg",
+        "ratings": 4.6,
+        "hashtags": [
+            "#Korean",
+            "#Language"
+        ],
+        "description": "Korean 101 is a dynamic class designed for beginners to learn the Korean language. Explore Korean writing, basic phrases, and immerse yourself in Korean pop culture. Olivia's classes are an exciting introduction to the Korean language and its vibrant culture."
+    }
+]

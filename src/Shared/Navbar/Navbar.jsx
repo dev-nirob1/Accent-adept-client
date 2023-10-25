@@ -44,7 +44,7 @@ const Navbar = () => {
                 <ul className="space-x-5 menu-horizontal items-center font-semibold text-white text-base px-4">
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Home</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Instructors</Link></li>
-                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Classes</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/classes'>Classes</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Blog</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/register'>Register</Link></li>
                     <li><Link to='/login' className="border-2 px-5 p-2 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white">Login</Link></li>
