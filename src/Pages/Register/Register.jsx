@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { FaGoogle } from 'react-icons/fa';
 import Lottie from "lottie-react";
 import animationData from "./../../assets/animation_lnbsqrcr.json"
+import { Link } from "react-router-dom";
 
 const Register = () => {
     const {
@@ -21,9 +23,9 @@ const Register = () => {
     const password = watch("password", "");
 
     return (
-        <div className="my-16 shadow-lg bg-gray-50 p-6 flex items-center w-3/4 mx-auto flex-col md:flex-row">
-            <div className="form-column md:w-1/2 p-4">
-                <h2 className="text-2xl font-semibold mb-4">Registration</h2>
+        <div className="my-10 shadow-lg bg-gray-50 p-6 flex items-center w-3/4 mx-auto flex-col md:flex-row">
+            <div className="form-column md:w-1/2 p-8">
+                <h2 className="text-4xl text-center font-semibold mb-4">Registration</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="mb-4">
                         <label className="block">Name</label>
@@ -31,7 +33,7 @@ const Register = () => {
                             {...register("name", { required: true })}
                             type="text"
                             placeholder="Name"
-                            className="w-full p-2 border rounded"
+                            className="w-full shadow p-[10px] border rounded"
                         />
                         {errors.name && (
                             <p className="text-red-600 mt-1">Name is required.</p>
@@ -43,58 +45,64 @@ const Register = () => {
                             {...register("email", { required: true })}
                             type="email"
                             placeholder="Email"
-                            className="w-full p-2 border rounded"
+                            className="w-full shadow p-[10px] border rounded"
                         />
                         {errors.email && (
                             <p className="text-red-600 mt-1">Email is required.</p>
                         )}
                     </div>
                     <div className="grid grid-cols-2 gap-3">
-                        <div className="mb-4 relative">
+                        <div>
                             <label className="block">Password</label>
-                            <input
-                                {...register("password", { required: true })}
-                                type={passwordToggle ? "text" : "password"}
-                                placeholder="Password"
-                                className="w-full p-2 border rounded pr-12"
-                            />
-                            <button
-                                type="button"
-                                onClick={() => setPasswordToggle(!passwordToggle)}
-                                className="absolute top-[70%] right-2 transform -translate-y-1/2"
-                            >
-                                {passwordToggle ? (
-                                    <AiFillEyeInvisible size={20} />
-                                ) : (
-                                    <AiFillEye size={20} />
-                                )}
-                            </button>
+                            <div className="relative">
+                                <input
+                                    {...register("password", { required: true })}
+                                    type={passwordToggle ? "text" : "password"}
+                                    placeholder="Password"
+                                    className="w-full shadow p-[10px] border rounded pr-12"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setPasswordToggle(!passwordToggle)}
+                                    className="absolute top-1/2 right-2 transform -translate-y-1/2"
+                                >
+                                    {passwordToggle ? (
+                                        <AiFillEyeInvisible size={20} />
+                                    ) : (
+                                        <AiFillEye size={20} />
+                                    )}
+                                </button>
+                            </div>
+
                             {errors.password && (
                                 <p className="text-red-600 mt-1">Password is required.</p>
                             )}
                         </div>
-                        <div className="mb-4 relative">
+                        <div>
                             <label className="block">Confirm Password</label>
-                            <input
-                                {...register("confirmPassword", {
-                                    required: true,
-                                    validate: (value) => value === password,
-                                })}
-                                type={confirmPasswordToggle ? "text" : "password"}
-                                placeholder="Confirm Password"
-                                className="w-full p-2 border rounded pr-12"
-                            />
-                            <button
-                                type="button"
-                                onClick={() => setConfirmPasswordToggle(!confirmPasswordToggle)}
-                                className="absolute top-1/2 right-2 transform -translate-y-1/2"
-                            >
-                                {confirmPasswordToggle ? (
-                                    <AiFillEyeInvisible size={20} />
-                                ) : (
-                                    <AiFillEye size={20} />
-                                )}
-                            </button>
+                            <div className="relative">
+                                <input
+                                    {...register("confirmPassword", {
+                                        required: true,
+                                        validate: (value) => value === password,
+                                    })}
+                                    type={confirmPasswordToggle ? "text" : "password"}
+                                    placeholder="Confirm Password"
+                                    className="w-full p-[10px] shadow border rounded pr-12"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setConfirmPasswordToggle(!confirmPasswordToggle)}
+                                    className="absolute top-1/2 right-2 transform -translate-y-1/2"
+                                >
+                                    {confirmPasswordToggle ? (
+                                        <AiFillEyeInvisible size={20} />
+                                    ) : (
+                                        <AiFillEye size={20} />
+                                    )}
+                                </button>
+                            </div>
+
                             {errors.confirmPassword && (
                                 <p className="text-red-600 mt-1">Passwords must match.</p>
                             )}
@@ -106,21 +114,10 @@ const Register = () => {
                             {...register("photoUrl")}
                             type="text"
                             placeholder="Photo URL"
-                            className="w-full p-2 border rounded"
+                            className="w-full shadow p-[10px] border rounded"
                         />
                     </div>
-                    <div className="mb-4">
-                        <label className="block">Gender</label>
-                        <select
-                            {...register("gender")}
-                            className="w-full p-2 border rounded"
-                        >
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
+                    <p><small>Already have an account? <Link className="text-blue-500 hover:underline" to="/login">Login here</Link></small></p>
                     <button
                         type="submit"
                         className="bg-blue-500 btn-block text-white p-2 rounded hover:bg-blue-600"
@@ -128,6 +125,12 @@ const Register = () => {
                         Register
                     </button>
                 </form>
+
+                <div className="divider">OR</div>
+
+                <div className="text-center">
+                    <button className="text-blue-500 hover:text-white hover:bg-blue-600 text-3xl rounded-full p-2 border-4 border-blue-500"><FaGoogle></FaGoogle></button>
+                </div>
             </div>
             <div className="animation-column md:w-1/2 p-4">
                 <Lottie animationData={animationData} />

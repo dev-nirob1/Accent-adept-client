@@ -14,10 +14,10 @@ function Footer() {
                     <div className="text-center md:text-left mb-5">
                         <h3 className="text-lg font-bold mb-6">Useful Links</h3>
                         <ul className="">
-                            <li className='hover:underline'><a href="#">Home</a></li>
-                            <li className='hover:underline'><a href="#">About Us</a></li>
-                            <li className='hover:underline'><a href="#">Services</a></li>
-                            <li className='hover:underline'><a href="#">Contact</a></li>
+                            <li className='hover:underline w-fit'><a href="#">Home</a></li>
+                            <li className='hover:underline w-fit'><a href="#">About Us</a></li>
+                            <li className='hover:underline w-fit'><a href="#">Services</a></li>
+                            <li className='hover:underline w-fit'><a href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div className="text-center md:text-left mb-5">

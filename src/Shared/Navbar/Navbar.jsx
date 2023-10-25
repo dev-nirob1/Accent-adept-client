@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+// import { useEffect, useState } from "react";
+import { Link, } from "react-router-dom";
 
 const Navbar = () => {
-    const [navbar, setNavbar] = useState(false);
-    const location = useLocation()
+    // const [navbar, setNavbar] = useState(false);
+    // const location = useLocation()
 
-    const changeBg = () => {
-        console.log(window.scrollY)
-        if (window.scrollY > 200 && location.pathname === '/') {
-            setNavbar(true)
-        }
-        else {
-            setNavbar(false)
-        }
-    }
-    useEffect(() => {
-        window.addEventListener('scroll', changeBg);
-        return () => {
-            window.removeEventListener('scroll', changeBg);
-        }
-    }, []);
+    // const changeBg = () => {
+    //     // console.log(window.scrollY)
+    //     if (window.scrollY > 200 && location.pathname === '/') {
+    //         setNavbar(true)
+    //     }
+    //     else {
+    //         setNavbar(false)
+    //     }
+    // }
+    // useEffect(() => {
+    //     window.addEventListener('scroll', changeBg);
+    //     return () => {
+    //         window.removeEventListener('scroll', changeBg);
+    //     }
+    // }, []);
 
-    const bgOpacity = location.pathname === "/" ? "bg-opacity-10" : "bg-opacity-100 sticky top-0 ";
+    // const bgOpacity = location.pathname === "/" ? "bg-opacity-10" : "bg-opacity-100 sticky top-0 ";
 
     return (
-        <div className={`flex justify-between fixed z-10 w-full container mx-auto items-center bg-blue-600 shadow ${navbar ? 'md:bg-opacity-100 transition-opacity' : `md:${bgOpacity} transition-opacity`} md:px-8 md:py-3`}>
+        <div className={`flex justify-between sticky top-0 z-10 w-full container mx-auto items-center bg-blue-600 shadow md:px-8 md:py-3`}>
             <div>
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost text-white md:hidden">
@@ -33,6 +33,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow bg-base-100 rounded-box w-52 font-semibold text-lg">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/instructors'>Instructors</Link></li>
+                        <li><Link to='/classes'>Instructors</Link></li>
                         <li><Link to='/'>Blog</Link></li>
                     </ul>
                 </div>
@@ -43,6 +44,7 @@ const Navbar = () => {
                 <ul className="space-x-5 menu-horizontal items-center font-semibold text-white text-base px-4">
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Home</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Instructors</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Classes</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Blog</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/register'>Register</Link></li>
                     <li><Link to='/login' className="border-2 px-5 p-2 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white">Login</Link></li>

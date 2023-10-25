@@ -4,7 +4,7 @@ import SectionTitle from "../../Components/SectionTitle";
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:5000/instructors')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -21,7 +21,7 @@ const Instructors = () => {
             ></SectionTitle>
             <div className="grid grid-cols-2 gap-6">
                 {
-                    instructors.map(ins => (<div key={ins.instructor.id} className="card lg:card-side bg-base-100 shadow-xl">
+                    instructors.map(ins => (<div key={ins._id} className="card lg:card-side bg-base-100 shadow-xl">
                         <figure><img className="w-[380px]" src={ins.instructor.image} alt="Album" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{ins.instructor.name}</h2>
