@@ -1,7 +1,6 @@
-// import { useEffect, useState } from "react";
-import SectionTitle from "../../Components/SectionTitle";
+import SectionTitle from "../../SharedComponents/SectionTitle";
 import { useLoaderData } from "react-router-dom";
-import InstructorsCard from "./InstructorsCard";
+import InstructorsCard from "../../SharedComponents/InstructorsCard";
 
 const Instructors = () => {
     const instructors = useLoaderData()

@@ -1,13 +1,14 @@
 import { useLoaderData } from "react-router-dom";
-import SectionTitle from "../../Components/SectionTitle";
-import ClassCard from "./ClassCard";
+import SectionTitle from "../../SharedComponents/SectionTitle";
+import ClassCard from "../../SharedComponents/ClassCard";
 
 const Classes = () => {
     const classes = useLoaderData()
     console.log(classes)
+
     return (
-        <div className="my-16">
-            
+        <div className="my-8 mx-2 md:my-16">
+
             <SectionTitle
                 heading="Discover Our Exciting Classes"
                 description="Explore our wide range of language classes designed to help you learn and master a new language. Each class is carefully crafted to enhance your language skills and cultural understanding."
