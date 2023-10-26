@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle } from 'react-icons/fa';
 import Lottie from "lottie-react";
 import animationData from "./../../assets/animation_lnbsqrcr.json"
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
+
     const {
         register,
         handleSubmit,
@@ -14,11 +17,18 @@ const Register = () => {
         formState: { errors },
         getValues
     } = useForm();
+
     const [passwordToggle, setPasswordToggle] = useState(false);
     const [confirmPasswordToggle, setConfirmPasswordToggle] = useState(false);
 
     const onSubmit = (data) => {
-        console.log(data);
+        createUser(data.email, data.password)
+        .then(result => {
+            console.log(result)
+        })
+        .catch(error => {
+            console.log(error.message)
+        })
     };
 
     // const password = watch("password", "");
@@ -65,7 +75,7 @@ const Register = () => {
                                         validate: {
                                             uppercase: (value) => /(?=.*[A-Z])/.test(value),
                                             // number: (value) => /\d/.test(value),
-                                            // specialCase: (value) => /(?=.*[!@#$&*])/.text(value),
+                                            // specialCase: (value) => /(?=.*[!@#$&*])/.test(value),
                                         }
                                     })}
                                     type={passwordToggle ? "text" : "password"}
