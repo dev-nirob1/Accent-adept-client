@@ -2,27 +2,7 @@
 import { Link, } from "react-router-dom";
 
 const Navbar = () => {
-    // const [navbar, setNavbar] = useState(false);
-    // const location = useLocation()
-
-    // const changeBg = () => {
-    //     // console.log(window.scrollY)
-    //     if (window.scrollY > 200 && location.pathname === '/') {
-    //         setNavbar(true)
-    //     }
-    //     else {
-    //         setNavbar(false)
-    //     }
-    // }
-    // useEffect(() => {
-    //     window.addEventListener('scroll', changeBg);
-    //     return () => {
-    //         window.removeEventListener('scroll', changeBg);
-    //     }
-    // }, []);
-
-    // const bgOpacity = location.pathname === "/" ? "bg-opacity-10" : "bg-opacity-100 sticky top-0 ";
-
+    const user = false;
     return (
         <div className={`flex justify-between sticky top-0 z-10 w-full container mx-auto items-center bg-blue-600 shadow md:px-8 md:py-3`}>
             <div>
@@ -34,7 +14,6 @@ const Navbar = () => {
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/instructors'>Instructors</Link></li>
                         <li><Link to='/classes'>Instructors</Link></li>
-                        <li><Link to='/'>Blog</Link></li>
                     </ul>
                 </div>
                 <Link to="/" className="text-2xl md:text-4xl font-semibold text-white">Accent Adept</Link>
@@ -45,12 +24,17 @@ const Navbar = () => {
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Home</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Instructors</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/classes'>Classes</Link></li>
-                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Blog</Link></li>
-                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/register'>Register</Link></li>
-                    <li><Link to='/login' className="border-2 px-5 p-2 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white">Login</Link></li>
+                    {
+                        user ? <>
+                            <img className="w-12 h-12 rounded-full border-4" src="" alt="profile" title={user.displayName} />
+                            <button className="border-2 px-5 p-2 bg-white text-blue-600 rounded font-medium">Logout</button>
+                        </>
+                            :
+                            <li><Link to='/login' className="border-2 px-5 p-2 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white">Login</Link></li>
+                    }
                 </ul>
             </div>
-            <a className="border-2 px-3 py-1 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white md:hidden mr-4">Login</a>
+            <Link to="/login" className="border-2 px-3 py-1 hover:bg-white rounded font-medium hover:text-[#6B6FF7] text-white md:hidden mr-4">Login</Link>
         </div>
     );
 };

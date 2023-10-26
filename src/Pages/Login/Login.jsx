@@ -16,12 +16,16 @@ const Login = () => {
     return (
         <div className="my-10 mx-auto p-2 md:p-6 sm:w-3/4 bg-gray-50 shadow">
             <div className="grid gap-3 md:grid-cols-2 p-4 md:p-8 items-center justify-center">
+
                 <div className="lg::w-10/12 order-2 md:order-none">
                     <Lottie animationData={groovyWalkAnimation} loop={true} />
                 </div>
+
                 <div className="lg:w-11/12 order-1">
                     <h2 className="text-center text-3xl font-semibold">Login </h2>
+
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+
                         <div className="mb-4">
                             <label className="block">Email</label>
                             <input
@@ -30,18 +34,22 @@ const Login = () => {
                                 placeholder="Email"
                                 className="w-full p-[10px] border rounded"
                             />
-                            {errors.email && <p className="text-red-600 mt-1">Email is required.</p>}
+
+                            {errors.email?.type === 'required' && <p className="text-red-600 mt-1">Email is required.</p>}
                         </div>
+
                         <div className="mb-4">
                             <label className="block">Password</label>
                             <input
-                                {...register("password", { required: true })}
+                                {...register("password",
+                                    { required: true })}
                                 type="password"
                                 placeholder="Password"
                                 className="w-full p-[10px] border rounded"
                             />
-                            {errors.password && <p className="text-red-600 mt-1">Password is required.</p>}
+                            {errors.password?.type === 'required' && <p className="text-red-600 mt-1">Password is required.</p>}
                         </div>
+
                         <p><small>New to Accent-Adept? <Link className="text-blue-500 hover:underline" to="/register">Register here</Link></small></p>
                         <button
                             type="submit"
@@ -50,6 +58,7 @@ const Login = () => {
                             Login
                         </button>
                     </form>
+
                     <div className="divider">OR</div>
 
                     <div className="text-center">

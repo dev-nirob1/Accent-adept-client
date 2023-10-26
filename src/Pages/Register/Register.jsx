@@ -10,8 +10,9 @@ const Register = () => {
     const {
         register,
         handleSubmit,
-        watch,
+        // watch,
         formState: { errors },
+        getValues
     } = useForm();
     const [passwordToggle, setPasswordToggle] = useState(false);
     const [confirmPasswordToggle, setConfirmPasswordToggle] = useState(false);
@@ -20,7 +21,7 @@ const Register = () => {
         console.log(data);
     };
 
-    const password = watch("password", "");
+    // const password = watch("password", "");
 
     return (
         <div className="my-10 shadow-lg bg-gray-50 p-6 flex items-center w-3/4 mx-auto flex-col md:flex-row">
@@ -35,10 +36,11 @@ const Register = () => {
                             placeholder="Name"
                             className="w-full shadow p-[10px] border rounded"
                         />
-                        {errors.name && (
+                        {errors.name?.type === 'required' && (
                             <p className="text-red-600 mt-1">Name is required.</p>
                         )}
                     </div>
+
                     <div className="mb-4">
                         <label className="block">Email</label>
                         <input
@@ -47,16 +49,25 @@ const Register = () => {
                             placeholder="Email"
                             className="w-full shadow p-[10px] border rounded"
                         />
-                        {errors.email && (
+                        {errors.email?.type === 'required' && (
                             <p className="text-red-600 mt-1">Email is required.</p>
                         )}
                     </div>
+
                     <div className="grid grid-cols-2 gap-3">
                         <div>
                             <label className="block">Password</label>
                             <div className="relative">
                                 <input
-                                    {...register("password", { required: true })}
+                                    {...register("password", {
+                                        required: true,
+                                        minLength: 6,
+                                        validate: {
+                                            uppercase: (value) => /(?=.*[A-Z])/.test(value),
+                                            // number: (value) => /\d/.test(value),
+                                            // specialCase: (value) => /(?=.*[!@#$&*])/.text(value),
+                                        }
+                                    })}
                                     type={passwordToggle ? "text" : "password"}
                                     placeholder="Password"
                                     className="w-full shadow p-[10px] border rounded pr-12"
@@ -73,18 +84,25 @@ const Register = () => {
                                     )}
                                 </button>
                             </div>
+                            {errors.password?.type === 'required' && <p className="text-red-600 mt-1">Password is required</p>}
 
-                            {errors.password && (
-                                <p className="text-red-600 mt-1">Password is required.</p>
-                            )}
+                            {errors.password?.type === 'minLength' && <p className="text-red-600 mt-1">Password must be at least 6 characters long</p>}
+
+                            {errors.password?.type === 'uppercase' && <p className="text-xs text-red-600 mt-1">Your password should include at least one uppercase letter.</p>}
+
+                            {/* {errors.password?.type === 'number' && <p className="text-xs text-red-600 mt-1">Your password should include at least one number.</p>}
+
+                            {errors.password?.type === 'specialCase' && <p className="text-xs text-red-600 mt-1">Your password should include at least one special character.</p>} */}
+
                         </div>
+
                         <div>
                             <label className="block">Confirm Password</label>
                             <div className="relative">
                                 <input
                                     {...register("confirmPassword", {
                                         required: true,
-                                        validate: (value) => value === password,
+                                        validate: (value) => value === getValues("password"),
                                     })}
                                     type={confirmPasswordToggle ? "text" : "password"}
                                     placeholder="Confirm Password"
@@ -103,21 +121,33 @@ const Register = () => {
                                 </button>
                             </div>
 
-                            {errors.confirmPassword && (
+                            {errors.confirmPassword?.type === 'validate' && (
                                 <p className="text-red-600 mt-1">Passwords must match.</p>
                             )}
                         </div>
                     </div>
+
                     <div className="mb-4">
                         <label className="block">Photo URL</label>
                         <input
-                            {...register("photoUrl")}
+                            {...register("photoUrl", {
+                                required: true,
+                                pattern: /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/
+                            })}
                             type="text"
                             placeholder="Photo URL"
                             className="w-full shadow p-[10px] border rounded"
                         />
                     </div>
+                    {errors.photoUrl && (
+                        <p className="text-red-600 mt-1">Photo URL is required</p>
+                    )}
+                    {errors.photoUrl?.type === 'pattern' && (
+                        <p className="text-red-600 mt-1">Invalid URL. Please enter a valid URL.</p>
+                    )}
+
                     <p><small>Already have an account? <Link className="text-blue-500 hover:underline" to="/login">Login here</Link></small></p>
+
                     <button
                         type="submit"
                         className="bg-blue-500 btn-block text-white p-2 rounded hover:bg-blue-600"
