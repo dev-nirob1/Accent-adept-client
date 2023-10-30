@@ -3,6 +3,7 @@ import groovyWalkAnimation from "./../../assets/animation_lnbsqrcr.json";
 import { useForm, } from 'react-hook-form';
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -15,6 +16,9 @@ const Login = () => {
 
     return (
         <div className="my-10 mx-auto p-2 md:p-6 sm:w-3/4 bg-gray-50 shadow">
+            <Helmet>
+                <title>Accent Adept | Login</title>
+            </Helmet>
             <div className="grid gap-3 md:grid-cols-2 p-4 md:p-8 items-center justify-center">
 
                 <div className="lg::w-10/12 order-2 md:order-none">

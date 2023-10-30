@@ -50,11 +50,11 @@ const router = createBrowserRouter([
             element: <UserHome></UserHome>
          },
          {
-            path:'selectedClass',
+            path: 'selectedClass',
             element: <SelectedClass></SelectedClass>
          },
          {
-            path:'enrolledClass',
+            path: 'enrolledClass',
             element: <EnrolledClass></EnrolledClass>
          },
          {

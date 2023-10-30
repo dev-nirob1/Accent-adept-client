@@ -1,12 +1,16 @@
 import SectionTitle from "../../SharedComponents/SectionTitle";
 import { useLoaderData } from "react-router-dom";
 import InstructorsCard from "../../SharedComponents/InstructorsCard";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
     const instructors = useLoaderData()
 
     return (
         <div className="my-8 md:my-16">
+            <Helmet>
+                <title>Accent Adept | Instructors</title>
+            </Helmet>
             <SectionTitle
                 heading="Meet Our Expert Instructors"
                 description="Get to know our talented instructors who make language learning a breeze. Explore their classes and start your journey to fluency today.Each instructor brings a unique teaching style and cultural perspective."

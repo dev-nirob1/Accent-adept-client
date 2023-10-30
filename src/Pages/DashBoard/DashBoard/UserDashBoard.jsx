@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 
-const UserComponent = () => {
+const UserDashBoard = () => {
     return (
         <div>
              <ul className="menu p-4 w-80 min-h-full text-white font-semibold text-lg">
@@ -20,4 +20,4 @@ const UserComponent = () => {
     );
 };
 
-export default UserComponent;
+export default UserDashBoard;

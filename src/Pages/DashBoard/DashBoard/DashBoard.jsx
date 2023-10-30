@@ -1,6 +1,6 @@
 import {  Outlet } from "react-router-dom";
-import UserComponent from "../../../DashBoardComponent/UserComponent";
-import AdminDashboard from "../../../DashBoardComponent/AdminDashboard";
+import AdminDashboard from "./AdminDashboard";
+import UserDashBoard from "./UserDashBoard";
 
 const DashBoard = () => {
     const isAdmin = true;
@@ -23,7 +23,7 @@ const DashBoard = () => {
                     isAdmin ? 
                     <AdminDashboard></AdminDashboard>
                     :
-                    <UserComponent></UserComponent>
+                    <UserDashBoard></UserDashBoard>
                 }
 
             </div>

@@ -11,6 +11,7 @@ const PopularClasses = () => {
     }, [])
     return (
         <div className="my-8 md:my-10 lg:my-16">
+            
             <SectionTitle
                 heading="Explore Our Popular Classes"
                 description="Discover our most sought-after language classes designed to help you master a new language. Join our popular classes and embark on a language learning journey that's both engaging and effective. Each class is tailored to boost your language skills and cultural understanding.">

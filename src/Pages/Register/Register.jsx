@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import animationData from "./../../assets/animation_lnbsqrcr.json"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
@@ -35,6 +36,9 @@ const Register = () => {
 
     return (
         <div className="my-10 shadow-lg bg-gray-50 p-6 flex items-center w-3/4 mx-auto flex-col md:flex-row">
+            <Helmet>
+                <title>Accent Adept | Register</title>
+            </Helmet>
             <div className="form-column md:w-1/2 p-8">
                 <h2 className="text-4xl text-center font-semibold mb-4">Registration</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
