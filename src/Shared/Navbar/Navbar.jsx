@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Link, } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -25,7 +24,8 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow bg-base-100 rounded-box w-52 font-semibold text-lg">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/instructors'>Instructors</Link></li>
-                        <li><Link to='/classes'>Instructors</Link></li>
+                        <li><Link to='/classes'>Classes </Link></li>
+                        <li><Link to='/DashBoard'>DashBoard </Link></li>
                     </ul>
                 </div>
                 <Link to="/" className="text-2xl md:text-4xl font-semibold text-white">Accent Adept</Link>
@@ -36,6 +36,7 @@ const Navbar = () => {
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Home</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Instructors</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/classes'>Classes</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/dashboard'>DashBoard</Link></li>
                     {
                         user ? <>
                             <img className="w-12 h-12 rounded-full border-4" src="" alt="profile" title={user.displayName} />

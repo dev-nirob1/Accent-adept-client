@@ -25,7 +25,6 @@ const DashBoard = () => {
                     :
                     <UserDashBoard></UserDashBoard>
                 }
-
             </div>
         </div>
     );

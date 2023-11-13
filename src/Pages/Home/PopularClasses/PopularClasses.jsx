@@ -16,7 +16,7 @@ const PopularClasses = () => {
                 heading="Explore Our Popular Classes"
                 description="Discover our most sought-after language classes designed to help you master a new language. Join our popular classes and embark on a language learning journey that's both engaging and effective. Each class is tailored to boost your language skills and cultural understanding.">
             </SectionTitle>
-            <div className="grid md:grid-cols-2 gap-6 lg:grid-cols-3">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 ">
                 {
                     PopularClasses.map(classItem => (<ClassCard
                         key={classItem._id}

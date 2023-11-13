@@ -1,12 +1,17 @@
-import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../SharedComponents/SectionTitle";
 import ClassCard from "../../SharedComponents/ClassCard";
 import { Helmet } from "react-helmet-async";
+import { useEffect, useState } from "react";
 
 const Classes = () => {
-    const classes = useLoaderData()
-    console.log(classes)
-
+    const [classes, setClasses] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/classes')
+            .then(res => res.json())
+            .then(data => setClasses(data))
+            .catch(err => console.log(err))
+    }, [])
+    // console.log(classes.length)
     return (
         <div className="my-8 mx-2 md:my-16">
             <Helmet>
@@ -19,7 +24,7 @@ const Classes = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
-                    classes.map(classItem => (
+                    classes && classes.map(classItem => (
                         <ClassCard key={classItem._id} classItem={classItem}></ClassCard>
                     ))
                 }

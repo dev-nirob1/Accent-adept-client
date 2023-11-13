@@ -4,10 +4,8 @@
         "email": "john@example.com",
         "classesTaken": 5,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "John is a highly experienced language instructor with a passion for teaching English. With over five years of teaching experience, he has helped countless students achieve fluency in English. Join John's English 101 class and embark on your journey to master the English language.",
-        "languagesTaught": [
-            "English"
-        ],
+        "about-instructor": "John is a highly experienced language instructor with a passion for teaching English. With over five years of teaching experience, he has helped countless students achieve fluency in English. Join John's English 101 class and embark on your journey to master the English language.",
+        "languagesTaught": "English",
         "teachingStyle": "Interactive and practical",
         "experience": "Over 5 years of teaching experience",
         "specializations": [
@@ -17,17 +15,27 @@
         "certifications": [
             "TESOL certified"
         ],
-        "background": "John holds a Bachelor's degree in English literature and a Master's degree in Education. He has lived and worked in English-speaking countries, gaining a deep understanding of the language and culture."
+        "background": "John holds a Bachelor's degree in English literature and a Master's degree in Education. He has lived and worked in English-speaking countries, gaining a deep understanding of the language and culture.",
+        "className": "English 101",
+        "totalStudents": 20,
+        "totalSeats": 30,
+        "availableSeats": 10,
+        "price": 49.99,
+        "picture": "class1.jpg",
+        "ratings": 4.5,
+        "hashtags": [
+            "#English",
+            "#Language"
+        ],
+        "description": "English 101 is a comprehensive course designed for beginners. Learn English grammar, vocabulary, and practical communication skills in a friendly and supportive environment. John's teaching approach focuses on real-life situations and interactive activities to boost your English proficiency."
     },
     {
         "name": "Jane Smith",
         "email": "jane@example.com",
         "classesTaken": 3,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "Jane is a passionate language teacher who specializes in French for beginners. With her patient and engaging teaching style, she makes learning French fun and easy. Join her class today and start your journey into the world of French language and culture.",
-        "languagesTaught": [
-            "French"
-        ],
+        "about-instructor": "Jane is a passionate language teacher who specializes in French for beginners. With her patient and engaging teaching style, she makes learning French fun and easy. Join her class today and start your journey into the world of French language and culture.",
+        "languagesTaught": "French",
         "teachingStyle": "Interactive and immersive",
         "experience": "Over 3 years of teaching experience",
         "specializations": [
@@ -37,17 +45,27 @@
         "certifications": [
             "DELF certified (Diplôme d'études en langue française)"
         ],
-        "background": "Jane is a native French speaker with a Bachelor's degree in French Literature. She has taught in language schools and conducted French cooking classes to introduce students to French culture."
+        "background": "Jane is a native French speaker with a Bachelor's degree in French Literature. She has taught in language schools and conducted French cooking classes to introduce students to French culture.",
+        "className": "French for Beginners",
+        "totalStudents": 15,
+        "totalSeats": 25,
+        "availableSeats": 10,
+        "price": 39.99,
+        "picture": "class2.jpg",
+        "ratings": 4.0,
+        "hashtags": [
+            "#French",
+            "#Language"
+        ],
+        "description": "French for Beginners is the perfect class to start your French language learning journey. Learn the basics of French pronunciation, vocabulary, and simple conversations. Jane's classes are designed to immerse you in French language and culture through engaging activities and authentic experiences."
     },
     {
         "name": "Alice Johnson",
         "email": "alice@example.com",
         "classesTaken": 4,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "Alice is an experienced Spanish language instructor, specializing in intermediate level courses. Her classes focus on refining your Spanish skills and deepening your understanding of Spanish culture.",
-        "languagesTaught": [
-            "Spanish"
-        ],
+        "about-instructor": "Alice is an experienced Spanish language instructor, specializing in intermediate level courses. Her classes focus on refining your Spanish skills and deepening your understanding of Spanish culture.",
+        "languagesTaught": "Spanish",
         "teachingStyle": "Communicative and cultural",
         "experience": "Over 7 years of teaching experience",
         "specializations": [
@@ -57,17 +75,27 @@
         "certifications": [
             "Advanced Spanish Teaching Certification"
         ],
-        "background": "Alice is a native Spanish speaker with a Bachelor's degree in Spanish language and culture. She has taught at universities and language schools, and her passion lies in sharing the richness of the Spanish-speaking world."
+        "background": "Alice is a native Spanish speaker with a Bachelor's degree in Spanish language and culture. She has taught at universities and language schools, and her passion lies in sharing the richness of the Spanish-speaking world.",
+        "className": "Intermediate Spanish",
+        "totalStudents": 18,
+        "totalSeats": 20,
+        "availableSeats": 2,
+        "price": 59.99,
+        "picture": "class3.jpg",
+        "ratings": 4.2,
+        "hashtags": [
+            "#Spanish",
+            "#Language"
+        ],
+        "description": "Intermediate Spanish is designed for those who already have a foundation in Spanish. Enhance your conversational skills, grammar, and cultural knowledge in this engaging class. Alice's teaching method integrates language learning with a deep appreciation for Spanish-speaking countries and their traditions."
     },
     {
         "name": "David Lee",
         "email": "david@example.com",
         "classesTaken": 6,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "David is a dedicated German language teacher who brings enthusiasm to his classes. With a strong focus on practical communication, his German 101 class is the ideal way to learn the language quickly.",
-        "languagesTaught": [
-            "German"
-        ],
+        "about-instructor": "David is a dedicated German language teacher who brings enthusiasm to his classes. With a strong focus on practical communication, his German 101 class is the ideal way to learn the language quickly.",
+        "languagesTaught": "German",
         "teachingStyle": "Practical and immersive",
         "experience": "Over 6 years of teaching experience",
         "specializations": [
@@ -77,17 +105,27 @@
         "certifications": [
             "Goethe-Zertifikat (Goethe Institute certification)"
         ],
-        "background": "David is fluent in German and holds a Master's degree in German Studies. He has worked as a language coach for businesses, helping professionals navigate the German-speaking business world."
+        "background": "David is fluent in German and holds a Master's degree in German Studies. He has worked as a language coach for businesses, helping professionals navigate the German-speaking business world.",
+        "className": "German 101",
+        "totalStudents": 25,
+        "totalSeats": 30,
+        "availableSeats": 5,
+        "price": 54.99,
+        "picture": "class4.jpg",
+        "ratings": 4.7,
+        "hashtags": [
+            "#German",
+            "#Language"
+        ],
+        "description": "German 101 is designed for beginners who want to learn the German language. Dive into essential German grammar, vocabulary, and practical conversations in a fun and interactive class. David's teaching style emphasizes real-life language use and cultural understanding."
     },
     {
         "name": "Emma White",
         "email": "emma@example.com",
         "classesTaken": 4,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "Emma is an expert in teaching Italian to beginners. Her classes are known for their engaging and interactive approach. Join her class and discover the beauty of the Italian language and culture.",
-        "languagesTaught": [
-            "Italian"
-        ],
+        "about-instructor": "Emma is an expert in teaching Italian to beginners. Her classes are known for their engaging and interactive approach. Join her class and discover the beauty of the Italian language and culture.",
+        "languagesTaught": "Italian",
         "teachingStyle": "Interactive and cultural",
         "experience": "Over 4 years of teaching experience",
         "specializations": [
@@ -97,17 +135,27 @@
         "certifications": [
             "Certificato di Competenza in Italiano (CELI)"
         ],
-        "background": "Emma is a native Italian speaker with a Bachelor's degree in Italian Studies. She has conducted Italian language and culture workshops and has a deep passion for sharing the art, culture, and language of Italy."
+        "background": "Emma is a native Italian speaker with a Bachelor's degree in Italian Studies. She has conducted Italian language and culture workshops and has a deep passion for sharing the art, culture, and language of Italy.",
+        "className": "Italian for Beginners",
+        "totalStudents": 20,
+        "totalSeats": 25,
+        "availableSeats": 5,
+        "price": 44.99,
+        "picture": "class5.jpg",
+        "ratings": 4.3,
+        "hashtags": [
+            "#Italian",
+            "#Language"
+        ],
+        "description": "Italian for Beginners is a fun and informative class that introduces you to the Italian language. Learn Italian pronunciation, basic phrases, and explore the rich Italian culture. Emma's classes are a journey into the heart of Italy's language and heritage."
     },
     {
         "name": "Michael Brown",
         "email": "michael@example.com",
         "classesTaken": 7,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "Michael is an experienced Chinese language instructor. He offers a comprehensive introduction to the Chinese language and culture, making it an exciting learning journey for his students.",
-        "languagesTaught": [
-            "Chinese"
-        ],
+        "about-instructor": "Michael is an experienced Chinese language instructor. He offers a comprehensive introduction to the Chinese language and culture, making it an exciting learning journey for his students.",
+        "languagesTaught": "Chinese",
         "teachingStyle": "Immersive and communicative",
         "experience": "Over 7 years of teaching experience",
         "specializations": [
@@ -117,17 +165,27 @@
         "certifications": [
             "HSK (Hanyu Shuiping Kaoshi) certified"
         ],
-        "background": "Michael is fluent in Mandarin Chinese and holds a Master's degree in Chinese Studies. He has worked as a language consultant for businesses and has a deep appreciation for Chinese history and culture."
+        "background": "Michael is fluent in Mandarin Chinese and holds a Master's degree in Chinese Studies. He has worked as a language consultant for businesses and has a deep appreciation for Chinese history and culture.",
+        "className": "Chinese 101",
+        "totalStudents": 15,
+        "totalSeats": 20,
+        "availableSeats": 5,
+        "price": 59.99,
+        "picture": "class6.jpg",
+        "ratings": 4.8,
+        "hashtags": [
+            "#Chinese",
+            "#Language"
+        ],
+        "description": "Chinese 101 is your gateway to learning Mandarin Chinese. Discover the fundamentals of Chinese characters, tones, and everyday expressions with Michael's engaging teaching style. Join the class to explore the depths of the Chinese language and culture."
     },
     {
         "name": "Sarah Johnson",
         "email": "sarah@example.com",
         "classesTaken": 5,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "Sarah is a dedicated Spanish language instructor, offering an intermediate-level class. Her focus on practical conversation and cultural insights makes learning Spanish an enriching experience.",
-        "languagesTaught": [
-            "Spanish"
-        ],
+        "about-instructor": "Sarah is a dedicated Spanish language instructor, offering an intermediate-level class. Her focus on practical conversation and cultural insights makes learning Spanish an enriching experience.",
+        "languagesTaught": "Spanish",
         "teachingStyle": "Conversational and cultural",
         "experience": "Over 5 years of teaching experience",
         "specializations": [
@@ -137,17 +195,27 @@
         "certifications": [
             "Advanced Spanish Teaching Certification"
         ],
-        "background": "Sarah is fluent in Spanish and holds a Master's degree in Latin American Studies. She has conducted field research in Latin America and brings her firsthand knowledge to the classroom."
+        "background": "Sarah is fluent in Spanish and holds a Master's degree in Latin American Studies. She has conducted field research in Latin America and brings her firsthand knowledge to the classroom.",
+        "className": "Spanish 201",
+        "totalStudents": 22,
+        "totalSeats": 25,
+        "availableSeats": 3,
+        "price": 49.99,
+        "picture": "class7.jpg",
+        "ratings": 4.4,
+        "hashtags": [
+            "#Spanish",
+            "#Language"
+        ],
+        "description": "Spanish 201 is designed for those who want to further their Spanish language skills. Dive into advanced Spanish conversation, grammar, and cultural topics with Sarah's guidance. Experience the richness of Spanish language and culture in each class."
     },
     {
         "name": "Mark Anderson",
         "email": "mark@example.com",
         "classesTaken": 3,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "Mark is an experienced language instructor who specializes in teaching Japanese to beginners. With a patient and engaging teaching style, he makes learning Japanese an enjoyable experience. Join his class today and start your journey into the world of Japanese language and culture.",
-        "languagesTaught": [
-            "Japanese"
-        ],
+        "about-instructor": "Mark is an experienced language instructor who specializes in teaching Japanese to beginners. With a patient and engaging teaching style, he makes learning Japanese an enjoyable experience. Join his class today and start your journey into the world of Japanese language and culture.",
+        "languagesTaught": "Japanese",
         "teachingStyle": "Interactive and immersive",
         "experience": "Over 3 years of teaching experience",
         "specializations": [
@@ -157,17 +225,27 @@
         "certifications": [
             "JLPT (Japanese Language Proficiency Test) certified"
         ],
-        "background": "Mark is fluent in Japanese and holds a Bachelor's degree in Japanese Language and Culture. He has lived in Japan and has a deep understanding of Japanese language and customs."
+        "background": "Mark is fluent in Japanese and holds a Bachelor's degree in Japanese Language and Culture. He has lived in Japan and has a deep understanding of Japanese language and customs.",
+        "className": "Japanese for Beginners",
+        "totalStudents": 18,
+        "totalSeats": 20,
+        "availableSeats": 2,
+        "price": 59.99,
+        "picture": "class8.jpg",
+        "ratings": 4.1,
+        "hashtags": [
+            "#Japanese",
+            "#Language"
+        ],
+        "description": "Japanese for Beginners is the perfect class to start your Japanese language learning journey. Learn the basics of Japanese characters, vocabulary, and simple conversations. Mark's classes offer an immersive experience into the world of Japan's language and culture."
     },
     {
         "name": "Olivia Parker",
         "email": "olivia@example.com",
         "classesTaken": 4,
         "image": "https://i.ibb.co/Rj3rPqZ/teacher.jpg",
-        "description": "Olivia is an enthusiastic Korean language instructor with a focus on teaching Korean to beginners. Her classes are known for their interactive and engaging approach. Join her class and embark on a journey to learn the Korean language and explore Korean culture.",
-        "languagesTaught": [
-            "Korean"
-        ],
+        "about-instructor": "Olivia is an enthusiastic Korean language instructor with a focus on teaching Korean to beginners. Her classes are known for their interactive and engaging approach. Join her class and embark on a journey to learn the Korean language and explore Korean culture.",
+        "languagesTaught": "Korean",
         "teachingStyle": "Interactive and communicative",
         "experience": "Over 4 years of teaching experience",
         "specializations": [
@@ -177,6 +255,18 @@
         "certifications": [
             "TOPIK (Test of Proficiency in Korean) certified"
         ],
-        "background": "Olivia is fluent in Korean and holds a Master's degree in Korean Language and Culture. She has lived in South Korea and has a deep appreciation for the Korean language, K-pop, and Korean cinema."
+        "background": "Olivia is fluent in Korean and holds a Master's degree in Korean Language and Culture. She has lived in South Korea and has a deep appreciation for the Korean language, K-pop, and Korean cinema.",
+        "className": "Korean 101",
+        "totalStudents": 20,
+        "totalSeats": 30,
+        "availableSeats": 10,
+        "price": 54.99,
+        "picture": "class9.jpg",
+        "ratings": 4.6,
+        "hashtags": [
+            "#Korean",
+            "#Language"
+        ],
+        "description": "Korean 101 is a dynamic class designed for beginners to learn the Korean language. Explore Korean writing, basic phrases, and immerse yourself in Korean pop culture. Olivia's classes are an exciting introduction to the Korean language and its vibrant culture."
     }
 ]

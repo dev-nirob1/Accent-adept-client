@@ -19,7 +19,7 @@
         "totalSeats": 25,
         "availableSeats": 10,
         "price": 39.99,
-        "image": "class2.jpg",
+        "picture": "class2.jpg",
         "ratings": 4.0,
         "hashtags": [
             "#French",
@@ -33,7 +33,7 @@
         "totalSeats": 20,
         "availableSeats": 2,
         "price": 59.99,
-        "image": "class3.jpg",
+        "picture": "class3.jpg",
         "ratings": 4.2,
         "hashtags": [
             "#Spanish",
@@ -47,7 +47,7 @@
         "totalSeats": 30,
         "availableSeats": 5,
         "price": 54.99,
-        "image": "class4.jpg",
+        "picture": "class4.jpg",
         "ratings": 4.7,
         "hashtags": [
             "#German",
@@ -55,13 +55,15 @@
         ],
         "description": "German 101 is designed for beginners who want to learn the German language. Dive into essential German grammar, vocabulary, and practical conversations in a fun and interactive class. David's teaching style emphasizes real-life language use and cultural understanding."
     },
+
+
     {
         "className": "Italian for Beginners",
         "totalStudents": 20,
         "totalSeats": 25,
         "availableSeats": 5,
         "price": 44.99,
-        "image": "class5.jpg",
+        "picture": "class5.jpg",
         "ratings": 4.3,
         "hashtags": [
             "#Italian",
@@ -69,13 +71,16 @@
         ],
         "description": "Italian for Beginners is a fun and informative class that introduces you to the Italian language. Learn Italian pronunciation, basic phrases, and explore the rich Italian culture. Emma's classes are a journey into the heart of Italy's language and heritage."
     },
+
+
+
     {
         "className": "Chinese 101",
         "totalStudents": 15,
         "totalSeats": 20,
         "availableSeats": 5,
         "price": 59.99,
-        "image": "class6.jpg",
+        "picture": "class6.jpg",
         "ratings": 4.8,
         "hashtags": [
             "#Chinese",
@@ -83,13 +88,15 @@
         ],
         "description": "Chinese 101 is your gateway to learning Mandarin Chinese. Discover the fundamentals of Chinese characters, tones, and everyday expressions with Michael's engaging teaching style. Join the class to explore the depths of the Chinese language and culture."
     },
+
+
     {
         "className": "Spanish 201",
         "totalStudents": 22,
         "totalSeats": 25,
         "availableSeats": 3,
         "price": 49.99,
-        "image": "class7.jpg",
+        "picture": "class7.jpg",
         "ratings": 4.4,
         "hashtags": [
             "#Spanish",
@@ -97,13 +104,14 @@
         ],
         "description": "Spanish 201 is designed for those who want to further their Spanish language skills. Dive into advanced Spanish conversation, grammar, and cultural topics with Sarah's guidance. Experience the richness of Spanish language and culture in each class."
     },
+
     {
         "className": "Japanese for Beginners",
         "totalStudents": 18,
         "totalSeats": 20,
         "availableSeats": 2,
         "price": 59.99,
-        "image": "class8.jpg",
+        "picture": "class8.jpg",
         "ratings": 4.1,
         "hashtags": [
             "#Japanese",

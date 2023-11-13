@@ -10,6 +10,10 @@ import UserHome from "../../Pages/DashBoard/UserHome/UserHome";
 import SelectedClass from "../../Pages/DashBoard/SelectedClass/SelectedClass";
 import EnrolledClass from "../../Pages/DashBoard/EnrolledClass/EnrolledClass";
 import PaymentHistory from "../../Pages/DashBoard/PaymentHistory/PaymentHistory";
+import AdminHome from "../../Pages/DashBoard/Admin/AdminHome";
+import ManageUsers from "../../Pages/DashBoard/Admin/ManageUsers";
+import ManageClasses from "../../Pages/DashBoard/Admin/ManageClasses";
+import AddCourse from "../../Pages/DashBoard/Admin/AddCourse";
 
 const router = createBrowserRouter([
    {
@@ -23,12 +27,12 @@ const router = createBrowserRouter([
          {
             path: '/instructors',
             element: <Instructors></Instructors>,
-            loader: () => fetch('http://localhost:5000/instructors')
+            // loader: () => fetch('http://localhost:5000/instructors')
          },
          {
             path: '/classes',
             element: <Classes></Classes>,
-            loader: () => fetch('http://localhost:5000/classes')
+            // loader: () => fetch('http://localhost:5000/classes')
          },
          {
             path: '/login',
@@ -60,7 +64,25 @@ const router = createBrowserRouter([
          {
             path: 'paymentHistory',
             element: <PaymentHistory></PaymentHistory>
-         }
+         },
+
+         //admin routes
+         {
+            path: 'admin-home',
+            element: <AdminHome></AdminHome>
+         },
+         {
+            path: 'manage-users',
+            element: <ManageUsers></ManageUsers>
+         },
+         {
+            path: 'manage-classes',
+            element: <ManageClasses></ManageClasses>
+         },
+         {
+            path: 'add-course',
+            element: <AddCourse></AddCourse>
+         },
       ]
    }
 
