@@ -7,7 +7,7 @@ const AdminDashboard = () => {
                     <li><NavLink to="admin-home">Admin Home</NavLink></li>
                     <li><NavLink to="add-course">Add Course</NavLink></li>
                     <li><NavLink to="manage-users">Manage Users</NavLink></li>
-                    <li><NavLink to="manage-classes">Manage Classes</NavLink></li>
+                    <li><NavLink to="manage-classes">Manage Selected Classes</NavLink></li>
                     {/* <li><NavLink to="paymentHistory">Payment History</NavLink></li> */}
 
                     <div className="divider"></div>

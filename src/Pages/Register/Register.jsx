@@ -4,32 +4,56 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle } from 'react-icons/fa';
 import Lottie from "lottie-react";
 import animationData from "./../../assets/animation_lnbsqrcr.json"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
 
     const {
         register,
         handleSubmit,
-        // watch,
+        reset,
         formState: { errors },
         getValues
     } = useForm();
 
     const [passwordToggle, setPasswordToggle] = useState(false);
     const [confirmPasswordToggle, setConfirmPasswordToggle] = useState(false);
+    const navigate = useNavigate()
 
     const onSubmit = (data) => {
         createUser(data.email, data.password)
-        .then(result => {
-            console.log(result)
-        })
-        .catch(error => {
-            console.log(error.message)
-        })
+            .then(result => {
+                console.log(result)
+                updateUserProfile(data.name, data.photoUrl)
+                    .then(() => {
+                        const savedUser = { name: data.name, email: data.email, photo: data.photoUrl, role: 'user' }
+
+                        fetch('http://localhost:5000/users/', {
+                            method: 'PUT',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(savedUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.acknowledged) {
+                                    alert('Registration success')
+                                }
+                                reset()
+                                navigate('/')
+                            })
+                    })
+                    .catch(error => {
+                        alert(error.message)
+                    })
+            })
+            .catch(error => {
+                alert(error.message)
+            })
     };
 
     // const password = watch("password", "");
