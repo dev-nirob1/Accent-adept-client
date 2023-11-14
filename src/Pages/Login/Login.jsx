@@ -1,9 +1,9 @@
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "./../../assets/animation_lnbsqrcr.json";
 import { useForm, } from 'react-hook-form';
-import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../SharedComponents/SocialLogin";
 
 
 const Login = () => {
@@ -65,9 +65,7 @@ const Login = () => {
 
                     <div className="divider">OR</div>
 
-                    <div className="text-center">
-                        <button className="text-blue-500 hover:text-white hover:bg-blue-600 text-3xl rounded-full p-2 border-4 border-blue-500"><FaGoogle></FaGoogle></button>
-                    </div>
+                    <SocialLogin />
                 </div>
             </div>
         </div>

@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { FaGoogle } from 'react-icons/fa';
 import Lottie from "lottie-react";
 import animationData from "./../../assets/animation_lnbsqrcr.json"
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../SharedComponents/SocialLogin";
 
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
@@ -195,10 +195,7 @@ const Register = () => {
                 </form>
 
                 <div className="divider">OR</div>
-
-                <div className="text-center">
-                    <button className="text-blue-500 hover:text-white hover:bg-blue-600 text-3xl rounded-full p-2 border-4 border-blue-500"><FaGoogle></FaGoogle></button>
-                </div>
+                <SocialLogin />
             </div>
             <div className="animation-column md:w-1/2 p-4">
                 <Lottie animationData={animationData} />
