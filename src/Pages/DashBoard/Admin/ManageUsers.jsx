@@ -3,11 +3,37 @@ import UsersData from './UsersData';
 
 const ManageUsers = () => {
     const [users, setUsers] = useState([])
+    //todo:: use tanstack query and update alert to swal or toast
     useEffect(() => {
         fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
+
+    const handleMakeAdmin = id => {
+        fetch(`http://localhost:5000/users/admin/${id}`, {
+            method: 'PATCH',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    alert('Made Admin ')
+                }
+            })
+    }
+
+    const handleDeleteUser = id => {
+        fetch(`http://localhost:5000/users/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount) {
+                    alert('user Deleted')
+                }
+            })
+    }
     return (
         <div className="overflow-x-auto p-5 bg-gray-50">
             <h2 className='text-3xl font-semibold text-center my-8'>Manage User</h2>
@@ -24,7 +50,7 @@ const ManageUsers = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
-                        users.map((user, index) => <UsersData key={user._id} user={user} index={index} />)
+                        users.map((user, index) => <UsersData key={user._id} handleMakeAdmin={handleMakeAdmin} handleDeleteUser={handleDeleteUser} user={user} index={index} />)
                     }
                 </tbody>
 
