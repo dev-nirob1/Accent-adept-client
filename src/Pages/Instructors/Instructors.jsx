@@ -2,6 +2,7 @@ import SectionTitle from "../../SharedComponents/SectionTitle";
 import InstructorsCard from "../../SharedComponents/InstructorsCard";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
+import Modal from "../Modal/Modal";
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
@@ -11,7 +12,8 @@ const Instructors = () => {
             .then(data => setInstructors(data))
             .catch(err => console.log(err))
     }, [])
-    console.log(instructors)
+
+
     return (
         <div className="my-8 md:my-16">
             <Helmet>
@@ -27,6 +29,8 @@ const Instructors = () => {
                     ))
                 }
             </div>
+            <Modal />
+
         </div>
     );
 };

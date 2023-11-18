@@ -1,6 +1,9 @@
+// import Modal from "../Pages/Modal/Modal";
 
-const InstructorsCard = ({ instructor }) => {
+const InstructorsCard = ({ instructor, }) => {
     const { name, image, email, classesTaken, languagesTaught, } = instructor;
+
+
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img src={image} alt="Album" /></figure>
@@ -10,9 +13,10 @@ const InstructorsCard = ({ instructor }) => {
                 <p className="text-lg">Classes Taken: {classesTaken}</p>
                 <p className="text-base">Name Of Class: {languagesTaught}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Listen</button>
+                    <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>Demo Class</button>
                 </div>
             </div>
+
         </div>
     );
 };
