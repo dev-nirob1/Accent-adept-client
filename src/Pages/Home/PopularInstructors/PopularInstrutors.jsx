@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../SharedComponents/SectionTitle";
 import InstructorsCard from "../../../SharedComponents/InstructorsCard";
+import LinkButton from "../../../SharedComponents/LinkButton";
 
 const PopularInstrutors = () => {
     const [popularInstructors, setPopularInstructors] = useState([])
@@ -23,6 +24,7 @@ const PopularInstrutors = () => {
                     ></InstructorsCard>))
                 }
             </div>
+            <LinkButton name="See More" to="instructors" />
         </div>
     );
 };

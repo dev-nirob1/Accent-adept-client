@@ -25,7 +25,7 @@ const Navbar = () => {
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/instructors'>Instructors</Link></li>
                         <li><Link to='/classes'>Classes </Link></li>
-                        <li><Link to='/DashBoard/admin-home'>DashBoard </Link></li>
+                        <li><Link to='/DashBoard'>DashBoard </Link></li>
                     </ul>
                 </div>
                 <Link to="/" className="text-2xl md:text-4xl font-semibold text-white">Accent Adept</Link>
@@ -36,7 +36,7 @@ const Navbar = () => {
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Home</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Instructors</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/classes'>Classes</Link></li>
-                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/dashboard/admin-home'>DashBoard</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/dashboard'>DashBoard</Link></li>
                     {
                         user ? <>
                             <img className="w-12 h-12 rounded-full border-4" src={user.photoURL} alt="profile" title={user.displayName} />

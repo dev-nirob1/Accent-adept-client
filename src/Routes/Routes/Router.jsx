@@ -6,14 +6,18 @@ import Register from "../../Pages/Register/Register"
 import Instructors from "../../Pages/Instructors/Instructors";
 import Classes from "../../Pages/Classes/Classes";
 import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
-import UserHome from "../../Pages/DashBoard/UserHome/UserHome";
-import SelectedClass from "../../Pages/DashBoard/SelectedClass/SelectedClass";
-import EnrolledClass from "../../Pages/DashBoard/EnrolledClass/EnrolledClass";
-import PaymentHistory from "../../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import AdminHome from "../../Pages/DashBoard/Admin/AdminHome";
 import ManageUsers from "../../Pages/DashBoard/Admin/ManageUsers";
 import ManageClasses from "../../Pages/DashBoard/Admin/ManageClasses";
-import AddCourse from "../../Pages/DashBoard/Admin/AddCourse";
+import InstructorHome from "../../Pages/DashBoard/Instructor/InstructorHome";
+import Protected from "../ProtectedRoutes/Protected";
+import UserHome from "../../Pages/DashBoard/User/UserHome";
+import EnrolledClass from "../../Pages/DashBoard/User/EnrolledClass";
+import PaymentHistory from "../../Pages/DashBoard/User/PaymentHistory";
+import SelectedClass from "../../Pages/DashBoard/User/SelectedClass";
+import AddedClass from "../../Pages/DashBoard/Instructor/AddedClass";
+import AddCourse from "../../Pages/DashBoard/Instructor/AddCourse";
+import ManageSelectedClass from "../../Pages/DashBoard/Admin/ManageSelectedClass";
 
 const router = createBrowserRouter([
    {
@@ -27,12 +31,10 @@ const router = createBrowserRouter([
          {
             path: '/instructors',
             element: <Instructors></Instructors>,
-            // loader: () => fetch('http://localhost:5000/instructors')
          },
          {
             path: '/classes',
             element: <Classes></Classes>,
-            // loader: () => fetch('http://localhost:5000/classes')
          },
          {
             path: '/login',
@@ -47,23 +49,39 @@ const router = createBrowserRouter([
    },
    {
       path: 'dashboard',
-      element: <DashBoard></DashBoard>,
+      element: <Protected><DashBoard></DashBoard></Protected>,
       children: [
+
+         //user dashboard route
          {
-            path: 'userHome',
+            path: 'user-home',
             element: <UserHome></UserHome>
          },
          {
-            path: 'selectedClass',
+            path: 'selected-class',
             element: <SelectedClass></SelectedClass>
          },
          {
-            path: 'enrolledClass',
+            path: 'enrolled-class',
             element: <EnrolledClass></EnrolledClass>
          },
          {
-            path: 'paymentHistory',
+            path: 'payment-history',
             element: <PaymentHistory></PaymentHistory>
+         },
+
+         //instructors routes
+         {
+            path: 'instructor-home',
+            element: <InstructorHome></InstructorHome>
+         },
+         {
+            path: 'add-course',
+            element: <AddCourse/>
+         },
+         {
+            path: 'added-classes',
+            element: <AddedClass></AddedClass>
          },
 
          //admin routes
@@ -76,12 +94,12 @@ const router = createBrowserRouter([
             element: <ManageUsers></ManageUsers>
          },
          {
-            path: 'manage-classes',
+            path: 'manage-course',
             element: <ManageClasses></ManageClasses>
          },
          {
-            path: 'add-course',
-            element: <AddCourse></AddCourse>
+            path: 'manage-selected-classes',
+            element: <ManageSelectedClass></ManageSelectedClass>
          },
       ]
    }

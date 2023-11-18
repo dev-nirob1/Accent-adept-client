@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../SharedComponents/SectionTitle";
 import ClassCard from "../../../SharedComponents/ClassCard";
+import LinkButton from "../../../SharedComponents/LinkButton";
 
 const PopularClasses = () => {
     const [PopularClasses, setPopularClasses] = useState([])
@@ -24,6 +25,7 @@ const PopularClasses = () => {
                     ></ClassCard>))
                 }
             </div>
+            <LinkButton name='See More' to={'classes'}/>
         </div>
     );
 };

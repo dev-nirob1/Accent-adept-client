@@ -26,7 +26,7 @@ const AdminHome = () => {
         <div className="container mx-auto my-8 px-5">
             <h1 className="text-4xl font-bold text-gray-800 mb-8">Admin Dashboard</h1>
 
-            <div className="grid grid-cols-1 text-center md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 text-center md:grid-cols-3 w-full gap-5">
                 {/* Users Chart */}
                 <div className="bg-white p-3 rounded-lg shadow-md">
                     <h2 className="text-xl text-neutral-700 font-semibold">Users</h2>
@@ -71,7 +71,8 @@ const AdminHome = () => {
             </div>
 
             {/* All Statistics Area Chart */}
-            <div className="bg-white p-3 text-center rounded-lg shadow-md mt-8">
+           <div className="grid grid-cols-1">
+           <div className="bg-white w-full p-3 text-center rounded-lg shadow-md mt-8">
                 <h2 className="text-xl md:text-2xl font-semibold mb-4 text-neutral-700">Statistics</h2>
                 <ResponsiveContainer width="100%" height={300}>
                     <AreaChart data={userStatisticsData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
@@ -85,6 +86,7 @@ const AdminHome = () => {
                     </AreaChart>
                 </ResponsiveContainer>
             </div>
+           </div>
         </div>
     );
 };

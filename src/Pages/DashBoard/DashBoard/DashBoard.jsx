@@ -1,11 +1,14 @@
 import { Outlet } from "react-router-dom";
-import AdminDashboard from "./AdminDashboard";
-import UserDashBoard from "./UserDashBoard";
+import AdminDashboard from "../Admin/AdminDashboard";
+import UserDashBoard from "../User/UserDashBoard";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
+import InstructorsDashboard from "../Instructor/InstructorsDashboard";
 const DashBoard = () => {
     const isAdmin = true;
+    const user = false;
+    const isInstructor = false;
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -24,7 +27,16 @@ const DashBoard = () => {
             <div className="drawer-side lg:bg-blue-400">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
 
-                {isAdmin ? <AdminDashboard /> : <UserDashBoard />}
+                {/* {isAdmin ? <AdminDashboard /> : <UserDashBoard />} */}
+                {
+                    isAdmin && <AdminDashboard />
+                }
+                {
+                    user && <UserDashBoard />
+                }
+                {
+                    isInstructor && <InstructorsDashboard />
+                }
             </div>
         </div>
     );
