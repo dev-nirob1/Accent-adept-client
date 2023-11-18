@@ -4,6 +4,7 @@ import UsersData from './UsersData';
 const ManageUsers = () => {
     const [users, setUsers] = useState([])
     //todo:: use tanstack query and update alert to swal or toast
+    
     useEffect(() => {
         fetch('http://localhost:5000/users')
             .then(res => res.json())
@@ -18,6 +19,17 @@ const ManageUsers = () => {
             .then(data => {
                 if (data.modifiedCount) {
                     alert('Made Admin ')
+                }
+            })
+    }
+    const handleMakeInstructor = id => {
+        fetch(`http://localhost:5000/users/instructor/${id}`, {
+            method: 'PATCH',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    alert('Made Instructor ')
                 }
             })
     }
@@ -50,7 +62,7 @@ const ManageUsers = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
-                        users.map((user, index) => <UsersData key={user._id} handleMakeAdmin={handleMakeAdmin} handleDeleteUser={handleDeleteUser} user={user} index={index} />)
+                        users.map((user, index) => <UsersData key={user._id} handleMakeAdmin={handleMakeAdmin} handleMakeInstructor={handleMakeInstructor} handleDeleteUser={handleDeleteUser} user={user} index={index} />)
                     }
                 </tbody>
 
