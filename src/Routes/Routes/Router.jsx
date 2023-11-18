@@ -18,11 +18,13 @@ import SelectedClass from "../../Pages/DashBoard/User/SelectedClass";
 import AddedClass from "../../Pages/DashBoard/Instructor/AddedClass";
 import AddCourse from "../../Pages/DashBoard/Instructor/AddCourse";
 import ManageSelectedClass from "../../Pages/DashBoard/Admin/ManageSelectedClass";
+import ErrorPage from "../../ErrrorPage/ErrorPage";
 
 const router = createBrowserRouter([
    {
       path: '/',
       element: <App />,
+      errorElement: <ErrorPage/>,
       children: [
          {
             path: '/',
