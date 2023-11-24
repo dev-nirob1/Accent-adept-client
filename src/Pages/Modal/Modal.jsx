@@ -7,7 +7,7 @@ const Modal = () => {
                 </form>
                 <h3 className="font-bold text-lg">Hello!</h3>
                 <p className="py-4">Press ESC key or click on ✕ button to close</p>
-                <iframe className="w-full" width="560" height="315" src="https://www.youtube.com/embed/qYsHLUAlH_8?si=o69r-06gnUNSaYxn" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe className="w-full" width="560" height="315" src="https://www.youtube.com/embed/qYsHLUAlH_8?si=o69r-06gnUNSaYxn" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
         </dialog>
     );

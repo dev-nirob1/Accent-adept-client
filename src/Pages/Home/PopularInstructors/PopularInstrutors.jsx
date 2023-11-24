@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SectionTitle from "../../../SharedComponents/SectionTitle";
 import InstructorsCard from "../../../SharedComponents/InstructorsCard";
 import LinkButton from "../../../SharedComponents/LinkButton";
-
+import Modal from "../../Modal/Modal"
 const PopularInstrutors = () => {
     const [popularInstructors, setPopularInstructors] = useState([])
     useEffect(() => {
@@ -25,6 +25,7 @@ const PopularInstrutors = () => {
                 }
             </div>
             <LinkButton name="See More" to="instructors" />
+            <Modal />
         </div>
     );
 };

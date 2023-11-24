@@ -1,6 +1,6 @@
 
 const ClassCard = ({ classItem }) => {
-    const {availableSeats, name, languagesTaught,image, price, ratings,hashtags } = classItem
+    const {availableSeats, name, language,image, price, ratings,hashtag } = classItem
     console.log(classItem)
     if (!classItem) {
         return null; // or handle the case when classItem is not available
@@ -10,8 +10,8 @@ const ClassCard = ({ classItem }) => {
             <img className="rounded-lg rounded-b-none" src={image} alt="image" />
 
             <div className="p-5">
-                <p className="font-semibold text-green-700 mb-1 hover:underline cursor-pointer w-fit">{hashtags[0]}</p>
-                <h2 className="text-xl font-semibold text-gray-800">{languagesTaught}</h2>
+                <p className="font-semibold text-green-700 mb-1 hover:underline cursor-pointer w-fit">{hashtag}</p>
+                <h2 className="text-xl font-semibold text-gray-800">{language}</h2>
                 <h4 className={"text-2xl font-semibold my-2 text-gray-800"}>Instructor: {name}</h4>
                 <div className="flex justify-between items-center">
                     <p className="text-lg text-gray-700">Available Seats: {availableSeats}</p>
