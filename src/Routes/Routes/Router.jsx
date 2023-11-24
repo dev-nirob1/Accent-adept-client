@@ -82,7 +82,7 @@ const router = createBrowserRouter([
             element: <AddCourse/>
          },
          {
-            path: 'added-classes',
+            path: 'added-course',
             element: <AddedClass></AddedClass>
          },
 

@@ -3,8 +3,11 @@ import AddForm from './AddCourseForm/AddForm';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { uploadImage } from '../../../utilitis/uploadImage';
 import toast from 'react-hot-toast'
+import {useNavigate} from 'react-router-dom'
 
 const AddCourse = () => {
+
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const [uploadimage1Text, setUploadimage1Text] = useState('Upload Image');
@@ -64,11 +67,13 @@ const AddCourse = () => {
             if (responseData.acknowledged) {
                 toast.success('Course Added Succesfully')
                 setLoading(false)
+                navigate('/dashboard/added-classes')
             }
         }
         catch (error) {
             console.error('Error:', error);
             setLoading(false)
+
             // Handle other errors that may occur
         }
     };

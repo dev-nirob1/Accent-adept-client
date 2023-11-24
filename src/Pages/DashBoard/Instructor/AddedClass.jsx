@@ -1,15 +1,29 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddedClassData from "./AddedClassData";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const AddedClass = () => {
+    const { user } = useContext(AuthContext)
     const [addedClass, setAddedClass] = useState([])
 
     useEffect(() => {
+        fetch(`http://localhost:5000/courses/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAddedClass(data))
+    }, [user])
 
-    }, [])
-
+    //todo: add tanstack query and alert
     const handleDelete = (_id) => {
         console.log(_id)
+        fetch(`http://localhost:5000/courses/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    alert('user Deleted')
+                }
+            })
     }
     return (
         <div className="overflow-x-auto p-5 bg-gray-50">
