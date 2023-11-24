@@ -6,16 +6,16 @@ import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import InstructorsDashboard from "../Instructor/InstructorsDashboard";
 const DashBoard = () => {
-    const isAdmin = false;
+    const isAdmin = true;
     const user = false;
-    const isInstructor = true;
+    const isInstructor = false;
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className={`drawer relative lg:drawer-open ${isOpen ? 'lg:drawer-visible' : ''}`}>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" checked={isOpen} onChange={() => setIsOpen(!isOpen)} />
             <div className="drawer-content flex flex-col w-full items-center mt-14 lg:mt-8 lg:ml-5">
-                <div className="w-full bg-gray-100">
+                <div className="w-full bg-gray-50">
                     <Outlet />
                 </div>
 

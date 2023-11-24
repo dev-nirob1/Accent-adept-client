@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import AddedClassData from "./AddedClassData";
-import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 
 const AddedClass = () => {
     const { user } = useContext(AuthContext)

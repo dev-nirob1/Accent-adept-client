@@ -7,18 +7,18 @@ import Instructors from "../../Pages/Instructors/Instructors";
 import Classes from "../../Pages/Classes/Classes";
 import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
 import AdminHome from "../../Pages/DashBoard/Admin/AdminHome";
-import ManageUsers from "../../Pages/DashBoard/Admin/ManageUsers";
-import ManageClasses from "../../Pages/DashBoard/Admin/ManageClasses";
 import InstructorHome from "../../Pages/DashBoard/Instructor/InstructorHome";
 import Protected from "../ProtectedRoutes/Protected";
 import UserHome from "../../Pages/DashBoard/User/UserHome";
 import EnrolledClass from "../../Pages/DashBoard/User/EnrolledClass";
 import PaymentHistory from "../../Pages/DashBoard/User/PaymentHistory";
 import SelectedClass from "../../Pages/DashBoard/User/SelectedClass";
-import AddedClass from "../../Pages/DashBoard/Instructor/AddedClass";
-import AddCourse from "../../Pages/DashBoard/Instructor/AddCourse";
-import ManageSelectedClass from "../../Pages/DashBoard/Admin/ManageSelectedClass";
 import ErrorPage from "../../ErrrorPage/ErrorPage";
+import AddCourse from "../../Pages/DashBoard/Instructor/AddCourseForm/AddCourse";
+import AddedClass from "../../Pages/DashBoard/Instructor/Course/AddedClass";
+import ManageUsers from "../../Pages/DashBoard/Admin/userManagement/ManageUsers";
+import ManageClasses from "../../Pages/DashBoard/Admin/manageCourse/ManageClasses";
+import ManageSelectedClass from "../../Pages/DashBoard/Admin/SelectedManage/ManageSelectedClass";
 
 const router = createBrowserRouter([
    {

@@ -10,6 +10,7 @@ const data = [
     { name: 'Spanish', rating: 4.5 },
     { name: 'Arabic', rating: 4.1 },
 ];
+//todo: add a image
 
 const nextClassDate = new Date('2023-12-01T14:30:00');
 

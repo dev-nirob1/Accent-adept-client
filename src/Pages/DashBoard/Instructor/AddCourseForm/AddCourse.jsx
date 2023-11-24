@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
-import AddForm from './AddCourseForm/AddForm';
-import { AuthContext } from '../../../AuthProvider/AuthProvider';
-import { uploadImage } from '../../../utilitis/uploadImage';
+import { AuthContext } from '../../../../AuthProvider/AuthProvider';
+import { uploadImage } from '../../../../utilitis/uploadImage';
 import toast from 'react-hot-toast'
 import {useNavigate} from 'react-router-dom'
+import AddForm from './AddForm';
 
 const AddCourse = () => {
 
@@ -82,7 +82,7 @@ const AddCourse = () => {
 
 
     return (
-        <div className="w-full mx-auto mt-8 p-8 bg-gray-100 rounded-md">
+        <div className="w-full mx-auto mt-8 p-8 rounded-md">
             <AddForm onSubmit={onSubmit} handleImage1Change={handleImage1Change} handleImage2Change={handleImage2Change} loading={loading} uploadimage1Text={uploadimage1Text} uploadimage2Text={uploadimage2Text} />
         </div>
     );
