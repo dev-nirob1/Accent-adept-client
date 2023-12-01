@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import UsersData from './UsersData';
 
 const ManageUsers = () => {
     const [users, setUsers] = useState([])
     //todo:: use tanstack query and update alert to swal or toast
-    
+
     useEffect(() => {
         fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
+
 
     const handleMakeAdmin = id => {
         fetch(`http://localhost:5000/users/admin/${id}`, {

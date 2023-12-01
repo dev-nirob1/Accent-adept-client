@@ -151,7 +151,19 @@ const AddForm = ({ onSubmit, handleImage1Change, handleImage2Change, loading, up
                             name="ratings"
                             placeholder='Ratings'
                             className={`shadow appearance-none border rounded w-full py-[10px] px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.ratings ? 'border-red-500' : ''}`}
-                            {...register('ratings', { required: 'Ratings is required', min: { value: 1, message: 'Please enter a value greater than 0' }, max: { value: 5, message: 'Please enter a value less than or equal to 5' }, pattern: { value: /^[0-9]*\.?[0-9]+$/, message: 'Please enter a valid numeric value for ratings' } })}
+                            {...register('ratings', {
+                                required: 'Ratings is required',
+                                validate: (value) => {
+                                  const floatValue = parseFloat(value);
+                                  if (isNaN(floatValue)) {
+                                    return 'Please enter a valid number.';
+                                  }
+                                  if (floatValue < 1 || floatValue > 5) {
+                                    return 'Please enter a value between 1 and 5, inclusive.';
+                                  }
+                                  return true;
+                                },
+                              })}
                         />
                         {errors.ratings && <p className="text-red-500 text-xs italic">{errors.ratings.message}</p>}
                     </div>
