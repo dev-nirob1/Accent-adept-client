@@ -4,16 +4,34 @@ import PopularClasses from '../PopularClasses/PopularClasses';
 import PopularInstrutors from '../PopularInstructors/PopularInstrutors';
 import NewsLetter from '../NewsLetter/NewsLetter';
 import PartnerSection from '../OurPartner/PartnerSection';
+import Contact from '../Contact/Contact';
+import { useEffect, useState } from 'react';
+import Alert from '../Alert/Alert';
 
 const Home = () => {
+    const [showAlert, setShowAlert] = useState(false);
+
+    useEffect(() => {
+
+        const delay = setTimeout(() => {
+            setShowAlert(true);
+        }, 2000);
+
+        return () => clearTimeout(delay);
+    }, []);
+
     return (
         <div>
             <Helmet>
                 <title>Accent Adept | Learn foreign languages with efficiency</title>
             </Helmet>
+            {
+                showAlert && <Alert message={'Please note that all images on Accent Adept are sourced from the internet for practice purposes only, and we respect the rights of content creators'}/>
+            }
             <Banner></Banner>
             <PopularInstrutors></PopularInstrutors>
             <PopularClasses></PopularClasses>
+            <Contact></Contact>
             <NewsLetter></NewsLetter>
             <PartnerSection></PartnerSection>
         </div>

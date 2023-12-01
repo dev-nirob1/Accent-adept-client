@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
       <AuthProvider>
-        <Toaster/>
+        <Toaster />
         <div className='container mx-auto'><RouterProvider router={router} /></div>
       </AuthProvider>
     </HelmetProvider>

@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../../SharedComponents/SocialLogin";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
@@ -41,18 +42,16 @@ const Register = () => {
                             .then(res => res.json())
                             .then(data => {
                                 if (data.acknowledged) {
-                                    alert('Registration success')
+                                    toast.success('Registration Succesfull')
                                 }
                                 reset()
                                 navigate('/')
                             })
                     })
-                    .catch(error => {
-                        alert(error.message)
-                    })
+                    
             })
             .catch(error => {
-                alert(error.message)
+                toast.error(error.message)
             })
     };
 
