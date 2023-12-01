@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import PopularClasses from '../PopularClasses/PopularClasses';
 import PopularInstrutors from '../PopularInstructors/PopularInstrutors';
 import NewsLetter from '../NewsLetter/NewsLetter';
+import PartnerSection from '../OurPartner/PartnerSection';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <PopularInstrutors></PopularInstrutors>
             <PopularClasses></PopularClasses>
             <NewsLetter></NewsLetter>
+            <PartnerSection></PartnerSection>
         </div>
     );
 };

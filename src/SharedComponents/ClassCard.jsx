@@ -11,7 +11,7 @@ const ClassCard = ({ classItem }) => {
             <img className="rounded-lg rounded-b-none h-64 w-full" src={image} alt="image" />
 
             <div className="p-5">
-                <p className="font-semibold text-green-700 mb-1 hover:underline cursor-pointer w-fit">{hashtag}</p>
+                <p className="font-semibold text-green-700 mb-1 hover:underline cursor-pointer w-fit">#{hashtag}</p>
                 <h2 className="text-xl font-semibold text-gray-800"><span>Class:</span> {language}</h2>
                 <h4 className={"text-2xl font-semibold my-2 text-gray-800"}>Instructor: {name}</h4>
                 <div className="flex justify-between items-center">
