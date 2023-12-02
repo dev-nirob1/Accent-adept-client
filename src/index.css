@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.swiper-button-prev, .swiper-button-next{
-    color: white !important;
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
 }
 
 .drawer-side a.active {
-    color: blue;
-    background-color: white;
-  }
-  /* .drawer-side a {
-    background-color: transparent;
-  } */
+  color: blue;
+  background-color: white;
+}

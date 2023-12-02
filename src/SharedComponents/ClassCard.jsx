@@ -1,8 +1,11 @@
 import { useLocation } from 'react-router-dom'
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 
 const ClassCard = ({ classItem }) => {
     const location = useLocation()
-    console.log(location.pathname)
+    // console.log(location.pathname)
     const { availableSeats, name, language, image, price, ratings, hashtag } = classItem;
 
 
@@ -20,7 +23,9 @@ const ClassCard = ({ classItem }) => {
                 </div>
                 <div className="divider"></div>
                 <div className="flex justify-between items-center">
-                    <p>Ratings: {ratings}</p>
+                    <div className='flex items-center gap-2'> <span >
+                        <Rating style={{ maxWidth: 100 }} value={ratings} readOnly />
+                    </span>{ratings} </div>
                     <div>
                         {
                             location.pathname === '/' ?
