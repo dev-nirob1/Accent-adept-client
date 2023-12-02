@@ -33,15 +33,15 @@ const router = createBrowserRouter([
          },
          {
             path: '/instructors',
-            element: <Instructors></Instructors>,
+            element: <Protected><Instructors /></Protected>,
          },
          {
             path: '/classes',
-            element: <Classes></Classes>,
+            element: <Protected><Classes /></Protected>,
          },
          {
             path: '/course/details/:id',
-            element: <ViewDetails></ViewDetails>,
+            element: <Protected><ViewDetails /></Protected>,
             loader: ({ params }) => fetch(`http://localhost:5000/course/details/${params.id}`)
          },
          {
