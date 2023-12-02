@@ -11,7 +11,7 @@ const Classes = () => {
             .then(data => setClasses(data))
             .catch(err => console.log(err))
     }, [])
-    // console.log(classes.length)
+
     return (
         <div className="my-8 mx-2 md:my-16">
             <Helmet>

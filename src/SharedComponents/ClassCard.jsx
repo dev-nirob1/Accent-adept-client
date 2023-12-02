@@ -1,13 +1,10 @@
-import { useLocation } from 'react-router-dom'
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 
 const ClassCard = ({ classItem }) => {
-    const location = useLocation()
-    // console.log(location.pathname)
-    const { availableSeats, name, language, image, price, ratings, hashtag } = classItem;
-
+    const { _id, availableSeats, name, language, image, price, ratings, hashtag } = classItem;
 
     return (
         <div className={`border cursor-pointer ${availableSeats === 0 ? 'bg-red-200' : ''} rounded-lg`}>
@@ -27,18 +24,10 @@ const ClassCard = ({ classItem }) => {
                         <Rating style={{ maxWidth: 100 }} value={ratings} readOnly />
                     </span>{ratings} </div>
                     <div>
-                        {
-                            location.pathname === '/' ?
-                                <button className="border border-blue-500 px-4 py-2 rounded font-semibold bg-blue-500 text-white hover:text-blue-600 hover:bg-white">View Details
-                                </button>
-                                :
-                                <>
-                                    <button className="border border-blue-500 px-4 py-2 rounded font-semibold bg-blue-500 text-white hover:text-blue-600 hover:bg-white mr-3">View Details
-                                    </button>
-                                    <button className="border border-blue-500 px-4 py-2 rounded font-semibold bg-blue-500 text-white hover:text-blue-600 hover:bg-white">Select Class
-                                    </button>
-                                </>
-                        }
+                        <Link to={`/course/details/${_id}`}>
+                            <button className="border border-blue-500 px-4 py-2 rounded font-semibold bg-blue-500 text-white hover:text-blue-600 hover:bg-white">View Details
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

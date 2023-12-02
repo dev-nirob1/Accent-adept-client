@@ -19,12 +19,13 @@ import AddedClass from "../../Pages/DashBoard/Instructor/Course/AddedClass";
 import ManageUsers from "../../Pages/DashBoard/Admin/userManagement/ManageUsers";
 import ManageClasses from "../../Pages/DashBoard/Admin/manageCourse/ManageClasses";
 import ManageSelectedClass from "../../Pages/DashBoard/Admin/SelectedManage/ManageSelectedClass";
+import ViewDetails from "../../Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
    {
       path: '/',
       element: <App />,
-      errorElement: <ErrorPage/>,
+      errorElement: <ErrorPage />,
       children: [
          {
             path: '/',
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
          {
             path: '/classes',
             element: <Classes></Classes>,
+         },
+         {
+            path: '/course/details/:id',
+            element: <ViewDetails></ViewDetails>,
+            loader: ({ params }) => fetch(`http://localhost:5000/course/details/${params.id}`)
          },
          {
             path: '/login',
@@ -79,7 +85,7 @@ const router = createBrowserRouter([
          },
          {
             path: 'add-course',
-            element: <AddCourse/>
+            element: <AddCourse />
          },
          {
             path: 'added-course',

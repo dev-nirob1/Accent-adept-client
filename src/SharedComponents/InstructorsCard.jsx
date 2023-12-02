@@ -1,4 +1,3 @@
-// import Modal from "../Pages/Modal/Modal";
 
 const InstructorsCard = ({ instructor, }) => {
     const { name, instructorImage, email, classTaken, className, } = instructor;
