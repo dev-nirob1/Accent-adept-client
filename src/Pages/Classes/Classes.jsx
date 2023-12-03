@@ -11,6 +11,10 @@ const Classes = () => {
             .then(data => setClasses(data))
             .catch(err => console.log(err))
     }, [])
+    
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
 
     return (
         <div className="my-8 mx-2 md:my-16">

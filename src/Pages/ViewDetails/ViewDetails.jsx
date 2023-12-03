@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
 
 const ViewDetails = () => {
@@ -21,8 +23,15 @@ const ViewDetails = () => {
         console.log('enrolled', id)
     }
 
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
+
     return (
         <div className="container mx-auto mb-8">
+            <Helmet>
+                <title>Accent Adept | Course Details</title>
+            </Helmet>
             <div className="bg-white p-8 rounded-md shadow-lg">
                 <h2 className='text-3xl font-semibold text-center mb-5'>About Course</h2>
                 {/* Instructor Info */}

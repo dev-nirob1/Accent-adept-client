@@ -7,8 +7,11 @@ import toast from "react-hot-toast";
 const Protected = ({ children }) => {
     const { loading, user } = useContext(AuthContext)
     const location = useLocation()
+
     if (loading) {
-        return <span className="loading loading-ring loading-lg"></span>
+        return <div className="flex items-center justify-center h-screen w-full">
+            <span className="loading loading-ring loading-lg"></span>
+        </div>
     }
     if (!user) {
         toast.error("Please log in first before accessing this route.")

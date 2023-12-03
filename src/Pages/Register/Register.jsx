@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Lottie from "lottie-react";
@@ -57,8 +57,9 @@ const Register = () => {
                 toast.error(error.message)
             })
     };
-
-    // const password = watch("password", "");
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
 
     return (
         <div className="my-10 shadow-lg bg-gray-50 p-2 md:p-6 flex items-center w-10/12 md:w-3/4 mx-auto flex-col md:flex-row">

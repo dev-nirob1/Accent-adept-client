@@ -4,6 +4,7 @@ import { uploadImage } from '../../../../utilitis/uploadImage';
 import toast from 'react-hot-toast'
 import {useNavigate} from 'react-router-dom'
 import AddForm from './AddForm';
+import { Helmet } from 'react-helmet-async';
 
 const AddCourse = () => {
 
@@ -74,15 +75,14 @@ const AddCourse = () => {
             console.error('Error:', error);
             setLoading(false)
 
-            // Handle other errors that may occur
         }
     };
 
-
-
-
     return (
         <div className="w-full mx-auto mt-8 p-8 rounded-md">
+            <Helmet>
+                <title>Accent Adept | Add Course</title>
+            </Helmet>
             <AddForm onSubmit={onSubmit} handleImage1Change={handleImage1Change} handleImage2Change={handleImage2Change} loading={loading} uploadimage1Text={uploadimage1Text} uploadimage2Text={uploadimage2Text} />
         </div>
     );

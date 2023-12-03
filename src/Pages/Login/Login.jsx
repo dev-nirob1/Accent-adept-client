@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../../SharedComponents/SocialLogin";
 import { AuthContext } from '../../AuthProvider/AuthProvider'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 
 const Login = () => {
@@ -31,7 +31,9 @@ const Login = () => {
                 toast.error(errorMessage)
             })
     }
-
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     return (
         <div className="my-10 mx-auto w-10/12 md:w-3/4 p-2 md:p-6 bg-gray-50 shadow">
             <Helmet>

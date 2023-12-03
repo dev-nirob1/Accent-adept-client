@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import UsersData from './UsersData';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const ManageUsers = () => {
     const [users, setUsers] = useState([])
@@ -51,6 +52,9 @@ const ManageUsers = () => {
     }
     return (
         <div className="overflow-x-auto p-5 bg-gray-50">
+            <Helmet>
+                <title>Accent Adept | Manage Users</title>
+            </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Manage User</h2>
             <table className="table border">
                 {/* table header */}

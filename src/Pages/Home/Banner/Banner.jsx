@@ -40,7 +40,7 @@ const Banner = () => {
                                     <p className='text-base md:text-lg text-gray-100'>{banner.subheadline}</p>
 
                                     <div>
-                                        <button className='px-3 md:px-5 lg:px-7 py-2 md:py-3 lg:py-4 bg-indigo-700 hover:bg-indigo-800 rounded-lg font-medium mr-3 md:mr-5'>{banner.ctaButton.text}</button>
+                                        <button className='px-3 md:px-5 lg:px-7 py-2 md:py-3 lg:py-4 bg-white text-indigo-800 hover:text-white hover:bg-indigo-800 rounded-lg font-medium mr-3 md:mr-5'>{banner.ctaButton.text}</button>
                                         <button className='px-3 md:px-5 lg:px-7 py-2 md:py-3 lg:py-4 bg-yellow-400 hover:bg-yellow-500 text-neutral rounded-lg font-medium '>{banner.ctaButton.link}</button>
                                     </div>
                                 </div>

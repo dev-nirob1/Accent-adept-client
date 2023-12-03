@@ -5,11 +5,13 @@ import PopularInstrutors from '../PopularInstructors/PopularInstrutors';
 import NewsLetter from '../NewsLetter/NewsLetter';
 import PartnerSection from '../OurPartner/PartnerSection';
 import Contact from '../Contact/Contact';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Alert from '../Alert/Alert';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Home = () => {
     const [showAlert, setShowAlert] = useState(false);
+    const { loading } = useContext(AuthContext)
 
     useEffect(() => {
 
@@ -20,13 +22,17 @@ const Home = () => {
         return () => clearTimeout(delay);
     }, []);
 
+    if (loading) {
+        return <div className='h-screen w-full flex items-center justify-center'><span className="loading loading-ring loading-lg"></span></div>
+    }
+
     return (
         <div>
             <Helmet>
                 <title>Accent Adept | Learn foreign languages with efficiency</title>
             </Helmet>
             {
-                showAlert && <Alert message={'Please note that all images on Accent Adept are sourced from the internet for practice purposes only, and we respect the rights of content creators'}/>
+                showAlert && <Alert message={'Please note that all images on Accent Adept are sourced from the internet for practice purposes only, and we respect the rights of content creators'} />
             }
             <Banner></Banner>
             <PopularInstrutors></PopularInstrutors>

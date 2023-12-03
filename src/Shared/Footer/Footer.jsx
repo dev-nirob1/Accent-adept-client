@@ -3,17 +3,25 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from 'react
 function Footer() {
     return (
         <footer className="bg-gradient-to-b from-blue-500  to-indigo-600 text-gray-50 py-10">
-            <div className="container mx-auto flex flex-col items-center justify-center space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 w-full md:w-3/4">
+            <div className=" flex flex-col items-center justify-center space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full lg:w-11/12">
+                    <div className="text-center md:text-left mb-5">
+                        <img className='w-32 mb-4' src="weblogo_prev_ui.png" alt="logo" />
+                        <p className='font-medium'>
+                        Learn from our best instructors and become a pro in a foreign language.
+                        </p>
+                    </div>
                     <div className="text-center md:text-left mb-5">
                         <h3 className="text-lg font-bold mb-6">Contact Info</h3>
+                        <div className='font-medium'>
                         <p>123 Main St, City</p>
                         <p>Email: info@accentadept.com</p>
                         <p>Phone: +1 (123) 456-7890</p>
+                        </div>
                     </div>
                     <div className="text-center md:text-left mb-5">
                         <h3 className="text-lg font-bold mb-6">Useful Links</h3>
-                        <ul className="">
+                        <ul className="font-medium">
                             <li className='hover:underline w-fit'><a href="#">Home</a></li>
                             <li className='hover:underline w-fit'><a href="#">About Us</a></li>
                             <li className='hover:underline w-fit'><a href="#">Services</a></li>

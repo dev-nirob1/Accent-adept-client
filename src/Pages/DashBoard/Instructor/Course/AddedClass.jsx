@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import AddedClassData from "./AddedClassData";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const AddedClass = () => {
     const { user } = useContext(AuthContext)
@@ -27,6 +28,9 @@ const AddedClass = () => {
     }
     return (
         <div className="overflow-x-auto p-5 bg-gray-50">
+            <Helmet>
+                <title>Accent Adept | My Courses</title>
+            </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Manage Your Added Course</h2>
             <table className="table border">
                 {/* table header */}

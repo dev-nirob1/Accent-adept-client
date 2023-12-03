@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGraduationCap } from 'react-icons/fa';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
+import { Helmet } from 'react-helmet-async';
 
 const data = [
     { name: 'French', rating: 4.5 },
@@ -35,6 +36,9 @@ const InstructorHome = () => {
 
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+            <Helmet>
+                <title>Accent Adept | Instructor Home</title>
+            </Helmet>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                 {/* Courses Section */}

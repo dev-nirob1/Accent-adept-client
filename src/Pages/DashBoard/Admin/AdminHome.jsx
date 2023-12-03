@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet-async';
 import {
     BarChart,
     Bar,
@@ -24,6 +25,9 @@ const userStatisticsData = [
 const AdminHome = () => {
     return (
         <div className="container mx-auto my-8 px-5">
+            <Helmet>
+                <title>Accent Adept | Admin Home</title>
+            </Helmet>
             <h1 className="text-4xl font-bold text-gray-800 mb-8">Admin Dashboard</h1>
 
             <div className="grid grid-cols-1 text-center md:grid-cols-3 w-full gap-5">

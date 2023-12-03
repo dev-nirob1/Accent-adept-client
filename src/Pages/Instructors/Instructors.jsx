@@ -13,6 +13,9 @@ const Instructors = () => {
             .catch(err => console.log(err))
     }, [])
 
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
 
     return (
         <div className="my-8 md:my-16">
