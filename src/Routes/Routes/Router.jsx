@@ -12,7 +12,6 @@ import Protected from "../ProtectedRoutes/Protected";
 import UserHome from "../../Pages/DashBoard/User/UserHome";
 import EnrolledClass from "../../Pages/DashBoard/User/EnrolledClass";
 import PaymentHistory from "../../Pages/DashBoard/User/PaymentHistory";
-import SelectedClass from "../../Pages/DashBoard/User/SelectedClass";
 import ErrorPage from "../../ErrrorPage/ErrorPage";
 import AddCourse from "../../Pages/DashBoard/Instructor/AddCourseForm/AddCourse";
 import AddedClass from "../../Pages/DashBoard/Instructor/Course/AddedClass";
@@ -20,6 +19,7 @@ import ManageUsers from "../../Pages/DashBoard/Admin/userManagement/ManageUsers"
 import ManageClasses from "../../Pages/DashBoard/Admin/manageCourse/ManageClasses";
 import ManageSelectedClass from "../../Pages/DashBoard/Admin/SelectedManage/ManageSelectedClass";
 import ViewDetails from "../../Pages/ViewDetails/ViewDetails";
+import SelectedClass from "../../Pages/DashBoard/User/SelectedCourse/SelectedClass";
 
 const router = createBrowserRouter([
    {

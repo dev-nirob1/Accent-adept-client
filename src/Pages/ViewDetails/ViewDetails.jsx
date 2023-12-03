@@ -3,10 +3,12 @@ import { Helmet } from 'react-helmet-async';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast'
+
 const ViewDetails = () => {
-    const { user } = useContext(AuthContext)
+    const { user, role } = useContext(AuthContext)
     const navigate = useNavigate()
     const courseDetails = useLoaderData();
+    console.log(courseDetails)
 
     const {
         image,
@@ -21,12 +23,13 @@ const ViewDetails = () => {
         language,
         price,
         teachersBackground,
-        totalSeats, } = courseDetails;
+        totalSeats, host } = courseDetails;
 
     const handleSelectCourse = () => {
 
         if (user && user?.email) {
-            const savedCourse = { courseId: _id, className, image, name, price, language, email: user?.email }
+            const savedCourse = { courseId: _id, className, image, name, price, language, instructorEmail: host.email, userEmail: user?.email }
+            
             fetch('http://localhost:5000/selectCourses', {
                 method: 'POST',
                 headers: {
@@ -89,7 +92,7 @@ const ViewDetails = () => {
                 </div>
 
                 <div className='text-center'>
-                    <button onClick={handleSelectCourse} className="bg-blue-500 text-white py-3 px-6 rounded-md font-medium text-lg hover:bg-blue-600">
+                    <button onClick={handleSelectCourse} className={`bg-blue-500 text-white py-3 px-6 rounded-md font-medium text-lg hover:bg-blue-600 `} disabled={role === 'instructor' || role === 'admin'}>
                         Enroll Now
                     </button>
                 </div>
