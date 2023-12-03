@@ -1,13 +1,17 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData } from 'react-router-dom';
-
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast'
 const ViewDetails = () => {
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
     const courseDetails = useLoaderData();
+
     const {
         image,
-        name,
         _id,
+        name,
         aboutClass,
         className,
         classTaken,
@@ -19,13 +23,30 @@ const ViewDetails = () => {
         teachersBackground,
         totalSeats, } = courseDetails;
 
-    const handleEnroll = id => {
-        console.log('enrolled', id)
+    const handleSelectCourse = () => {
+
+        if (user && user?.email) {
+            const savedCourse = { courseId: _id, className, image, name, price, language, email: user?.email }
+            fetch('http://localhost:5000/selectCourses', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(savedCourse)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        toast.success('You Have Selected this course')
+                        navigate('/dashboard/selected-class')
+                    }
+                })
+        }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[])
+    }, [])
 
     return (
         <div className="container mx-auto mb-8">
@@ -68,7 +89,7 @@ const ViewDetails = () => {
                 </div>
 
                 <div className='text-center'>
-                    <button onClick={() => { handleEnroll(_id) }} className="bg-blue-500 text-white py-3 px-6 rounded-md font-medium text-lg hover:bg-blue-600">
+                    <button onClick={handleSelectCourse} className="bg-blue-500 text-white py-3 px-6 rounded-md font-medium text-lg hover:bg-blue-600">
                         Enroll Now
                     </button>
                 </div>
