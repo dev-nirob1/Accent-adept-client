@@ -2,18 +2,25 @@ import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const SocialLogin = () => {
     const { googleLogin } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
                 const loggedUser = result.user;
-                // console.log(loggedUser)
-                const savedUser = { name: loggedUser.displayName, photo:loggedUser.photoURL, email: loggedUser.email, role: 'user' }
+                if (loggedUser) {
+                    navigate(from, { replace: true });
+                    toast.success('Welcome to Accent Adept')
+                }
+
+                const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email, role: 'user' }
+
                 fetch('http://localhost:5000/users', {
                     method: 'PUT',
                     headers: {
@@ -22,8 +29,8 @@ const SocialLogin = () => {
                     body: JSON.stringify(savedUser)
                 })
                     .then(res => res.json())
-                    .then(() => {
-                        navigate(from, { replace: true })
+                    .then(response => {
+                        console.log('Server response:', response);
                     })
             })
             .catch(error => {

@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
+import { getRole } from "../utilitis/getRole";
 
 export const AuthContext = createContext()
 const auth = getAuth(app);
@@ -9,6 +10,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [role, setRole] = useState(null)
     const googleProvider = new GoogleAuthProvider()
 
     //create user with email/pass
@@ -43,6 +45,12 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    useEffect(() => {
+        if (user) {
+            getRole(user.email).then(data => setRole(data))
+        }
+    }, [user])
+
     //observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
@@ -63,7 +71,8 @@ const AuthProvider = ({ children }) => {
         login,
         googleLogin,
         updateUserProfile,
-        logOut
+        logOut,
+        role
     }
 
 

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import UsersData from './UsersData';
+import toast from 'react-hot-toast';
 
 const ManageUsers = () => {
     const [users, setUsers] = useState([])
     //todo:: use tanstack query and update alert to swal or toast
+    console.log(users)
 
     useEffect(() => {
         fetch('http://localhost:5000/users')
@@ -19,7 +21,7 @@ const ManageUsers = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    alert('Made Admin ')
+                    toast.success('Made Admin ')
                 }
             })
     }
@@ -30,7 +32,7 @@ const ManageUsers = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    alert('Made Instructor ')
+                    toast.success('Made Instructor ')
                 }
             })
     }

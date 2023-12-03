@@ -2,13 +2,16 @@ import { Outlet } from "react-router-dom";
 import AdminDashboard from "../Admin/AdminDashboard";
 import UserDashBoard from "../User/UserDashBoard";
 import { FaBars } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import InstructorsDashboard from "../Instructor/InstructorsDashboard";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const DashBoard = () => {
-    const isAdmin = false;
-    const user = false;
-    const isInstructor = true;
+    const { role } = useContext(AuthContext)
+
+    // const isAdmin = true;
+    // const isUser = false;
+    // const isInstructor = false;
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -28,17 +31,17 @@ const DashBoard = () => {
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
 
                 {/* {isAdmin ? <AdminDashboard /> : <UserDashBoard />} */}
-                
+
                 {
-                    user && <UserDashBoard />
+                    role === 'user' && <UserDashBoard />
                 }
                 {
-                    isAdmin && <AdminDashboard />
+                    role === 'admin' && <AdminDashboard />
                 }
                 {
-                    isInstructor && <InstructorsDashboard />
+                    role === 'instructor' && <InstructorsDashboard />
                 }
-                
+
             </div>
         </div>
     );

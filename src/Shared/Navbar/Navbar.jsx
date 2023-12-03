@@ -1,17 +1,23 @@
 import { useContext } from "react";
-import { Link, } from "react-router-dom";
+import { Link, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
-
+    const { user, logOut, role } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleLogout = () => {
         logOut()
             .then(result => {
-                console.log(result)
+                if(result){
+                    toast.success('Logged out')
+                    navigate('/')
+                }
             })
             .catch(error => {
-                console.log(error)
+                if(error){
+                    toast.error('Opps!! Something Went Wrong')
+                }
             })
     }
     return (
@@ -25,7 +31,7 @@ const Navbar = () => {
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/instructors'>Instructors</Link></li>
                         <li><Link to='/classes'>Classes </Link></li>
-                        <li><Link to='/DashBoard'>DashBoard </Link></li>
+                        <li><Link to={`/DashBoard/${role}-home`}>DashBoard </Link></li>
                     </ul>
                 </div>
                 <Link to="/" className="text-2xl md:text-4xl font-semibold text-white">Accent Adept</Link>
@@ -36,7 +42,7 @@ const Navbar = () => {
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/'>Home</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/instructors'>Instructors</Link></li>
                     <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/classes'>Classes</Link></li>
-                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to='/dashboard'>DashBoard</Link></li>
+                    <li className="rounded px-3 py-2 hover:text-[#6B6FF7] hover:bg-white"><Link to={`/DashBoard/${role}-home`}>DashBoard</Link></li>
                     {
                         user ? <>
                             <img className="w-12 h-12 rounded-full border-4" src={user.photoURL} alt="profile" title={user.displayName} />
