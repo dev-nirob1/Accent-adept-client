@@ -68,7 +68,7 @@ const AddCourse = () => {
             if (responseData.acknowledged) {
                 toast.success('Course Added Succesfully')
                 setLoading(false)
-                navigate('/dashboard/added-classes')
+                navigate('/dashboard/added-course')
             }
         }
         catch (error) {

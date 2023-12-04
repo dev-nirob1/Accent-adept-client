@@ -8,12 +8,13 @@ const ViewDetails = () => {
     const { user, role } = useContext(AuthContext)
     const navigate = useNavigate()
     const courseDetails = useLoaderData();
-    console.log(courseDetails)
+    // console.log(courseDetails)
 
     const {
         image,
         _id,
         name,
+        email,
         aboutClass,
         className,
         classTaken,
@@ -28,8 +29,9 @@ const ViewDetails = () => {
     const handleSelectCourse = () => {
 
         if (user && user?.email) {
-            const savedCourse = { courseId: _id, className, image, name, price, language, instructorEmail: host.email, userEmail: user?.email }
-            
+            const savedCourse = { courseId: _id, email, className, image, name, price, language, hostEmail: host.email, userEmail: user?.email }
+            console.log(savedCourse)
+
             fetch('http://localhost:5000/selectCourses', {
                 method: 'POST',
                 headers: {
@@ -66,6 +68,7 @@ const ViewDetails = () => {
                             <img src={instructorImage} alt={name} className='w-full border md:h-[60vh] rounded' />
                             <div>
                                 <p className="text-gray-700 font-semibold text-lg mt-3">{name}</p>
+                                <p className="text-gray-700 font-semibold text-lg mt-1">Email: {email}</p>
                                 <p className="text-gray-500 font-medium my-4">{teachersBackground}</p>
                             </div>
                             <div className="flex justify-between items center">

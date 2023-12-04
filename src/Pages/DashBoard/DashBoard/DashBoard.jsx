@@ -17,6 +17,7 @@ const DashBoard = () => {
             <div className="drawer-content flex flex-col w-full items-center mt-14 lg:mt-8 lg:ml-5">
                 <div className="w-full bg-gray-50">
                     <Outlet />
+
                 </div>
 
                 <label htmlFor="my-drawer-2" className="absolute top-4 right-4 drawer-button lg:hidden">

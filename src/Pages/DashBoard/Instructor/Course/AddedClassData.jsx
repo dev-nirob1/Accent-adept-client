@@ -23,7 +23,7 @@ const AddedClassData = ({ index, data, handleDelete }) => {
 
             <td>{status} </td>
             <td>
-                <button onClick={() => handleDelete(_id)} className={`text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer`} title="Delete User" >
+                <button onClick={() => handleDelete(_id)} className={`text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer`} title="Delete Course" >
                     <FaTrash size={20} />
                 </button>
             </td>

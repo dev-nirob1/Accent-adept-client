@@ -2,25 +2,37 @@ import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import SelectedCourseData from "./SelectedCourseData";
+import EmptyState from "../../../../SharedComponents/EmptyState";
 
 const SelectedClass = () => {
 
     const { user } = useContext(AuthContext)
     const [selectedCourses, setSelectedCourses] = useState([])
-    
-    useEffect(() => {
-        fetch(`http://localhost:5000/selectedCourses?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setSelectedCourses(data)
-            })
-    })
+    console.log(user.email)
 
+    useEffect(() => {
+        if (user && user?.email) {
+            const url = `http://localhost:5000/selectedCourses?email=${user?.email}`;
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    setSelectedCourses(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching :', error);
+                });
+        }
+    }, [user]);
+    
     const handleDelete = id => {
         console.log(id)
     }
     return (
-        <div className="overflow-x-auto p-5 bg-gray-50">
+        <>
+        {
+            selectedCourses && Array.isArray(selectedCourses) && selectedCourses.length > 0
+             ?
+            <div className="overflow-x-auto p-5 bg-gray-50">
             <Helmet>
                 <title>Accent Adept | Selected Course</title>
             </Helmet>
@@ -45,6 +57,10 @@ const SelectedClass = () => {
                 </tbody>
             </table>
         </div>
+        :
+        <EmptyState></EmptyState>
+        }
+        </>
     );
 };
 

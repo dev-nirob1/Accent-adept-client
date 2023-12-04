@@ -1,7 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 
 const SelectedCourseData = ({ index, selectedCourseData, handleDelete }) => {
-    const { name, className, image, price, instructorEmail, language, _id } = selectedCourseData;
+    const { name, className, image, price, email, language, _id } = selectedCourseData;
     return (
         <tr>
             <td>{index + 1}</td>
@@ -19,7 +19,7 @@ const SelectedCourseData = ({ index, selectedCourseData, handleDelete }) => {
             </td>
             <td>
                 <div>{name}</div>
-                <div>{instructorEmail}</div>
+                <div>{email}</div>
             </td>
             <td>{language} </td>
             <td>${price}</td>

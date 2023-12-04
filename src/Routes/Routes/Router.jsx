@@ -16,10 +16,10 @@ import ErrorPage from "../../ErrrorPage/ErrorPage";
 import AddCourse from "../../Pages/DashBoard/Instructor/AddCourseForm/AddCourse";
 import AddedClass from "../../Pages/DashBoard/Instructor/Course/AddedClass";
 import ManageUsers from "../../Pages/DashBoard/Admin/userManagement/ManageUsers";
-import ManageClasses from "../../Pages/DashBoard/Admin/manageCourse/ManageClasses";
-import ManageSelectedClass from "../../Pages/DashBoard/Admin/SelectedManage/ManageSelectedClass";
 import ViewDetails from "../../Pages/ViewDetails/ViewDetails";
 import SelectedClass from "../../Pages/DashBoard/User/SelectedCourse/SelectedClass";
+import ManageSelectedClass from "../../Pages/DashBoard/Instructor/SelectedManage/ManageSelectedClass";
+import ManageClasses from "../../Pages/DashBoard/Admin/manageCourse/ManageCourses";
 
 const router = createBrowserRouter([
    {
@@ -92,6 +92,10 @@ const router = createBrowserRouter([
             path: 'added-course',
             element: <AddedClass></AddedClass>
          },
+         {
+            path: 'manage-selected-classes',
+            element: <ManageSelectedClass></ManageSelectedClass>
+         },
 
          //admin routes
          {
@@ -106,10 +110,7 @@ const router = createBrowserRouter([
             path: 'manage-course',
             element: <ManageClasses></ManageClasses>
          },
-         {
-            path: 'manage-selected-classes',
-            element: <ManageSelectedClass></ManageSelectedClass>
-         },
+         
       ]
    }
 

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import AddedClassData from "./AddedClassData";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import EmptyState from "../../../../SharedComponents/EmptyState";
 
 const AddedClass = () => {
     const { user } = useContext(AuthContext)
@@ -27,31 +28,37 @@ const AddedClass = () => {
             })
     }
     return (
-        <div className="overflow-x-auto p-5 bg-gray-50">
-            <Helmet>
-                <title>Accent Adept | My Courses</title>
-            </Helmet>
-            <h2 className='text-3xl font-semibold text-center my-8'>Manage Your Added Course</h2>
-            <table className="table border">
-                {/* table header */}
-                <thead>
-                    <tr>
-                        <th>Serial</th>
-                        <th>Course Name</th>
-                        <th>Instructor</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody className='md:text-base'>
-                    {
-                        addedClass.map((data, index) => <AddedClassData key={data._id} handleDelete={handleDelete} data={data} index={index} />)
-                    }
-                </tbody>
-
-            </table>
-        </div>
+        <>
+            {
+                addedClass && Array.isArray(addedClass) && addedClass.length > 0 ?
+                    <div className="overflow-x-auto p-5 bg-gray-50">
+                        <Helmet>
+                            <title>Accent Adept | My Courses</title>
+                        </Helmet>
+                        <h2 className='text-3xl font-semibold text-center my-8'>Manage Your Added Course</h2>
+                        <table className="table border">
+                            {/* table header */}
+                            <thead>
+                                <tr>
+                                    <th>Serial</th>
+                                    <th>Course Name</th>
+                                    <th>Instructor</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody className='md:text-base'>
+                                {
+                                    addedClass.map((data, index) => <AddedClassData key={data._id} handleDelete={handleDelete} data={data} index={index} />)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    :
+                    <EmptyState></EmptyState>
+            }
+        </>
     );
 };
 

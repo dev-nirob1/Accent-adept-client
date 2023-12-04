@@ -3,6 +3,7 @@ import InstructorsCard from "../../SharedComponents/InstructorsCard";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal";
+import EmptyState from "../../SharedComponents/EmptyState";
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
@@ -13,12 +14,17 @@ const Instructors = () => {
             .catch(err => console.log(err))
     }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[])
+    }, [])
 
     return (
-        <div className="my-8 md:my-16">
+
+        <>
+        {
+            instructors && Array.isArray(instructors) && instructors.length > 0 
+            ?
+            <div className="my-8 md:my-16" >
             <Helmet>
                 <title>Accent Adept | Instructors</title>
             </Helmet>
@@ -35,6 +41,12 @@ const Instructors = () => {
             <Modal />
 
         </div>
+        :
+        <EmptyState></EmptyState>
+        }
+        </>
+
+
     );
 };
 
