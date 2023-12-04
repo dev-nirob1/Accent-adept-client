@@ -8,7 +8,6 @@ const InstructorsDashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        
         if (role === 'instructor') {
             navigate(`/dashboard/${role}-home`);
         }

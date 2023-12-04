@@ -8,7 +8,6 @@ const AdminDashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-
         if (role === 'admin') {
             navigate(`/dashboard/${role}-home`);
         }

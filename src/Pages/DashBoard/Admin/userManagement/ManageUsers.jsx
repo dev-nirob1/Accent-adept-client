@@ -6,7 +6,6 @@ import { Helmet } from 'react-helmet-async';
 const ManageUsers = () => {
     const [users, setUsers] = useState([])
     //todo:: use tanstack query and update alert to swal or toast
-    console.log(users)
 
     useEffect(() => {
         fetch('http://localhost:5000/users')

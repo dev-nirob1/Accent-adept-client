@@ -8,10 +8,10 @@ const UserDashBoard = () => {
     const { role } = useContext(AuthContext);
     const navigate = useNavigate();
     useEffect(() => {
-        
         if (role === 'user') {
             navigate(`/dashboard/${role}-home`);
         }
+
     }, [role, navigate]);
     return (
         <div>

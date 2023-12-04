@@ -23,7 +23,7 @@ const ManageCoursesData = ({ index, course, handleStatus }) => {
             <td>
                 {state === 'pending' && <button onClick={() => handleStatus(_id)} className="p-1 text-white bg-orange-500 rounded">Pending</button>}
 
-                {state === 'approved' && <button onClick={() => handleStatus(_id)} className="p-1 text-white bg-green-500 rounded">Approved</button>}
+                {state === 'approved' && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
             </td>
 
         </tr >
