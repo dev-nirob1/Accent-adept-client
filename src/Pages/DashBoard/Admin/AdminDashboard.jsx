@@ -9,9 +9,8 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         if (role === 'admin') {
-            navigate(`/dashboard/${role}-home`);
+            navigate('/dashboard/admin-home')
         }
-
     }, [role, navigate]);
 
     return (

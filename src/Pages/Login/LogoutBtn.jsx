@@ -10,7 +10,6 @@ const LogoutBtn = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-
                 navigate('/');
             })
             .catch(err => {

@@ -5,13 +5,13 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const InstructorsDashboard = () => {
     const { role } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (role === 'instructor') {
-            navigate(`/dashboard/${role}-home`);
+            navigate(`/dashboard/instructor-home`);
         }
-    }, [role, navigate]);
+    }, [role, navigate])
 
     return (
         <div>

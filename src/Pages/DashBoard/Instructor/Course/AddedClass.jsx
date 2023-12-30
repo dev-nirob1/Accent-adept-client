@@ -1,18 +1,40 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, } from "react";
 import AddedClassData from "./AddedClassData";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import EmptyState from "../../../../SharedComponents/EmptyState";
+import Swal from 'sweetalert2'
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { useQuery, } from '@tanstack/react-query'
 
 const AddedClass = () => {
-    const { user } = useContext(AuthContext)
-    const [addedClass, setAddedClass] = useState([])
+    const { user, loading } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure()
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/courses/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setAddedClass(data))
-    }, [user])
+    const { data: addedClass = [], refetch } = useQuery({
+        queryKey: ['courses', user?.email],
+        enabled: !loading,
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/courses/${user?.email}`)
+            console.log('res from axios', res.data);
+            return res.data
+        }
+    })
+
+    // useEffect(() => {
+    //     axiosSecure.get(`/courses/${user?.email}`)
+    //         .then(data => setAddedClass(data.data))
+    // })
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/courses/${user?.email}`, {
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('access-token')}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => setAddedClass(data))
+    // }, [user])
 
     //todo: add tanstack query and alert
     const handleDelete = (_id) => {
@@ -22,13 +44,32 @@ const AddedClass = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.deletedCount) {
-                    alert('user Deleted')
-                }
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (data.deletedCount) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    }
+                });
             })
     }
+
     return (
         <>
+
             {
                 addedClass && Array.isArray(addedClass) && addedClass.length > 0 ?
                     <div className="overflow-x-auto p-5 bg-gray-50">

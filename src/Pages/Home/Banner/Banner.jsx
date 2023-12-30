@@ -17,7 +17,7 @@ const Banner = () => {
             .then(data => {
                 setBannerData(data)
             })
-    }, [bannerData])
+    }, [])
     return (
         <div>
             <Swiper

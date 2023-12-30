@@ -60,58 +60,23 @@ const router = createBrowserRouter([
       path: 'dashboard',
       element: <Protected><DashBoard></DashBoard></Protected>,
       children: [
-
-         //user dashboard route
-         {
-            path: 'user-home',
-            element: <UserHome></UserHome>
-         },
-         {
-            path: 'selected-class',
-            element: <SelectedClass></SelectedClass>
-         },
-         {
-            path: 'enrolled-class',
-            element: <EnrolledClass></EnrolledClass>
-         },
-         {
-            path: 'payment-history',
-            element: <PaymentHistory></PaymentHistory>
-         },
-
-         //instructors routes
-         {
-            path: 'instructor-home',
-            element: <InstructorHome></InstructorHome>
-         },
-         {
-            path: 'add-course',
-            element: <AddCourse />
-         },
-         {
-            path: 'added-course',
-            element: <AddedClass></AddedClass>
-         },
-         {
-            path: 'manage-selected-classes',
-            element: <ManageSelectedClass></ManageSelectedClass>
-         },
-
-         //admin routes
-         {
-            path: 'admin-home',
-            element: <AdminHome></AdminHome>
-         },
-         {
-            path: 'manage-users',
-            element: <ManageUsers></ManageUsers>
-         },
-         {
-            path: 'manage-course',
-            element: <ManageClasses></ManageClasses>
-         },
-         
-      ]
+         // User dashboard routes
+         { path: 'students-home', element: <UserHome /> },
+         { path: 'selected-class', element: <SelectedClass /> },
+         { path: 'enrolled-class', element: <EnrolledClass /> },
+         { path: 'payment-history', element: <PaymentHistory /> },
+   
+         // Instructor routes
+         { path: 'instructor-home', element: <InstructorHome /> },
+         { path: 'add-course', element: <AddCourse /> },
+         { path: 'added-course', element: <AddedClass /> },
+         { path: 'manage-selected-classes', element: <ManageSelectedClass /> },
+   
+         // Admin routes
+         { path: 'admin-home', element: <AdminHome /> },
+         { path: 'manage-users', element: <ManageUsers /> },
+         { path: 'manage-course', element: <ManageClasses /> },
+       ]
    }
 
 ])

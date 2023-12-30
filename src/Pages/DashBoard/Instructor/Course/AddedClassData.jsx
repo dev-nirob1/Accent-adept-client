@@ -1,7 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 
 const AddedClassData = ({ index, data, handleDelete }) => {
-    const { _id, price, image, className, name, state } = data;
+    const { _id, price, image, className, name, approved } = data;
 
     return (
         <tr>
@@ -22,9 +22,9 @@ const AddedClassData = ({ index, data, handleDelete }) => {
             <td>{price}</td>
 
             <td>
-                {state === 'pending' && <button className="p-1 text-white bg-orange-500 rounded">Pending</button>}
+                {approved === false && <button className="p-1 text-white bg-orange-500 rounded">Pending</button>}
 
-                {state === 'approved' && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
+                {approved && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
             </td>
             
             <td>

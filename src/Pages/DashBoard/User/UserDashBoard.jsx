@@ -6,17 +6,18 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const UserDashBoard = () => {
     const { role } = useContext(AuthContext);
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (role === 'user') {
-            navigate(`/dashboard/${role}-home`);
-        }
+    const navigate = useNavigate()
 
-    }, [role, navigate]);
+    useEffect(() => {
+        if (!role) {
+            navigate(`/dashboard/students-home`);
+        }
+    }, [role, navigate])
+
     return (
         <div>
             <ul className="menu p-4 bg-blue-400 h-screen space-y-1 w-80 min-h-full text-white font-semibold text-lg">
-                <li><NavLink to="user-home">Student Home</NavLink></li>
+                <li><NavLink to="students-home">Student Home</NavLink></li>
                 <li><NavLink to="selected-class">Selected Courses</NavLink></li>
                 <li><NavLink to="enrolled-class">Enrolled Courses</NavLink></li>
                 <li><NavLink to="payment-history">Payment History</NavLink></li>

@@ -1,11 +1,9 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import toast from "react-hot-toast";
 
-
-const Protected = ({ children }) => {
-    const { loading, user } = useContext(AuthContext)
+const AdminRoutes = ({ children }) => {
+    const { loading, user, role } = useContext(AuthContext)
     const location = useLocation()
 
     if (loading) {
@@ -14,15 +12,12 @@ const Protected = ({ children }) => {
         </div>
     }
     
-    if (!user) {
-        toast.error("Please log in first before accessing this route.")
-    }
-
-    if (user) {
+    if (user && role === 'admin') {
         return children;
     }
 
     return <Navigate state={{ from: location }} to='/login' />
+
 };
 
-export default Protected;
+export default AdminRoutes;

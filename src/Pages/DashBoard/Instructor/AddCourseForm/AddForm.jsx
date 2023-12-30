@@ -168,42 +168,6 @@ const AddForm = ({ onSubmit, handleImage1Change, handleImage2Change, loading, up
                         {errors.ratings && <p className="text-red-500 text-xs italic">{errors.ratings.message}</p>}
                     </div>
 
-                    {/* #Hashtag */}
-                    <div className="mb-2">
-                        <label htmlFor="hashtag" className="block text-gray-600 text-sm font-bold mb-2">
-                            #Hashtag
-                        </label>
-                        <input
-                            type="text"
-                            name="hashtag"
-                            placeholder='#Hashtag'
-                            className={`shadow appearance-none border rounded w-full py-[10px] px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.hashtag ? 'border-red-500' : ''}`}
-                            {...register('hashtag', { required: '#Hashtag is required' })}
-                        />
-                        {errors.hashtag && <p className="text-red-500 text-xs italic">{errors.hashtag.message}</p>}
-                    </div>
-
-                    {/* Iframe URL */}
-                    <div className="mb-2">
-                        <label htmlFor="iframeUrl" className="block text-gray-600 text-sm font-bold mb-2">
-                            Iframe URL
-                        </label>
-                        <input
-                            type="text"
-                            name="iframeUrl"
-                            placeholder="Enter video URL"
-                            className="shadow appearance-none border rounded w-full py-[10px] px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            {...register('iframeUrl', {
-                                required: 'Video link is required like IframeUrl',
-                                // pattern: {
-                                //     value: /^(https?:\/\/)?([\w.]+)\.([a-z]{2,})(\/[^/]+)*\/?$/,
-                                //     message: 'Invalid iframe URL format',
-                                //   },
-                            })}
-                        />
-                        {errors.iframeUrl && <p className="text-red-500 text-xs italic">{errors.iframeUrl.message}</p>}
-                    </div>
-
                     {/* Instructor Image */}
                     <div className="mb-2">
                         <label htmlFor="instructorImage" className="block text-gray-600 text-sm font-bold mb-2">

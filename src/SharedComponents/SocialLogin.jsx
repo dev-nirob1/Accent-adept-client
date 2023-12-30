@@ -19,19 +19,21 @@ const SocialLogin = () => {
                     toast.success('Welcome to Accent Adept')
                 }
 
-                const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email, role: 'user' }
+                const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email }
 
-                fetch('http://localhost:5000/users', {
-                    method: 'PUT',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(savedUser)
-                })
-                    .then(res => res.json())
-                    .then(response => {
-                        console.log('Server response:', response);
+                if (loggedUser) {
+                    fetch('http://localhost:5000/users', {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(savedUser)
                     })
+                        .then(res => res.json())
+                        .then(response => {
+                            console.log('Server response:', response);
+                        })
+                }
             })
             .catch(error => {
                 console.log(error.message)

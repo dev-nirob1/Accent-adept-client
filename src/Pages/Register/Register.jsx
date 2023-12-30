@@ -33,7 +33,7 @@ const Register = () => {
                 console.log(result)
                 updateUserProfile(data.name, data.photoUrl)
                     .then(() => {
-                        const savedUser = { name: data.name, email: data.email, photo: data.photoUrl, role: 'user' }
+                        const savedUser = { name: data.name, email: data.email, photo: data.photoUrl }
 
                         fetch('http://localhost:5000/users/', {
                             method: 'PUT',
@@ -51,15 +51,15 @@ const Register = () => {
                                 navigate(from, { replace: true });
                             })
                     })
-                    
+
             })
             .catch(error => {
                 toast.error(error.message)
             })
     };
-    useEffect(()=>{
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[])
+    }, [])
 
     return (
         <div className="my-10 shadow-lg bg-gray-50 p-2 md:p-6 flex items-center w-10/12 md:w-3/4 mx-auto flex-col md:flex-row">

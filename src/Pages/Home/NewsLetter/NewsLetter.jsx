@@ -18,7 +18,7 @@ const NewsLetter = () => {
             style={{
                 backgroundImage: `linear-gradient(to bottom , rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(${newsletterImage})`,
             }}
-            className="overflow-hidden bg-cover bg-fixed bg-center h-[80vh] md:h-screen w-full mb-8 md:my-10 lg:my-16"
+            className="overflow-hidden bg-cover bg-no-repeat bg-fixed bg-center h-[80vh] md:h-screen w-full mb-8 md:my-10 lg:my-16"
         >
             <div className=" text-white w-full h-full flex items-center justify-center">
                 <div className="text-center space-y-5">

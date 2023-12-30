@@ -1,17 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useContext} from 'react';
 import UsersData from './UsersData';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
+import { useQuery, } from '@tanstack/react-query'
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { AuthContext } from '../../../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
-    const [users, setUsers] = useState([])
-    //todo:: use tanstack query and update alert to swal or toast
+    const { loading } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure()
 
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-            .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
+        enabled: !loading,
+        queryFn: async () => {
+            const res = await axiosSecure.get('/users')
+            console.log('res from axios', res.data);
+            return res.data
+        }
+    })
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/users')
+    //         .then(res => res.json())
+    //         .then(data => setUsers(data))
+    // }, [])
 
 
     const handleMakeAdmin = id => {
@@ -21,6 +34,7 @@ const ManageUsers = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
+                    refetch()
                     toast.success('Made Admin ')
                 }
             })
@@ -31,6 +45,7 @@ const ManageUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
+                refetch()
                 if (data.modifiedCount) {
                     toast.success('Made Instructor ')
                 }
@@ -43,11 +58,28 @@ const ManageUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                if (data.deletedCount) {
-                    alert('user Deleted')
-                }
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (data.deletedCount) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    }
+                });
             })
+
     }
     return (
         <div className="overflow-x-auto p-5 bg-gray-50">

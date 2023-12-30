@@ -3,7 +3,7 @@ import { RiAdminFill } from "react-icons/ri";
 import { GiTeacher } from "react-icons/gi";
 
 const UsersData = ({ user, index, handleMakeAdmin, handleDeleteUser, handleMakeInstructor }) => {
-    
+
     const { name, email, role, photo, _id } = user;
 
     return (
@@ -23,7 +23,7 @@ const UsersData = ({ user, index, handleMakeAdmin, handleDeleteUser, handleMakeI
             </td>
             <td>{email}</td>
 
-            {role === 'user' && <td><FaUsers className="inline mr-2" /> {role}</td>}
+            {!role && <td><FaUsers className="inline mr-2" /> {role}</td>}
             {role === 'instructor' && <td><GiTeacher className="inline mr-2" /> {role}</td>}
 
             {role === 'admin' && <td><RiAdminFill className="inline mr-2" /> {role}</td>}

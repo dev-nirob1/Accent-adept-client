@@ -1,6 +1,6 @@
 
 const ManageCoursesData = ({ index, course, handleStatus }) => {
-    const { _id, state, price, image, name, host } = course
+    const { _id, approved, price, image, name, host } = course
     return (
         <tr>
             <td>{index + 1}</td>
@@ -21,11 +21,10 @@ const ManageCoursesData = ({ index, course, handleStatus }) => {
 
 
             <td>
-                {state === 'pending' && <button onClick={() => handleStatus(_id)} className="p-1 text-white bg-orange-500 rounded">Pending</button>}
+                {approved === false && <button onClick={() => handleStatus(_id)} className="p-1 text-white bg-orange-500 rounded">Pending</button>}
 
-                {state === 'approved' && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
+                {approved && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
             </td>
-
         </tr >
     );
 };

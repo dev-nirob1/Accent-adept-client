@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <div className="min-h-[calc(10vh-356px)]">
+        <Outlet />
+      </div>
       <Footer />
     </>
   )

@@ -53,10 +53,10 @@ const AddCourse = () => {
                 host: {
                     email: user?.email,
                 },
-                status: 'pending'
+                approved: false
             }
-            console.log(courseDetails
-            )
+            // console.log(courseDetails
+            // )
             const response = await fetch('http://localhost:5000/courses', {
                 method: 'POST',
                 headers: {
@@ -64,6 +64,7 @@ const AddCourse = () => {
                 },
                 body: JSON.stringify(courseDetails),
             });
+
             const responseData = await response.json();
             if (responseData.acknowledged) {
                 toast.success('Course Added Succesfully')
@@ -74,7 +75,6 @@ const AddCourse = () => {
         catch (error) {
             console.error('Error:', error);
             setLoading(false)
-
         }
     };
 
