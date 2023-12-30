@@ -21,22 +21,7 @@ const AddedClass = () => {
         }
     })
 
-    // useEffect(() => {
-    //     axiosSecure.get(`/courses/${user?.email}`)
-    //         .then(data => setAddedClass(data.data))
-    // })
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/courses/${user?.email}`, {
-    //         headers: {
-    //             authorization: `Bearer ${localStorage.getItem('access-token')}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => setAddedClass(data))
-    // }, [user])
-
-    //todo: add tanstack query and alert
     const handleDelete = (_id) => {
         console.log(_id)
         fetch(`http://localhost:5000/courses/${_id}`, {

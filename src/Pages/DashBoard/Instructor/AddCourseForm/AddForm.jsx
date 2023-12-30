@@ -16,7 +16,7 @@ const AddForm = ({ onSubmit, handleImage1Change, handleImage2Change, loading, up
                         <input
                             type="text"
                             name="name"
-                            placeholder='Instructor Image'
+                            placeholder='Instructor Name'
                             className={`shadow appearance-none border rounded w-full py-[10px] px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.name ? 'border-red-500' : ''}`}
                             {...register('name', { required: 'Instructor Name is required' })}
                         />

@@ -16,10 +16,8 @@ const DashBoard = () => {
         <div className={`drawer relative lg:drawer-open ${isOpen ? 'lg:drawer-visible' : ''}`}>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" checked={isOpen} onChange={() => setIsOpen(!isOpen)} />
             <div className="drawer-content flex flex-col w-full items-center mt-14 lg:mt-8 lg:ml-5">
-                <div className="w-full bg-gray-50">
-
+                <div className="w-full bg-white">
                     <Outlet />
-
                 </div>
 
                 <label htmlFor="my-drawer-2" className="absolute top-4 right-4 drawer-button lg:hidden">

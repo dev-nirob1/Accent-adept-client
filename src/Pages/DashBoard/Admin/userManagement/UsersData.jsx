@@ -23,7 +23,7 @@ const UsersData = ({ user, index, handleMakeAdmin, handleDeleteUser, handleMakeI
             </td>
             <td>{email}</td>
 
-            {!role && <td><FaUsers className="inline mr-2" /> {role}</td>}
+            {!role && <td><FaUsers className="inline mr-2" /> User</td>}
             {role === 'instructor' && <td><GiTeacher className="inline mr-2" /> {role}</td>}
 
             {role === 'admin' && <td><RiAdminFill className="inline mr-2" /> {role}</td>}
@@ -31,7 +31,7 @@ const UsersData = ({ user, index, handleMakeAdmin, handleDeleteUser, handleMakeI
 
 
             <td>
-                {role === 'user' && <button onClick={() => handleMakeInstructor(_id)} className={`text-blue-600 p-2 hover:text-white hover:bg-blue-500 rounded cursor-pointer`} title="Make Instructor" disabled={role === 'admin'}>
+                {!role && <button onClick={() => handleMakeInstructor(_id)} className={`text-blue-600 p-2 hover:text-white hover:bg-blue-500 rounded cursor-pointer`} title="Make Instructor" disabled={role === 'admin'}>
                     <GiTeacher />
                 </button>}
 

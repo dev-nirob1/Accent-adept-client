@@ -1,12 +1,12 @@
 import { FaTrash } from "react-icons/fa";
 
-const SelectedCourseData = ({ index, selectedCourseData, handleCancel }) => {
-    const { name, className, image, price, email, language, _id } = selectedCourseData;
+const ManageSelected = ({ index, data, handleDelete }) => {
+    const { name, className, image, price, email, userEmail, _id } = data;
     return (
         <tr>
             <td>{index + 1}</td>
             <td>
-                <div className="flex items-center gap-3">
+                <div className="flex justify-center flex-col gap-3">
                     <div className="avatar">
                         <div className="mask rounded w-12 h-12">
                             <img src={image} alt="course image" />
@@ -21,15 +21,12 @@ const SelectedCourseData = ({ index, selectedCourseData, handleCancel }) => {
                 <div>{name}</div>
                 <div>{email}</div>
             </td>
-            <td>{language} </td>
+            <td>{userEmail} </td>
             <td>${price}</td>
 
-            <td className="flex items-center gap-2">
-                <button onClick={() => handleCancel(_id)} className={`text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer`} title="Delete User" >
+            <td>
+                <button onClick={() => handleDelete(_id)} className={`text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer`} title="Delete" >
                     <FaTrash size={20} />
-                </button>
-                <button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">
-                    Pay
                 </button>
             </td>
 
@@ -37,4 +34,4 @@ const SelectedCourseData = ({ index, selectedCourseData, handleCancel }) => {
     );
 };
 
-export default SelectedCourseData;
+export default ManageSelected;

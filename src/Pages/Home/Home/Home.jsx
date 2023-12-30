@@ -8,13 +8,13 @@ import Contact from '../Contact/Contact';
 import { useContext, useEffect, useState } from 'react';
 import Alert from '../Alert/Alert';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
 const Home = () => {
     const [showAlert, setShowAlert] = useState(false);
     const { loading } = useContext(AuthContext)
 
     useEffect(() => {
-
         const delay = setTimeout(() => {
             setShowAlert(true);
         }, 2000);
@@ -34,12 +34,13 @@ const Home = () => {
             {
                 showAlert && <Alert message={'Please note that all images on Accent Adept are sourced from the internet for practice purposes only, and we respect the rights of content creators'} />
             }
-            <Banner></Banner>
-            <PopularInstrutors></PopularInstrutors>
-            <PopularClasses></PopularClasses>
-            <Contact></Contact>
-            <NewsLetter></NewsLetter>
-            <PartnerSection></PartnerSection>
+            <Banner />
+            <PopularInstrutors />
+            <PopularClasses />
+            <WhyChooseUs />
+            <Contact />
+            <NewsLetter />
+            <PartnerSection />
         </div>
     );
 };

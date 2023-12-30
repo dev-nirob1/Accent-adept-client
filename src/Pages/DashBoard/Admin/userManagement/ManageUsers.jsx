@@ -1,4 +1,4 @@
-import { useContext} from 'react';
+import { useContext } from 'react';
 import UsersData from './UsersData';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
@@ -16,16 +16,10 @@ const ManageUsers = () => {
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
-            console.log('res from axios', res.data);
+            // console.log('res from axios', res.data);
             return res.data
         }
     })
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/users')
-    //         .then(res => res.json())
-    //         .then(data => setUsers(data))
-    // }, [])
-
 
     const handleMakeAdmin = id => {
         fetch(`http://localhost:5000/users/admin/${id}`, {
@@ -79,10 +73,9 @@ const ManageUsers = () => {
                     }
                 });
             })
-
     }
     return (
-        <div className="overflow-x-auto p-5 bg-gray-50">
+        <div className="overflow-x-auto p-5">
             <Helmet>
                 <title>Accent Adept | Manage Users</title>
             </Helmet>
