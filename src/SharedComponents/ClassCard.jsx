@@ -6,7 +6,7 @@ const ClassCard = ({ classItem }) => {
     const { _id, availableSeats, name, language, image, price, ratings } = classItem;
 
     return (
-        <div className={`border cursor-pointer ${availableSeats === 0 ? 'bg-red-200' : ''} rounded-lg`}>
+        <div className={`border shadow-xl cursor-pointer ${availableSeats === 0 ? 'bg-red-200' : ''} rounded-lg`}>
             <img className="rounded-lg rounded-b-none h-64 w-full" src={image} alt="image" />
 
             <div className="p-5">

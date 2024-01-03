@@ -6,6 +6,7 @@ const PaymentHistory = () => {
             <Helmet>
                 <title>Accent Adept | Payment History</title>
             </Helmet>
+            <h3>all Payment history</h3>
         </div>
     );
 };

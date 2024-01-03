@@ -13,12 +13,12 @@ const Protected = ({ children }) => {
             <span className="loading loading-ring loading-lg"></span>
         </div>
     }
-    
+
     if (!user) {
-        toast.error("Please log in first before accessing this route.")
+        toast.error("Please log in before attempting to access this route.")
     }
 
-    if (user) {
+    if (user && user?.email) {
         return children;
     }
 

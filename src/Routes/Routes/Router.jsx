@@ -20,6 +20,9 @@ import ViewDetails from "../../Pages/ViewDetails/ViewDetails";
 import SelectedClass from "../../Pages/DashBoard/User/SelectedCourse/SelectedClass";
 import ManageSelectedClass from "../../Pages/DashBoard/Instructor/SelectedManage/ManageSelectedClass";
 import ManageClasses from "../../Pages/DashBoard/Admin/manageCourse/ManageCourses";
+import InstructorRoutes from "../InstructorRoutes/InstructorRoutes";
+import AdminRoutes from "../AdminRoutes/AdminRoutes";
+import Payment from "../../Pages/DashBoard/DashBoard/Payment/Payment";
 
 const router = createBrowserRouter([
    {
@@ -65,18 +68,19 @@ const router = createBrowserRouter([
          { path: 'selected-class', element: <SelectedClass /> },
          { path: 'enrolled-class', element: <EnrolledClass /> },
          { path: 'payment-history', element: <PaymentHistory /> },
-   
+         { path: 'payment', element: <Payment /> },
+
          // Instructor routes
-         { path: 'instructor-home', element: <InstructorHome /> },
-         { path: 'add-course', element: <AddCourse /> },
-         { path: 'added-course', element: <AddedClass /> },
-         { path: 'manage-selected-classes', element: <ManageSelectedClass /> },
-   
+         { path: 'instructor-home', element: <InstructorRoutes><InstructorHome /></InstructorRoutes> },
+         { path: 'add-course', element: <InstructorRoutes><AddCourse /></InstructorRoutes> },
+         { path: 'added-course', element: <InstructorRoutes><AddedClass /></InstructorRoutes> },
+         { path: 'manage-selected-classes', element: <InstructorRoutes><ManageSelectedClass /></InstructorRoutes> },
+
          // Admin routes
-         { path: 'admin-home', element: <AdminHome /> },
-         { path: 'manage-users', element: <ManageUsers /> },
-         { path: 'manage-course', element: <ManageClasses /> },
-       ]
+         { path: 'admin-home', element: <AdminRoutes><AdminHome /></AdminRoutes> },
+         { path: 'manage-users', element: <AdminRoutes><ManageUsers /></AdminRoutes> },
+         { path: 'manage-course', element: <AdminRoutes><ManageClasses /></AdminRoutes> },
+      ]
    }
 
 ])

@@ -1,18 +1,8 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LogoutBtn from "../../Login/LogoutBtn";
-import { useContext, useEffect } from "react";
-import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 
 const UserDashBoard = () => {
-    const { role } = useContext(AuthContext);
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        if (!role) {
-            navigate(`/dashboard/students-home`);
-        }
-    }, [role, navigate])
 
     return (
         <div>

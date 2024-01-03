@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { FaCartArrowDown } from "react-icons/fa";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, role } = useContext(AuthContext)
+    console.log(role)
     const navigate = useNavigate()
     const handleLogout = () => {
         logOut()
@@ -21,7 +23,7 @@ const Navbar = () => {
             })
     }
     return (
-        <div className={`flex justify-between sticky top-0 z-10 w-full container mx-auto items-center bg-blue-600 shadow md:px-8 py-1`}>
+        <div className={`flex justify-between sticky top-0 z-10 w-full container mx-auto items-center bg-[#16697a] shadow md:px-8 py-1`}>
             <div className="flex items-center">
                 <div className="dropdown h-full">
                     <label tabIndex={0} className="btn btn-ghost text-white md:hidden">
@@ -31,7 +33,12 @@ const Navbar = () => {
                         <li><NavLink className="py-2 m-0" to='/'>Home</NavLink></li>
                         <li><NavLink className="py-2 m-0" to='/instructors'>Instructors</NavLink></li>
                         <li><NavLink className="py-2 m-0" to='/classes'>Classes </NavLink></li>
-                        <li><NavLink className="py-2 m-0" to='/DashBoard'>DashBoard </NavLink></li>
+
+                        {!role && <li><NavLink className="py-2 m-0" to='/dashboard/students-home'>Classes </NavLink></li>}
+                        {role === 'instructor' && <li><NavLink className="py-2 m-0" to='/dashboard/instructor-home'>Classes </NavLink></li>}
+                        {role === 'admin' && <li><NavLink className="py-2 m-0" to='/dashboard/admin-home'>Classes </NavLink></li>}
+
+                        <li><NavLink className="py-2 m-0" to='/DashBoard/selected-class'><FaCartArrowDown /> </NavLink></li>
 
                     </ul>
                 </div>
@@ -45,7 +52,12 @@ const Navbar = () => {
                     <li className="rounded px-3 py-2"><NavLink to='/'>Home</NavLink></li>
                     <li className="rounded px-3 py-2"><NavLink to='/instructors'>Instructors</NavLink></li>
                     <li className="rounded px-3 py-2"><NavLink to='/classes'>Classes</NavLink></li>
-                    <li className="rounded px-3 py-2"><NavLink to='/DashBoard'>DashBoard</NavLink></li>
+
+                    {!role && <li><NavLink className="rounded px-3 py-2" to='/dashboard/students-home'>Dashboard </NavLink></li>}
+                    {role === 'instructor' && <li><NavLink className="rounded px-3 py-2" to='/dashboard/instructor-home'>Dashboard </NavLink></li>}
+                    {role === 'admin' && <li><NavLink className="rounded px-3 py-2" to='/dashboard/admin-home'>Dashboard </NavLink></li>}
+
+                    <li className="rounded px-3 py-2"><NavLink to='/DashBoard/selected-class'><FaCartArrowDown size={25} /></NavLink></li>
                     {
                         user ? <>
                             <img className="w-12 h-12 rounded-full border-4" src={user.photoURL} alt="profile" title={user.displayName} />

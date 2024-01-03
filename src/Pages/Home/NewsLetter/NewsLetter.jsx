@@ -1,4 +1,4 @@
-import newsletterImage from './../../../assets/news.jpg';
+import newsletterImage from '../../../assets/news.jpg';
 import toast from 'react-hot-toast';
 
 const NewsLetter = () => {

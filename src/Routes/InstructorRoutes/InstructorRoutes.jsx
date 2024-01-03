@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const InstructorRoutes = ({ children }) => {
-    const { loading, user, role } = useContext(AuthContext)
+    const { loading, user, role, logOut } = useContext(AuthContext)
     const location = useLocation()
 
     if (loading) {
@@ -12,11 +13,15 @@ const InstructorRoutes = ({ children }) => {
         </div>
     }
 
-    if (user && role === 'instructor') {
+    if (user && user?.email && role === 'instructor') {
         return children;
     }
 
-    return <Navigate state={{ from: location }} to='/login' />
+    else {
+        toast.error('Access denied: You need Instructor privileges to view this page.')
+        logOut()
+        return <Navigate state={{ from: location }} to='/login' />
+    }
 
 };
 
