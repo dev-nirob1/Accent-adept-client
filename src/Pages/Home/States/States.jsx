@@ -1,7 +1,7 @@
 
 const States = () => {
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center gap-5 py-16 px-5 mt-16 bg-[#252B42]">
+        <div className="grid grid-cols-1 lg:grid-cols-4 items-center justify-center gap-5 py-16 px-5 mt-16 bg-[#252B42]">
             <div className="flex items-center justify-center bg-white rounded gap-2 shadow py-3">
                 <img src="/images/students.png" alt="students icon" />
                 <div className="text-center">

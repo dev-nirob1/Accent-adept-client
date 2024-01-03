@@ -6,7 +6,7 @@ function Footer() {
             <div className=" flex flex-col items-center justify-center space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full lg:w-11/12">
                     <div className="text-center md:text-left mb-5">
-                        <img className='w-32 mb-4' src="weblogo_prev_ui.png" alt="logo" />
+                        <img className='w-32 mb-4 mx-auto' src="weblogo_prev_ui.png" alt="logo" />
                         <p className='font-medium'>
                         Learn from our best instructors and become a pro in a foreign language.
                         </p>
@@ -22,10 +22,10 @@ function Footer() {
                     <div className="text-center md:text-left mb-5">
                         <h3 className="text-lg font-bold mb-6">Useful Links</h3>
                         <ul className="font-medium">
-                            <li className='hover:underline w-fit'><a href="#">Home</a></li>
-                            <li className='hover:underline w-fit'><a href="#">About Us</a></li>
-                            <li className='hover:underline w-fit'><a href="#">Services</a></li>
-                            <li className='hover:underline w-fit'><a href="#">Contact</a></li>
+                            <li className='hover:underline w-fit mx-auto md:mx-0'><a href="#">Home</a></li>
+                            <li className='hover:underline w-fit mx-auto md:mx-0'><a href="#">About Us</a></li>
+                            <li className='hover:underline w-fit mx-auto md:mx-0'><a href="#">Services</a></li>
+                            <li className='hover:underline w-fit mx-auto md:mx-0'><a href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div className="text-center md:text-left mb-5">

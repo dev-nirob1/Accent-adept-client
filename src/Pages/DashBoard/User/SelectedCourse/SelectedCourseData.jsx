@@ -1,4 +1,5 @@
 import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SelectedCourseData = ({ index, selectedCourseData, handleCancel }) => {
     const { name, className, image, price, email, language, _id } = selectedCourseData;
@@ -28,9 +29,10 @@ const SelectedCourseData = ({ index, selectedCourseData, handleCancel }) => {
                 <button onClick={() => handleCancel(_id)} className={`text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer`} title="Delete User" >
                     <FaTrash size={20} />
                 </button>
-                <button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">
+                {/* <button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">
                     Pay
-                </button>
+                </button> */}
+                <Link to="/dashboard/payment"><button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">Pay</button></Link>
             </td>
 
         </tr >

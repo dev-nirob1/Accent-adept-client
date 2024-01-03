@@ -23,7 +23,7 @@ const Navbar = () => {
             })
     }
     return (
-        <div className={`flex justify-between sticky top-0 z-10 w-full container mx-auto items-center bg-[#16697a] shadow md:px-8 py-1`}>
+        <div className={`flex justify-between sticky top-0 z-10 w-full container mx-auto items-center bg-gradient-to-b from-[#16697a] to-[#1b7d90]  md:px-8 py-1`}>
             <div className="flex items-center">
                 <div className="dropdown h-full">
                     <label tabIndex={0} className="btn btn-ghost text-white md:hidden">
