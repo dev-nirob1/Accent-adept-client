@@ -2,7 +2,7 @@
 const WhyChooseUs = () => {
     return (
         <div style={{
-            backgroundImage: `linear-gradient(to bottom, #a8c3c5d0, #a8c3c5d0), url("/images/background-why-choose.png")`
+            backgroundImage: `linear-gradient(to right, #2a2a2a77, #2a2a2a77), url("/images/background-why-choose.png")`
         }}
             className="md:text-center lg:text-left md:gap-8 min-h-screen w-full bg-cover bg-center bg-no-repeat py-10">
 

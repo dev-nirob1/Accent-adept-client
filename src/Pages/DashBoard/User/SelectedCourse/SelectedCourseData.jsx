@@ -32,7 +32,7 @@ const SelectedCourseData = ({ index, selectedCourseData, handleCancel }) => {
                 {/* <button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">
                     Pay
                 </button> */}
-                <Link to="/dashboard/payment"><button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">Pay</button></Link>
+                <Link to={`/dashboard/payment/${_id}`}><button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">Pay</button></Link>
             </td>
 
         </tr >

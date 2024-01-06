@@ -68,7 +68,10 @@ const router = createBrowserRouter([
          { path: 'selected-class', element: <SelectedClass /> },
          { path: 'enrolled-class', element: <EnrolledClass /> },
          { path: 'payment-history', element: <PaymentHistory /> },
-         { path: 'payment', element: <Payment /> },
+         {
+             path: 'payment/:id', element: <Payment /> ,
+             loader: ({ params }) => fetch(`http://localhost:5000/selectedCourse/${params.id}`)
+      },
 
          // Instructor routes
          { path: 'instructor-home', element: <InstructorRoutes><InstructorHome /></InstructorRoutes> },
