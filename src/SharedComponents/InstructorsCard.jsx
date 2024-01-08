@@ -4,18 +4,22 @@ const InstructorsCard = ({ instructor, }) => {
 
 
     return (
-        <div className="grid grid-cols-2 items-center rounded-lg bg-base-100 shadow-xl">
+        <div className="grid lg:grid-cols-2 p-5 lg:p-0 items-center rounded-lg bg-base-100 shadow-xl">
             <figure>
-                <img className="w-72 h-64 rounded-s-lg" src={instructorImage} alt="Album" />
+                <img className="w-full md:w-72 md:h-64 rounded-s-lg" src={instructorImage} alt="Album" />
             </figure>
 
-            <div className="font-medium text-neutral-600 space-y-2">
+            <div className="font-medium text-neutral-600 space-y-2 py-5 lg:py-0 lg:px-5">
                 <h2 className="text-2xl"><span className="font-semibold text-neutral-700">Name:</span> {name}</h2>
                 <p className="text-lg"><span className="font-semibold text-neutral-700">Email:</span> {email}</p>
                 <p className="text-lg"><span className="font-semibold text-neutral-700">Classes Taken:</span> {classTaken}</p>
                 <p className="text-base"><span className="font-semibold text-neutral-700">Name Of Class:</span> {className}</p>
                 <div className="card-actions justify-start">
-                    <button className="bg-blue-600 px-5 py-3 text-white rounded font-semibold text-base mt-5" onClick={() => document.getElementById('my_modal_3').showModal()}>Demo Class</button>
+                    
+                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="relative border border-purple-600 inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group">
+                        <span className="w-48 h-48 rounded rotate-[-40deg] bg-purple-600 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                        <span className="relative w-full text-left text-black transition-colors duration-300 ease-in-out group-hover:text-white">Demo Class</span>
+                    </button>
                 </div>
             </div>
 

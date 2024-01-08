@@ -41,7 +41,9 @@ const SocialLogin = () => {
     }
     return (
         <div className="text-center">
-            <button onClick={handleGoogleLogin} className="shadow-inner flex items-center justify-center text-2xl rounded-md w-full p-1 border border-blue-500 bg-white">Google<FaGoogle className="inline ml-3" size={22}></FaGoogle></button>
+            <button onClick={handleGoogleLogin} className="px-10 py-2 text-xl font-semibold text-center text-white transition duration-300 rounded-md hover:from-purple-600 hover:to-indigo-600 ease bg-gradient-to-br from-indigo-500 to-purple-500 w-full">
+                Google<FaGoogle className="inline ml-3" size={22}></FaGoogle>
+            </button>
         </div>
     );
 };

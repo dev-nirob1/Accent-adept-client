@@ -18,12 +18,12 @@ import AddedClass from "../../Pages/DashBoard/Instructor/Course/AddedClass";
 import ManageUsers from "../../Pages/DashBoard/Admin/userManagement/ManageUsers";
 import ViewDetails from "../../Pages/ViewDetails/ViewDetails";
 import SelectedClass from "../../Pages/DashBoard/User/SelectedCourse/SelectedClass";
-import ManageSelectedClass from "../../Pages/DashBoard/Instructor/SelectedManage/ManageSelectedClass";
 import ManageClasses from "../../Pages/DashBoard/Admin/manageCourse/ManageCourses";
 import InstructorRoutes from "../InstructorRoutes/InstructorRoutes";
 import AdminRoutes from "../AdminRoutes/AdminRoutes";
 import Payment from "../../Pages/DashBoard/DashBoard/Payment/Payment";
 import EnrolledCourses from "../../Pages/DashBoard/Admin/allEnrolledCourses/enrolledCourses";
+import UsersEnrolledCourse from "../../Pages/DashBoard/Instructor/UsersEnrolled/UsersEnrolledCourse";
 
 const router = createBrowserRouter([
    {
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
          { path: 'instructor-home', element: <InstructorRoutes><InstructorHome /></InstructorRoutes> },
          { path: 'add-course', element: <InstructorRoutes><AddCourse /></InstructorRoutes> },
          { path: 'added-course', element: <InstructorRoutes><AddedClass /></InstructorRoutes> },
-         { path: 'manage-selected-classes', element: <InstructorRoutes><ManageSelectedClass /></InstructorRoutes> },
+         { path: 'manage-selected-classes', element: <InstructorRoutes><UsersEnrolledCourse /></InstructorRoutes> },
 
          // Admin routes
          { path: 'admin-home', element: <AdminRoutes><AdminHome /></AdminRoutes> },

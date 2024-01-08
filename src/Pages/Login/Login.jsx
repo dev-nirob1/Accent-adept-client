@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
     const { login } = useContext(AuthContext)
-    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -31,9 +31,9 @@ const Login = () => {
                 toast.error(errorMessage)
             })
     }
-    useEffect(()=>{
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[])
+    }, [])
     return (
         <div className="my-10 mx-auto w-10/12 md:w-3/4 p-2 md:p-6 bg-gray-50 shadow">
             <Helmet>
@@ -75,11 +75,13 @@ const Login = () => {
                         </div>
 
                         <p><small>New to Accent-Adept? <Link className="text-blue-500 hover:underline" to="/register">Register here</Link></small></p>
-                        <button
-                            type="submit"
-                            className="bg-blue-500 btn-block text-white p-2 rounded hover:bg-blue-600"
-                        >
-                            Login
+                        
+                        <button type="submit" className="px-5 py-2.5 relative rounded group text-white font-medium w-full">
+                            <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter bg-gradient-to-br from-blue-600 to-purple-500"></span>
+                            <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-blue-600 to-purple-500"></span>
+                            <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 from-blue-600 to-purple-500"></span>
+                            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                            <span className="relative">Login</span>
                         </button>
                     </form>
 

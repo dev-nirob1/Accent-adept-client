@@ -189,12 +189,13 @@ const Register = () => {
 
                     <p><small>Already have an account? <Link className="text-blue-500 hover:underline" to="/login">Login here</Link></small></p>
 
-                    <button
-                        type="submit"
-                        className="bg-blue-500 btn-block text-white p-2 rounded hover:bg-blue-600"
-                    >
-                        Register
-                    </button>
+                    <button type="submit" className="px-5 py-2.5 relative rounded group text-white font-medium w-full">
+                            <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter bg-gradient-to-br from-blue-600 to-purple-500"></span>
+                            <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-blue-600 to-purple-500"></span>
+                            <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 from-blue-600 to-purple-500"></span>
+                            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                            <span className="relative">Register</span>
+                        </button>
                 </form>
 
                 <div className="divider">OR</div>

@@ -22,6 +22,9 @@ const ManageClasses = () => {
     })
     
     //  todo: handle delete 
+    const handleDelete = async(id) =>{
+        console.log(id)
+    }
 
     const handleStatus = async (id) => {
         try {
@@ -55,7 +58,7 @@ const ManageClasses = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
-                        manageCourses.map((course, index) => <ManageCoursesData key={course._id} handleStatus={handleStatus} course={course} index={index} />)
+                        manageCourses.map((course, index) => <ManageCoursesData key={course._id} handleStatus={handleStatus} handleDelete={handleDelete} course={course} index={index} />)
                     }
                 </tbody>
 

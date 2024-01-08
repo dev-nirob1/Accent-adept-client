@@ -29,7 +29,7 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn btn-ghost text-white md:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu text-white menu-sm dropdown-content bg-blue-600 mt-1 z-[1] p-3 shadow w-52 rounded font-semibold text-lg">
+                    <ul tabIndex={0} className="menu text-white menu-sm dropdown-content  bg-gradient-to-b from-[#16697a] to-[#1b7d90] mt-1 z-[1] p-3 shadow w-52 rounded font-semibold text-lg">
                         <li><NavLink className="py-2 m-0" to='/'>Home</NavLink></li>
                         <li><NavLink className="py-2 m-0" to='/instructors'>Instructors</NavLink></li>
                         <li><NavLink className="py-2 m-0" to='/classes'>Classes </NavLink></li>
@@ -39,7 +39,10 @@ const Navbar = () => {
                         {role === 'admin' && <li><NavLink className="py-2 m-0" to='/dashboard/admin-home'>Classes </NavLink></li>}
 
                         <li><NavLink className="py-2 m-0" to='/DashBoard/selected-class'><FaCartArrowDown /> </NavLink></li>
-
+                        
+                        {!role && <li><NavLink className="rounded px-3 py-2" to='/dashboard/students-home'>Dashboard </NavLink></li>}
+                        {role === 'instructor' && <li><NavLink className="rounded px-3 py-2" to='/dashboard/instructor-home'>Dashboard </NavLink></li>}
+                        {role === 'admin' && <li><NavLink className="rounded px-3 py-2" to='/dashboard/admin-home'>Dashboard </NavLink></li>}
                     </ul>
                 </div>
                 <Link to="/" className="text-2xl md:text-4xl font-semibold text-white">
@@ -60,7 +63,7 @@ const Navbar = () => {
                     <li className="rounded px-3 py-2"><NavLink to='/DashBoard/selected-class'><FaCartArrowDown size={25} /></NavLink></li>
                     {
                         user ? <>
-                            <img className="w-12 h-12 rounded-full border-4" src={user.photoURL} alt="profile" title={user.displayName} />
+                            <img className="w-12 h-12 rounded-full border-2" src={user.photoURL} alt="profile" title={user.displayName} />
                             <button onClick={handleLogout} className="border-2 px-5 p-2 bg-white text-blue-600 rounded font-medium">Logout</button>
                         </>
                             :
@@ -70,7 +73,7 @@ const Navbar = () => {
             </div>
             {user ?
                 <>
-                    <img className="w-12 h-12 rounded-full md:hidden ml-auto border-4" src={user.photoURL} alt="profile" title={user.displayName} />
+                    <img className="w-12 h-12 rounded-full md:hidden ml-auto border-2" src={user.photoURL} alt="profile" title={user.displayName} />
                     <button onClick={handleLogout} className="md:border-2 px-4 md:px-5 md:hidden py-2 bg-white text-blue-600 rounded font-medium mx-2">Logout</button>
                 </>
                 :
