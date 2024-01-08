@@ -39,15 +39,15 @@ const ManageClasses = () => {
     return (
         <div>
             <Helmet>
-                <title>Accent Adept | Manage Classes</title>
+                <title>Accent Adept | Manage Courses</title>
             </Helmet>
-            <h2 className='text-3xl font-semibold text-center my-8'>Manage User</h2>
+            <h2 className='text-3xl font-semibold text-center my-8'>Manage Courses</h2>
             <table className="table border">
                 {/* table header */}
                 <thead>
                     <tr>
                         <th>Serial</th>
-                        <th>Info</th>
+                        <th>Image</th>
                         <th>Host Email</th>
                         <th>Price</th>
                         <th>Action</th>

@@ -38,7 +38,7 @@ const PaymentHistory = () => {
                         <tbody>
                             {
                                 paymentHistory.map(history =>
-                                    <tr key={history}>
+                                    <tr key={history._id}>
                                         <td>TrxId: {history.transactionId}</td>
                                         <td>$ {history.price}</td>
                                         <td><p>{moment(history.date).format("MMM Do YY")}</p>

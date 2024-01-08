@@ -84,7 +84,8 @@ const CheckOutForm = ({ payment, price }) => {
                 selectedCourseId: payment._id,
                 courseId: payment.courseId,
                 courseName: payment.language,
-                className: payment.className
+                className: payment.className,
+                added_by: payment.host.email
             }
             axiosSecure.post('/payments', paymentDetails)
                 .then(res => {

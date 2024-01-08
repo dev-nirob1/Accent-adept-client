@@ -41,7 +41,7 @@ const SocialLogin = () => {
     }
     return (
         <div className="text-center">
-            <button onClick={handleGoogleLogin} className=" hover:text-white hover:bg-blue-600 text-3xl rounded-full p-2 border-4 border-blue-500"><FaGoogle></FaGoogle></button>
+            <button onClick={handleGoogleLogin} className="shadow-inner flex items-center justify-center text-2xl rounded-md w-full p-1 border border-blue-500 bg-white">Google<FaGoogle className="inline ml-3" size={22}></FaGoogle></button>
         </div>
     );
 };

@@ -9,6 +9,7 @@ const AdminDashboard = () => {
                 <li><NavLink to="admin-home">Admin Home</NavLink></li>
                 <li><NavLink to="manage-course">Manage Course</NavLink></li>
                 <li><NavLink to="manage-users">Manage Users</NavLink></li>
+                <li><NavLink to="all-enrolled-courses">All Enrolled Course</NavLink></li>
 
                 <div className="divider"></div>
 
