@@ -29,9 +29,7 @@ const SelectedCourseData = ({ index, selectedCourseData, handleCancel }) => {
                 <button onClick={() => handleCancel(_id)} className={`text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer`} title="Delete User" >
                     <FaTrash size={20} />
                 </button>
-                {/* <button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">
-                    Pay
-                </button> */}
+
                 <Link to={`/dashboard/payment/${_id}`}><button className="bg-green-600 p-1 hover:text-green-500 hover:bg-white border border-green-600 rounded cursor-pointer">Pay</button></Link>
             </td>
 

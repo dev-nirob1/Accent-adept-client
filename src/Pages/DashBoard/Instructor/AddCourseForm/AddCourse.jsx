@@ -2,12 +2,13 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import { uploadImage } from '../../../../utilitis/uploadImage';
 import toast from 'react-hot-toast'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import AddForm from './AddForm';
 import { Helmet } from 'react-helmet-async';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const AddCourse = () => {
-
+    const [axiosSecure] = useAxiosSecure()
     const navigate = useNavigate()
     const { user } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
@@ -15,7 +16,6 @@ const AddCourse = () => {
     const [uploadimage2Text, setUploadimage2Text] = useState('Upload Image');
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
-
     const imageHostingKey = import.meta.env.VITE_Image_Upload_key;
     const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
@@ -30,52 +30,38 @@ const AddCourse = () => {
     };
 
     const onSubmit = async (data) => {
-        try {
-            let imageData1;
-            let imageData2;
-            if (data.image && file1) {
-                imageData1 = await uploadImage(file1, imageHostingUrl);
-                const image = imageData1.data.display_url;
-                console.log('image:', image);
-            }
-
-            if (data.instructorImage && file2) {
-                imageData2 = await uploadImage(file2, imageHostingUrl);
-                console.log(imageData2)
-                const instructorImage = imageData2.data.display_url;
-                console.log('instructor', instructorImage);
-            }
-            const courseDetails = {
-                ...data,
-                image: imageData1?.data.display_url,
-                instructorImage: imageData2?.data.display_url,
-                totalSeats: parseInt(data.availableSeats) + parseInt(data.enrolledStudents),
-                host: {
-                    email: user?.email,
-                },
-                approved: false
-            }
-            // console.log(courseDetails
-            // )
-            const response = await fetch('http://localhost:5000/courses', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(courseDetails),
-            });
-
-            const responseData = await response.json();
-            if (responseData.acknowledged) {
-                toast.success('Course Added Succesfully')
-                setLoading(false)
-                navigate('/dashboard/added-course')
-            }
+        
+        let imageData1;
+        let imageData2;
+        if (data.image && file1) {
+            imageData1 = await uploadImage(file1, imageHostingUrl);
+            const image = imageData1.data.display_url;
+            console.log('image:', image);
         }
-        catch (error) {
-            console.error('Error:', error);
+
+        if (data.instructorImage && file2) {
+            imageData2 = await uploadImage(file2, imageHostingUrl);
+            console.log(imageData2)
+            const instructorImage = imageData2.data.display_url;
+            console.log('instructor', instructorImage);
+        }
+        const courseDetails = {
+            ...data,
+            image: imageData1?.data.display_url,
+            instructorImage: imageData2?.data.display_url,
+            totalSeats: parseInt(data.availableSeats) + parseInt(data.enrolledStudents),
+            host: {
+                email: user?.email,
+            },
+            approved: false
+        }
+        const res = await axiosSecure.post('/courses', courseDetails)
+        if (res.data.insertedId) {
+            toast.success('Course Added Succesfully')
             setLoading(false)
+            navigate('/dashboard/added-course')
         }
+
     };
 
     return (

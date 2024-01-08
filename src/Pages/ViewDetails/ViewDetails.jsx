@@ -1,15 +1,24 @@
 import { useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast'
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const ViewDetails = () => {
     const { user, role } = useContext(AuthContext)
     const navigate = useNavigate()
-    const courseDetails = useLoaderData();
-    // console.log(courseDetails)
+    const [axiosSecure] = useAxiosSecure()
+    const { id } = useParams()
 
+    const { data: courseDetails = [] } = useQuery({
+        queryKey: ['course'],
+        queryFn: async () => {
+            const data = await axiosSecure.get(`/course/details/${id}`)
+            return data.data
+        }
+    })
     const {
         image,
         _id,
@@ -32,20 +41,17 @@ const ViewDetails = () => {
             const savedCourse = { courseId: _id, email, className, image, name, price, language, hostEmail: host.email, userEmail: user?.email }
             console.log(savedCourse)
 
-            fetch('http://localhost:5000/selectCourses', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(savedCourse)
-            })
-                .then(res => res.json())
-                .then(data => {
+            axiosSecure.post('/selectCourses', savedCourse)
+                .then(response => {
+                    const data = response.data;
                     if (data.insertedId) {
-                        toast.success('You Have Selected this course')
-                        navigate('/dashboard/selected-class')
+                        toast.success('You Have Selected this course');
+                        navigate('/dashboard/selected-class');
                     }
                 })
+                .catch(error => {
+                    console.error('Error selecting course:', error);
+                });
         }
     }
 

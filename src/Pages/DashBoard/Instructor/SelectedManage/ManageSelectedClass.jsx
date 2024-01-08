@@ -15,39 +15,35 @@ const ManageSelectedClass = () => {
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/selectedCourses/${user?.email}`)
-            console.log('res from axios', res.data);
+            // console.log('res from axios', res.data);
             return res.data
         }
     })
 
-    const handleDeleteSelected = id => {
-        fetch(`http://localhost:5000/selectedCourse/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        if (data.deletedCount) {
-                            refetch()
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
-                            });
-                        }
-                    }
-                });
-            })
+    const handleDeleteSelected = async (id) => {
+        const res = await axiosSecure.delete(`/selectedCourse/${id}`)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                if (res.data.deletedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                }
+            }
+        });
     }
+
     return (
         <div className="overflow-x-auto p-5 bg-gray-50">
             <Helmet>

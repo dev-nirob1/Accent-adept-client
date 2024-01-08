@@ -1,4 +1,4 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import ManageCoursesData from "./ManageCoursesData";
 import toast from "react-hot-toast";
@@ -20,19 +20,22 @@ const ManageClasses = () => {
             return res.data
         }
     })
-//  todo: handle delete 
-    const handleStatus = id => {
-        fetch(`http://localhost:5000/course/updateState/${id}`, {
-            method: 'PATCH',
-        }).then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount) {
-                    refetch()
-                    toast.success('Course Approved')
-                }
-            })
-    }
     
+    //  todo: handle delete 
+
+    const handleStatus = async (id) => {
+        try {
+            const res = await axiosSecure.patch(`/course/updateState/${id}`);
+            if (res.data.modifiedCount) {
+                refetch();
+                toast.success('Course Approved');
+            }
+        } catch (error) {
+            console.error('Error updating course status:', error);
+        }
+    };
+
+
     return (
         <div>
             <Helmet>

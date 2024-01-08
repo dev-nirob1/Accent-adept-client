@@ -45,7 +45,6 @@ const router = createBrowserRouter([
          {
             path: '/course/details/:id',
             element: <Protected><ViewDetails /></Protected>,
-            loader: ({ params }) => fetch(`http://localhost:5000/course/details/${params.id}`)
          },
          {
             path: '/login',
@@ -68,10 +67,7 @@ const router = createBrowserRouter([
          { path: 'selected-class', element: <SelectedClass /> },
          { path: 'enrolled-class', element: <EnrolledClass /> },
          { path: 'payment-history', element: <PaymentHistory /> },
-         {
-             path: 'payment/:id', element: <Payment /> ,
-             loader: ({ params }) => fetch(`http://localhost:5000/selectedCourse/${params.id}`)
-      },
+         { path: 'payment/:id', element: <Payment /> },
 
          // Instructor routes
          { path: 'instructor-home', element: <InstructorRoutes><InstructorHome /></InstructorRoutes> },
