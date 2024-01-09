@@ -10,6 +10,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 const PopularClasses = () => {
+    const apiUrl = import.meta.env.VITE_API;
+
     const variants = {
         initial: {
             x: -100,
@@ -26,10 +28,10 @@ const PopularClasses = () => {
     }
     const [PopularClasses, setPopularClasses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/popularClasses')
+        fetch(`${apiUrl}/popularClasses`)
             .then(res => res.json())
             .then(data => setPopularClasses(data))
-    }, [])
+    }, [apiUrl])
     return (
         <motion.div variants={variants} className="my-8 md:my-10 lg:my-16">
 

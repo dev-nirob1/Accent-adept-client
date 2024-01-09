@@ -8,7 +8,7 @@ import {motion} from 'framer-motion'
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch(`${import.meta.env.VITE_API}instructors`)
             .then(res => res.json())
             .then(data => setInstructors(data))
             .catch(err => console.log(err))

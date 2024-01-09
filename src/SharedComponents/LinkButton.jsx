@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 const LinkButton = ({ name, to }) => {
     return (
         <div className='text-center mt-8 md:mt-12 lg:mt-16 pb-2'>
-            {/* <Link to={`/${to}`}><button className="bg-blue-600 text-white font-semibold text-lg rounded px-6 py-3 hover:bg-blue-700">{name}</button></Link> */}
-
 
             <Link to={`/${to}`} className="text-lg box-border relative z-30 inline-flex items-center justify-center w-auto px-5 md:px-8 py-2 md:py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none">
                 <span className="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>

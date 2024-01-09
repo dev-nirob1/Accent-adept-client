@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             // console.log(currentUser)
             if (currentUser && currentUser?.email) {
-                axios.post('http://localhost:5000/jwt', {
+                axios.post(`${import.meta.env.VITE_API}/jwt`, {
                     email: currentUser.email
                 })
                     .then(data => {
@@ -89,7 +89,6 @@ const AuthProvider = ({ children }) => {
         logOut,
         role
     }
-
 
     return (
         <AuthContext.Provider value={authInfo} >

@@ -60,58 +60,6 @@ const ManageUsers = () => {
         }
     }
 
-
-    // fetch(`http://localhost:5000/users/admin/${id}`, {
-    //     method: 'PATCH',
-    // })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if (data.modifiedCount) {
-    //             refetch()
-    //             toast.success('Made Admin ')
-    //         }
-    //     })
-    // const handleMakeInstructor = id => {
-    //     fetch(`http://localhost:5000/users/instructor/${id}`, {
-    //         method: 'PATCH',
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             refetch()
-    //             if (data.modifiedCount) {
-    //                 toast.success('Made Instructor ')
-    //             }
-    //         })
-    // }
-
-    // const handleDeleteUser = id => {
-    //     fetch(`http://localhost:5000/users/${id}`, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             Swal.fire({
-    //                 title: "Are you sure?",
-    //                 text: "You won't be able to revert this!",
-    //                 icon: "warning",
-    //                 showCancelButton: true,
-    //                 confirmButtonColor: "#3085d6",
-    //                 cancelButtonColor: "#d33",
-    //                 confirmButtonText: "Yes, delete it!"
-    //             }).then((result) => {
-    //                 if (result.isConfirmed) {
-    //                     if (data.deletedCount) {
-    //                         refetch()
-    //                         Swal.fire({
-    //                             title: "Deleted!",
-    //                             text: "Your file has been deleted.",
-    //                             icon: "success"
-    //                         });
-    //                     }
-    //                 }
-    //             });
-    //         })
-
     return (
         <div className="overflow-x-auto p-5">
             <Helmet>

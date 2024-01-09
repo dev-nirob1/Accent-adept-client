@@ -9,7 +9,8 @@ const SocialLogin = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-
+    const apiUrl = import.meta.env.VITE_API;
+    
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
@@ -22,7 +23,7 @@ const SocialLogin = () => {
                 const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email }
 
                 if (loggedUser) {
-                    fetch('http://localhost:5000/users', {
+                    fetch(`${apiUrl}/users`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

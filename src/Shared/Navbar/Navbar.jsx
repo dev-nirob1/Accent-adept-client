@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { FaCartArrowDown } from "react-icons/fa";
+import logo from './../../assets/logo.png'
 
 const Navbar = () => {
     const { user, logOut, role } = useContext(AuthContext)
@@ -34,10 +35,6 @@ const Navbar = () => {
                         <li><NavLink className="py-2 m-0" to='/instructors'>Instructors</NavLink></li>
                         <li><NavLink className="py-2 m-0" to='/classes'>Classes </NavLink></li>
 
-                        {!role && <li><NavLink className="py-2 m-0" to='/dashboard/students-home'>Classes </NavLink></li>}
-                        {role === 'instructor' && <li><NavLink className="py-2 m-0" to='/dashboard/instructor-home'>Classes </NavLink></li>}
-                        {role === 'admin' && <li><NavLink className="py-2 m-0" to='/dashboard/admin-home'>Classes </NavLink></li>}
-
                         <li><NavLink className="py-2 m-0" to='/DashBoard/selected-class'><FaCartArrowDown /> </NavLink></li>
                         
                         {!role && <li><NavLink className="rounded px-3 py-2" to='/dashboard/students-home'>Dashboard </NavLink></li>}
@@ -46,7 +43,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="text-2xl md:text-4xl font-semibold text-white">
-                    <img className="h-14 w-32" src="weblogo_prev_ui.png" alt="logo" />
+                    <img className="h-14 w-32" src={logo} alt="logo" />
                 </Link>
             </div>
 

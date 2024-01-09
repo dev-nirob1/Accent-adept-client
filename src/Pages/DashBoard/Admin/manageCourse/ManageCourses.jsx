@@ -20,8 +20,6 @@ const ManageClasses = () => {
             return res.data
         }
     })
-    
-
 
     const handleStatus = async (id) => {
         try {
@@ -34,7 +32,6 @@ const ManageClasses = () => {
             console.error('Error updating course status:', error);
         }
     };
-
 
     return (
         <div>

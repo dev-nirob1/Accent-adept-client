@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const UserHome = () => {
-  // Sample data for the bar chart (assignments and scores)
+
   const data = [
     { assignment: 'Grammar Quiz', score: 80 },
     { assignment: 'Vocabulary Exercise', score: 65 },

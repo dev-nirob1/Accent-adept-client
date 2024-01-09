@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-
+import banner from './../../../assets/banner.png'
 const Banner = () => {
 
     const textVariants = {
@@ -35,7 +35,7 @@ const Banner = () => {
         <motion.div variants={imgVariants} className='w-full h-auto lg:h-screen xl:h-auto bg-gradient-to-b from-[#1b7d90] to-[#16697A]'>
             <div className="grid py-8 md:py-0 text-center md:text-left px-5 grid-cols-1 md:grid-cols-2 gap-5 items-center justify-center overflow-hidden">
                 <motion.div variants={imgVariants} initial="initial" whileInView="animate" className='h-full overflow-hidden flex items-center justify-center'>
-                    <motion.img variants={imgVariants} className='w-fit h-full' src="/images/banner.png" alt="" />
+                    <motion.img variants={imgVariants} className='w-fit h-full' src={banner} alt="" />
                 </motion.div>
                 <motion.div variants={textVariants} initial="initial" whileInView="animate">
                     <motion.h3 variants={textVariants} className='text-3xl md:text-5xl font-semibold text-gray-100 mb-8'>Unlock the Power of Language</motion.h3>

@@ -13,6 +13,7 @@ const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
+    const apiUrl = import.meta.env.VITE_API;
 
     const from = location.state?.from?.pathname || '/';
 
@@ -35,7 +36,7 @@ const Register = () => {
                     .then(() => {
                         const savedUser = { name: data.name, email: data.email, photo: data.photoUrl }
 
-                        fetch('http://localhost:5000/users/', {
+                        fetch(`${apiUrl}/users/`, {
                             method: 'PUT',
                             headers: {
                                 'content-type': 'application/json'

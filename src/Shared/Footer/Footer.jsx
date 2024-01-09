@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import logo from './../../assets/logo.png'
 
 function Footer() {
     return (
@@ -6,7 +7,7 @@ function Footer() {
             <div className=" flex flex-col items-center justify-center space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full lg:w-11/12">
                     <div className="text-center md:text-left mb-5">
-                        <img className='w-32 mb-4 mx-auto' src="weblogo_prev_ui.png" alt="logo" />
+                        <img className='w-32 mb-4 mx-auto' src={logo} alt="logo" />
                         <p className='font-medium'>
                         Learn from our best instructors and become a pro in a foreign language.
                         </p>

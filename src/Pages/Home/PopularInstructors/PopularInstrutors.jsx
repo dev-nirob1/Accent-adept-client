@@ -10,12 +10,14 @@ import 'swiper/css/navigation';
 
 
 const PopularInstrutors = () => {
+    const apiUrl = import.meta.env.VITE_API;
+
     const [popularInstructors, setPopularInstructors] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/popularInstructors')
+        fetch(`${apiUrl}/popularInstructors`)
             .then(res => res.json())
             .then(data => setPopularInstructors(data))
-    }, [])
+    }, [apiUrl])
 
     return (
         <div className="my-8 md:my-10 lg:my-16">

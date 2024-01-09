@@ -1,6 +1,5 @@
-import { FaTrash } from "react-icons/fa";
 
-const ManageCoursesData = ({ index, course, handleStatus, handleDelete }) => {
+const ManageCoursesData = ({ index, course, handleStatus }) => {
     const { _id, approved, price, image, name, host } = course
     return (
         <tr>

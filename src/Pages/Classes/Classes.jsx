@@ -7,7 +7,7 @@ import {motion} from 'framer-motion'
 const Classes = () => {
     const [classes, setClasses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch(`${import.meta.env.VITE_API}/classes`)
             .then(res => res.json())
             .then(data => setClasses(data))
             .catch(err => console.log(err))
