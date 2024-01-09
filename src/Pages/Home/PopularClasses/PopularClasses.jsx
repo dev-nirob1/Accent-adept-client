@@ -4,11 +4,26 @@ import ClassCard from "../../../SharedComponents/ClassCard";
 import LinkButton from "../../../SharedComponents/LinkButton";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
+import { motion } from 'framer-motion'
 import './popularClass.css'
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 const PopularClasses = () => {
+    const variants = {
+        initial: {
+            x: -100,
+            opacity: 0
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 1,
+                staggerChildren: 0.1
+            }
+        }
+    }
     const [PopularClasses, setPopularClasses] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/popularClasses')
@@ -16,7 +31,7 @@ const PopularClasses = () => {
             .then(data => setPopularClasses(data))
     }, [])
     return (
-        <div className="my-8 md:my-10 lg:my-16">
+        <motion.div variants={variants} className="my-8 md:my-10 lg:my-16">
 
             <SectionTitle
                 heading="Explore Our Popular Classes"
@@ -62,7 +77,7 @@ const PopularClasses = () => {
                 <LinkButton name='See More' to={'classes'} />
             </Swiper>
 
-        </div>
+        </motion.div>
     );
 };
 

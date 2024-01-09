@@ -1,5 +1,6 @@
+import { FaTrash } from "react-icons/fa";
 
-const ManageCoursesData = ({ index, course, handleStatus }) => {
+const ManageCoursesData = ({ index, course, handleStatus, handleDelete }) => {
     const { _id, approved, price, image, name, host } = course
     return (
         <tr>
@@ -17,13 +18,14 @@ const ManageCoursesData = ({ index, course, handleStatus }) => {
                 </div>
             </td>
             <td>{host.email}</td>
-            <td>{price}</td>
+            <td>${price}</td>
 
 
-            <td>
+            <td className="flex items-center gap-2">
                 {approved === false && <button onClick={() => handleStatus(_id)} className="p-1 text-white bg-orange-500 rounded">Pending</button>}
 
                 {approved && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
+
             </td>
         </tr >
     );

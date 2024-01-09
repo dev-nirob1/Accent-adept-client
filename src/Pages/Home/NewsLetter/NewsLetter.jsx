@@ -1,7 +1,22 @@
 import newsletterImage from '../../../assets/news.jpg';
 import toast from 'react-hot-toast';
+import { motion } from "framer-motion"
 
 const NewsLetter = () => {
+    const variants = {
+        initial: {
+            scaleX: 0,
+            opacity: 0
+        },
+        animate: {
+            scaleX: 1,
+            opacity: 1,
+            transition: {
+                duration: 1,
+            }
+        }
+    }
+
     const handleNewsLetter = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -14,13 +29,13 @@ const NewsLetter = () => {
     };
 
     return (
-        <div
+        <motion.div variants={variants}
             style={{
                 backgroundImage: `linear-gradient(to bottom , rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(${newsletterImage})`,
             }}
             className="overflow-hidden bg-cover bg-no-repeat bg-fixed bg-center h-[80vh] md:h-screen w-full mb-8 md:my-10 lg:my-16"
         >
-            <div className=" text-white w-full h-full flex items-center justify-center">
+            <motion.div variants={variants} initial="initial" whileInView="animate" className=" text-white w-full h-full flex items-center justify-center">
                 <div className="text-center space-y-5">
                     <h1 className="uppercase text-4xl font-semibold">Subscribe our newsletter</h1>
                     <p className="text-lg font-semibold">Stay updated with the latest news and updates.</p>
@@ -36,8 +51,8 @@ const NewsLetter = () => {
                         </button>
                     </form>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 

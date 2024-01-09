@@ -3,7 +3,7 @@ import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
 
 const ClassCard = ({ classItem }) => {
-    const { _id, availableSeats, name, language, image, price, ratings } = classItem;
+    const { _id, availableSeats, name, className, image, price, ratings } = classItem;
 
     return (
         <div className={`border shadow-xl cursor-pointer ${availableSeats == 0 ? 'bg-red-200' : ''} rounded-lg`}>
@@ -11,7 +11,7 @@ const ClassCard = ({ classItem }) => {
 
             <div className="p-5">
                 <p className="font-semibold text-green-700 mb-1 hover:underline cursor-pointer w-fit">#Language</p>
-                <h2 className="text-xl font-semibold text-gray-800"><span>Class:</span> {language}</h2>
+                <h2 className="text-xl font-semibold text-gray-800"><span>Class:</span> {className}</h2>
                 <h4 className={"text-2xl font-semibold my-2 text-gray-800"}>Teacher: {name}</h4>
                 <div className="flex justify-between items-center">
                     <p className="text-lg text-gray-700">Available Seats: {availableSeats}</p>

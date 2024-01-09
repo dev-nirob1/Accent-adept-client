@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal";
 import EmptyState from "../../SharedComponents/EmptyState";
-
+import {motion} from 'framer-motion'
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
     useEffect(() => {
@@ -18,6 +18,20 @@ const Instructors = () => {
         window.scrollTo(0, 0)
     }, [])
 
+    //animation
+    const variants = {
+        initial: {
+            y: -100,
+            opacity: 0
+        },
+        animate: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 1,
+            }
+        }
+    }
     return (
 
         <>
@@ -32,12 +46,12 @@ const Instructors = () => {
                 heading="Meet Our Expert Instructors"
                 description="Get to know our talented instructors who make language learning a breeze. Explore their classes and start your journey to fluency today.Each instructor brings a unique teaching style and cultural perspective."
             ></SectionTitle>
-            <div className="grid md:grid-cols-2 gap-6">
+            <motion.div variants={variants} initial="initial" whileInView="animate" className="grid md:grid-cols-2 gap-6">
                 {
                     instructors.map(instructor => (<InstructorsCard key={instructor._id} instructor={instructor}></InstructorsCard>
                     ))
                 }
-            </div>
+            </motion.div>
             <Modal />
 
         </div>

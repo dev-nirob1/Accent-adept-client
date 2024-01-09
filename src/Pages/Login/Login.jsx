@@ -7,6 +7,7 @@ import SocialLogin from "../../SharedComponents/SocialLogin";
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 import { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
+import { motion } from 'framer-motion'
 
 const Login = () => {
     const { login } = useContext(AuthContext)
@@ -34,21 +35,50 @@ const Login = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    const leftVariants = {
+        initial: {
+            x: -100,
+            opacity: 0
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 1,
+                staggerChildren: 0.1
+            }
+        }
+    }
+    const rightVariants = {
+        initial: {
+            x: 100,
+            opacity: 0
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 1,
+            }
+        }
+    }
+
     return (
-        <div className="my-10 mx-auto w-10/12 md:w-3/4 p-2 md:p-6 bg-gray-50 shadow">
+        <motion.div className="my-10 mx-auto w-10/12 md:w-3/4 p-2 md:p-6 bg-gray-50 shadow">
             <Helmet>
                 <title>Accent Adept | Login</title>
             </Helmet>
             <div className="md:grid gap-3 md:grid-cols-2 p-4 md:p-8 items-center justify-center">
 
-                <div className=" hidden md:block lg::w-10/12">
+                <motion.div variants={leftVariants} initial="initial" whileInView="animate"  className=" hidden md:block lg::w-10/12">
                     <Lottie animationData={groovyWalkAnimation} loop={true} />
-                </div>
+                </motion.div>
 
                 <div className="lg:w-11/12">
                     <h2 className="text-center text-3xl font-semibold">Login </h2>
 
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <motion.form variants={rightVariants} initial="initial" whileInView="animate" onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
                         <div className="mb-4">
                             <label className="block">Email</label>
@@ -75,7 +105,7 @@ const Login = () => {
                         </div>
 
                         <p><small>New to Accent-Adept? <Link className="text-blue-500 hover:underline" to="/register">Register here</Link></small></p>
-                        
+
                         <button type="submit" className="px-5 py-2.5 relative rounded group text-white font-medium w-full">
                             <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter bg-gradient-to-br from-blue-600 to-purple-500"></span>
                             <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-blue-600 to-purple-500"></span>
@@ -83,14 +113,14 @@ const Login = () => {
                             <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
                             <span className="relative">Login</span>
                         </button>
-                    </form>
+                    </motion.form>
 
                     <div className="divider">OR</div>
 
                     <SocialLogin />
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

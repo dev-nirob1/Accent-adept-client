@@ -4,7 +4,6 @@ import PopularClasses from '../PopularClasses/PopularClasses';
 import PopularInstrutors from '../PopularInstructors/PopularInstrutors';
 import NewsLetter from '../NewsLetter/NewsLetter';
 import PartnerSection from '../OurPartner/PartnerSection';
-import Contact from '../Contact/Contact';
 import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
@@ -18,7 +17,7 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div className='overflow-hidden'>
             <Helmet>
                 <title>Accent Adept | Learn foreign languages with efficiency</title>
             </Helmet>
@@ -29,7 +28,6 @@ const Home = () => {
             <PopularClasses />
             </div>
             <WhyChooseUs />
-            <Contact />
             <NewsLetter />
             <PartnerSection />
         </div>

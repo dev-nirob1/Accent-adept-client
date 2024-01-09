@@ -8,7 +8,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../../SharedComponents/SocialLogin";
 import toast from "react-hot-toast";
-
+import {motion} from 'framer-motion'
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate();
@@ -61,6 +61,33 @@ const Register = () => {
         window.scrollTo(0, 0)
     }, [])
 
+    const leftVariants = {
+        initial: {
+            x: -100,
+            opacity: 0
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 1,
+            }
+        }
+    }
+    const rightVariants = {
+        initial: {
+            x: 100,
+            opacity: 0
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 1,            }
+        }
+    }
+
+
     return (
         <div className="my-10 shadow-lg bg-gray-50 p-2 md:p-6 flex items-center w-10/12 md:w-3/4 mx-auto flex-col md:flex-row">
             <Helmet>
@@ -68,7 +95,7 @@ const Register = () => {
             </Helmet>
             <div className="w-full md:w-1/2 p-4 md:p-8">
                 <h2 className="text-4xl text-center font-semibold mb-4">Registration</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <motion.form variants={leftVariants} initial="initial" whileInView="animate" onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="mb-4">
                         <label className="block">Name</label>
                         <input
@@ -196,14 +223,14 @@ const Register = () => {
                             <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
                             <span className="relative">Register</span>
                         </button>
-                </form>
+                </motion.form>
 
                 <div className="divider">OR</div>
                 <SocialLogin />
             </div>
-            <div className="hidden md:block md:w-1/2 p-4">
+            <motion.div variants={rightVariants} initial="initial" whileInView="animate" className="hidden md:block md:w-1/2 p-4">
                 <Lottie animationData={animationData} />
-            </div>
+            </motion.div>
         </div>
     );
 };

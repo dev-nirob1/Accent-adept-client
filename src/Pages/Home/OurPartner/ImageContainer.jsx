@@ -10,6 +10,7 @@ import penUImage from './../../../assets/pennsylvania.8c9f4108.png'
 import usArmyImage from './../../../assets/usarmypng.png'
 
 const ImageContainer = () => {
+
     return (
         <div className="flex gap-10 md:gap-24 items-center p-5">
             <img className='h-[50px] md:h-[90px]' src={bbcImage} alt="image" />
