@@ -24,6 +24,7 @@ import AdminRoutes from "../AdminRoutes/AdminRoutes";
 import Payment from "../../Pages/DashBoard/DashBoard/Payment/Payment";
 import EnrolledCourses from "../../Pages/DashBoard/Admin/allEnrolledCourses/enrolledCourses";
 import UsersEnrolledCourse from "../../Pages/DashBoard/Instructor/UsersEnrolled/UsersEnrolledCourse";
+import Update from "../../Pages/DashBoard/Instructor/UpdateCourse/Update";
 
 const router = createBrowserRouter([
    {
@@ -74,7 +75,8 @@ const router = createBrowserRouter([
          { path: 'instructor-home', element: <InstructorRoutes><InstructorHome /></InstructorRoutes> },
          { path: 'add-course', element: <InstructorRoutes><AddCourse /></InstructorRoutes> },
          { path: 'added-course', element: <InstructorRoutes><AddedClass /></InstructorRoutes> },
-         { path: 'manage-selected-classes', element: <InstructorRoutes><UsersEnrolledCourse /></InstructorRoutes> },
+         { path: 'update/:id', element: <InstructorRoutes><Update /></InstructorRoutes> },
+         { path: 'enrolled-courses', element: <InstructorRoutes><UsersEnrolledCourse /></InstructorRoutes> },
 
          // Admin routes
          { path: 'admin-home', element: <AdminRoutes><AdminHome /></AdminRoutes> },

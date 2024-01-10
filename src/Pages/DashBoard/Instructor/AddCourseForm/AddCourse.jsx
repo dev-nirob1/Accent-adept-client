@@ -56,7 +56,7 @@ const AddCourse = () => {
             approved: false
         }
         const res = await axiosSecure.post('/courses', courseDetails)
-        if (res.data.insertedId) {
+        if (res.data.insertedId > 0) {
             toast.success('Course Added Succesfully')
             setLoading(false)
             navigate('/dashboard/added-course')

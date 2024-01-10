@@ -1,5 +1,5 @@
-import { FaTrash } from "react-icons/fa";
-
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { Link } from 'react-router-dom'
 const AddedClassData = ({ index, data, handleDelete }) => {
     const { _id, price, image, className, name, approved } = data;
 
@@ -26,11 +26,16 @@ const AddedClassData = ({ index, data, handleDelete }) => {
 
                 {approved && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
             </td>
-            
-            <td>
-                <button onClick={() => handleDelete(_id)} className={`text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer`} title="Delete Course" >
+
+            <td className="flex items-center gap-2">
+                <Link className="text-orange-400 p-1 hover:text-white hover:bg-orange-500 rounded cursor-pointer" to={`/dashboard/update/${_id}`} >
+                    <FaEdit size={20} title="Update Information" />
+                </Link>
+
+                <button onClick={() => handleDelete(_id)} className='text-rose-600 p-1 hover:text-white hover:bg-rose-500 rounded cursor-pointer' title="Delete Course" >
                     <FaTrash size={20} />
                 </button>
+
             </td>
 
         </tr >

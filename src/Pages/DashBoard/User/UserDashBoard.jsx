@@ -7,10 +7,10 @@ const UserDashBoard = () => {
     return (
         <div>
             <ul className="menu p-4 bg-blue-400 h-screen space-y-1 w-80 min-h-full text-white font-semibold text-lg">
-            <ProfileInfo />
+                <ProfileInfo />
                 <li><NavLink to="students-home">Student Home</NavLink></li>
-                <li><NavLink to="selected-class">Selected Courses</NavLink></li>
-                <li><NavLink to="enrolled-class">Enrolled Courses</NavLink></li>
+                <li><NavLink to="selected-class">My Selected Courses</NavLink></li>
+                <li><NavLink to="enrolled-class">My Enrolled Courses</NavLink></li>
                 <li><NavLink to="payment-history">Payment History</NavLink></li>
 
                 <div className="divider py-5"></div>
