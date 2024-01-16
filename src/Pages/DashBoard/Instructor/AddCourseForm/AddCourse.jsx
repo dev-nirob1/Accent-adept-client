@@ -47,11 +47,12 @@ const AddCourse = () => {
         }
         const availableSeats = parseFloat(data.availableSeats);
         const enrolledStudents = parseFloat(data.enrolledStudents);
-
+        const classTaken = parseInt(data.classTaken)
         const courseDetails = {
             ...data,
             image: imageData1?.data.display_url,
             instructorImage: imageData2?.data.display_url,
+            classTaken,
             availableSeats,
             enrolledStudents,
             totalSeats: availableSeats + enrolledStudents,
