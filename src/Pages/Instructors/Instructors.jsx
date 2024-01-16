@@ -1,21 +1,19 @@
 import SectionTitle from "../../SharedComponents/SectionTitle";
 import InstructorsCard from "../../SharedComponents/InstructorsCard";
 import { Helmet } from "react-helmet-async";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal";
 import EmptyState from "../../SharedComponents/EmptyState";
 import { motion } from 'framer-motion'
-import { useQuery } from "@tanstack/react-query";
 const Instructors = () => {
 
-    const { data: instructors = [] } = useQuery({
-        queryKey: ['instructors'],
-        queryFn: async () => {
-            const res = await fetch(`${import.meta.env.VITE_API}/instructors`)
-            const data = await res.json();
-            return data;
-        }
-    })
+    const [instructors, setInstructors] = useState([])
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_API}/instructors`)
+            .then(res => res.json())
+            .then(data => setInstructors(data))
+            .catch(err => console.log(err))
+    }, [])
 
     useEffect(() => {
         window.scrollTo(0, 0)

@@ -30,7 +30,7 @@ const AddCourse = () => {
     };
 
     const onSubmit = async (data) => {
-        
+
         let imageData1;
         let imageData2;
         if (data.image && file1) {
@@ -45,19 +45,27 @@ const AddCourse = () => {
             const instructorImage = imageData2.data.display_url;
             console.log('instructor', instructorImage);
         }
+        const availableSeats = parseFloat(data.availableSeats);
+        const enrolledStudents = parseFloat(data.enrolledStudents);
+
         const courseDetails = {
             ...data,
             image: imageData1?.data.display_url,
             instructorImage: imageData2?.data.display_url,
-            totalSeats: parseInt(data.availableSeats) + parseInt(data.enrolledStudents),
+            availableSeats,
+            enrolledStudents,
+            totalSeats: availableSeats + enrolledStudents,
             host: {
                 email: user?.email,
             },
-            approved: false
+            approved: false,
+            denied: false
         }
+
         const res = await axiosSecure.post('/courses', courseDetails)
-        if (res.data.insertedId > 0) {
-            toast.success('Course Added Succesfully')
+        console.log(res.data.insertedId)
+        if (res.data.insertedId) {
+            toast.success('Course Added Succesfully. Wait for Admin to Approve')
             setLoading(false)
             navigate('/dashboard/added-course')
         }

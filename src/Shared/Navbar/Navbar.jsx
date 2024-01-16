@@ -35,7 +35,7 @@ const Navbar = () => {
                         <li><NavLink className="py-2 m-0" to='/instructors'>Instructors</NavLink></li>
                         <li><NavLink className="py-2 m-0" to='/classes'>Classes </NavLink></li>
 
-                        <li><NavLink className="py-2 m-0" to='/DashBoard/selected-class'><FaCartArrowDown /> </NavLink></li>
+                        {!role && <li><NavLink className="py-2 m-0" to='/DashBoard/selected-class'><FaCartArrowDown /> </NavLink></li>}
                         
                         {!role && <li><NavLink className="rounded px-3 py-2" to='/dashboard/students-home'>Dashboard </NavLink></li>}
                         {role === 'instructor' && <li><NavLink className="rounded px-3 py-2" to='/dashboard/instructor-home'>Dashboard </NavLink></li>}
@@ -57,7 +57,7 @@ const Navbar = () => {
                     {role === 'instructor' && <li><NavLink className="rounded px-3 py-2" to='/dashboard/instructor-home'>Dashboard </NavLink></li>}
                     {role === 'admin' && <li><NavLink className="rounded px-3 py-2" to='/dashboard/admin-home'>Dashboard </NavLink></li>}
 
-                    <li className="rounded px-3 py-2"><NavLink to='/DashBoard/selected-class'><FaCartArrowDown size={25} /></NavLink></li>
+                   {!role && <li className="rounded px-3 py-2"><NavLink to='/DashBoard/selected-class'><FaCartArrowDown size={25} /></NavLink></li>}
                     {
                         user ? <>
                             <img className="w-12 h-12 rounded-full border-2" src={user.photoURL} alt="profile" title={user.displayName} />

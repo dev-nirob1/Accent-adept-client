@@ -4,9 +4,10 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CheckOutForm = ({ payment, price }) => {
-
+    const navigate = useNavigate()
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useContext(AuthContext)
@@ -41,7 +42,6 @@ const CheckOutForm = ({ payment, price }) => {
             return;
         }
 
-
         const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
@@ -64,20 +64,19 @@ const CheckOutForm = ({ payment, price }) => {
         });
 
         if (confirmError) {
-            // console.log(confirmError);
-            // Handle the error as needed
             setError(confirmError.message);
+            // return;
         }
         setProcessing(false)
 
-        if (paymentIntent.status === 'succeeded') {
+        if (paymentIntent && paymentIntent.status === 'succeeded') {
+            console.log(paymentIntent.status)
             const transactionId = paymentIntent.id;
-            setTransactionId(transactionId)
             console.log('transactionId', transactionId)
 
             const paymentDetails = {
-                student_name: user?.displayName,
-                user_email: user?.email,
+                student_name: user?.displayName || 'anonymous',
+                user_email: user?.email || 'unknown',
                 price,
                 date: new Date(),
                 transactionId,
@@ -85,21 +84,38 @@ const CheckOutForm = ({ payment, price }) => {
                 courseId: payment.courseId,
                 courseName: payment.language,
                 className: payment.className,
-                added_by: payment.host.email
+                added_by: payment.hostEmail
             }
+            
             axiosSecure.post('/payments', paymentDetails)
-                .then(res => {
-                    // console.log(res.data)
-                    if (res.data.insertedId) {
-                        toast.success(`Thanks For Enrolled course: ${payment.language}`)
+                .then(response => {
+
+                    const data = response.data;
+                    if (data.paymentResult.insertedId) {
+                        setError("")
+                        setTransactionId(transactionId)
+                        toast.success(`You Have Enrolled course : ${payment.language}`);
+                        navigate('/dashboard/enrolled-class');
                     }
                 })
+                .catch(error => {
+                    console.error('Error selecting course:', error);
+                });
+
         }
     };
 
     return (
         <div>
-            <h1>total: {price}</h1>
+            {processing ? <h3 className="text-3xl font-medium">Your are paying for: Loading...</h3>
+                : <div className="flex items-center justify-between">
+                    <h3 className="text-3xl font-medium">Your are paying for: {payment.language}</h3>
+                    <img className="h-16 w-24 rounded-lg" src={payment.image} alt="course image" />
+                </div>
+            }
+            {processing ? <p className="text-lg font-semibold">total:{'Loading...'}</p>
+                : <p className="text-lg font-semibold">total: {price}</p>
+            }
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{

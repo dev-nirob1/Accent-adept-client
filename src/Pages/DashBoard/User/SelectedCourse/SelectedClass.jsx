@@ -22,8 +22,8 @@ const SelectedClass = () => {
         }
     })
 
-    const handleCancelSelected = id => {
-        const res = axiosSecure.delete(`/selectedCourse/${id}`)
+    const handleCancelSelected = async (id) => {
+        const res = await axiosSecure.delete(`/selectedCourse/${id}`)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -32,13 +32,14 @@ const SelectedClass = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, Cancel it!"
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
+                console.log(res)
                 if (res.data.deletedCount > 0) {
-                    refetch()
+                    await refetch()
                     Swal.fire({
                         title: "Canceled!",
-                        text: "Your Course has been Canceled.",
+                        text: "Removed from Selected Course.",
                         icon: "success"
                     });
                 }

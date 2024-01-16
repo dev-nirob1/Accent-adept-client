@@ -1,7 +1,7 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 const AddedClassData = ({ index, data, handleDelete }) => {
-    const { _id, price, image, className, name, approved } = data;
+    const { _id, price, image, className, name, approved,denied } = data;
 
     return (
         <tr>
@@ -22,9 +22,20 @@ const AddedClassData = ({ index, data, handleDelete }) => {
             <td>{price}</td>
 
             <td>
-                {approved === false && <button className="p-1 text-white bg-orange-500 rounded">Pending</button>}
+                {
+                    approved === false && !denied && (
+                        <button className="p-1 text-white bg-orange-500 rounded m-2">Pending</button>
+                    )}
 
-                {approved && <button className="p-1 text-white bg-green-500 rounded">Approved</button>}
+                {
+                    approved === true && !denied && (
+                        <button className="p-1 text-white bg-green-500 rounded">Approved</button>
+                    )}
+
+                {
+                    denied && (
+                        <button className="p-1 m-2 text-white bg-red-500 rounded">Denied</button>
+                    )}
             </td>
 
             <td className="flex items-center gap-2">

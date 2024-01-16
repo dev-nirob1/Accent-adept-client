@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGraduationCap } from 'react-icons/fa';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
@@ -11,28 +10,11 @@ const data = [
     { name: 'Spanish', rating: 4.5 },
     { name: 'Arabic', rating: 4.1 },
 ];
-//todo: add a image
-
-const nextClassDate = new Date('2023-12-01T14:30:00');
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 const InstructorHome = () => {
-    const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const remainingTime = nextClassDate - new Date();
-            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-            setCountdown({ days, hours, minutes, seconds });
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
@@ -79,7 +61,7 @@ const InstructorHome = () => {
                     <div className="flex items-center font-semibold gap-5 mt-5 uppercase">
                         <div className="flex flex-col items-center">
                             <div className="text-xl text-neutral-600 mr-2">
-                                {countdown.days}
+                               00
                             </div>
                             <div className="text-lg mr-2">
                                 days
@@ -88,7 +70,7 @@ const InstructorHome = () => {
 
                         <div className="flex flex-col items-center">
                             <div className="text-xl text-neutral-600 mr-2">
-                                {countdown.hours}
+                                00
                             </div>
                             <div className="text-lg mr-2">
                                 hours
@@ -97,7 +79,7 @@ const InstructorHome = () => {
 
                         <div className="flex flex-col items-center">
                             <div className="text-xl text-neutral-600 mr-2">
-                                {countdown.minutes}
+                                00
                             </div>
                             <div className="text-lg mr-2">
                                 minutes
@@ -106,7 +88,7 @@ const InstructorHome = () => {
 
                         <div className="flex flex-col items-center">
                             <div className="text-xl text-neutral-600">
-                                {countdown.seconds}
+                                00
                             </div>
                             <div className="text-lg ml-2">
                                 seconds

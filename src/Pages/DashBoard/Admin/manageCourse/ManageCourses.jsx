@@ -32,6 +32,18 @@ const ManageClasses = () => {
             console.error('Error updating course status:', error);
         }
     };
+    const handleDenied = async (id) => {
+        try {
+            const res = await axiosSecure.patch(`/course/denied/${id}`);
+            console.log(res.data)
+            if (res.data.modifiedCount) {
+                refetch();
+                toast.success('Course Denied');
+            }
+        } catch (error) {
+            console.error('Error updating course status:', error);
+        }
+    };
 
     return (
         <div>
@@ -52,7 +64,7 @@ const ManageClasses = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
-                        manageCourses.map((course, index) => <ManageCoursesData key={course._id} handleStatus={handleStatus} course={course} index={index} />)
+                        manageCourses.map((course, index) => <ManageCoursesData key={course._id} handleStatus={handleStatus} course={course} index={index} handleDenied={handleDenied} />)
                     }
                 </tbody>
 

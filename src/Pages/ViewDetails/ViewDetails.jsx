@@ -22,6 +22,7 @@ const ViewDetails = () => {
     const {
         image,
         _id,
+        availableSeats,
         name,
         email,
         aboutClass,
@@ -44,6 +45,7 @@ const ViewDetails = () => {
             axiosSecure.post('/selectCourses', savedCourse)
                 .then(response => {
                     const data = response.data;
+                    console.log(data)
                     if (data.insertedId) {
                         toast.success('You Have Selected this course');
                         navigate('/dashboard/selected-class');
@@ -101,11 +103,9 @@ const ViewDetails = () => {
                 </div>
 
                 <div className='text-center'>
-                    {/* <button onClick={handleSelectCourse} className={`bg-blue-500 text-white py-3 px-6 rounded-md font-medium text-lg hover:bg-blue-600 `} disabled={role === 'instructor' || role === 'admin'}>
-                        Select Now
-                    </button> */}
 
-                    <button onClick={handleSelectCourse} className={`relative text-lg font-medium rounded px-5 py-2.5 overflow-hidden group bg-indigo-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-indigo-400 transition-all ease-out duration-300`} disabled={role === 'instructor' || role === 'admin'}>
+                    <button onClick={handleSelectCourse} className={`relative text-lg font-medium rounded px-5 py-2.5 overflow-hidden group ${role === 'instructor' || role === 'admin' || availableSeats == 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-indigo-400 transition-all ease-out duration-300'} `} disabled={role === 'instructor' || role === 'admin' || availableSeats == 0}>
+
                         <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                         <span className="relative">Select Now</span>
                     </button>
