@@ -23,8 +23,8 @@ const EnrolledClass = () => {
                 <div className="flex justify-between">
                     <h3 className="text-3xl font-semibold text-center">Enrolled Courses</h3>
                 </div>
-                <div className="overflow-x-auto mt-5">
-                    <table className="table">
+                <div className="mt-5">
+                    <table className="table overflow-x-scroll">
                         <thead>
                             <tr>
                                 <th>TransactionId</th>

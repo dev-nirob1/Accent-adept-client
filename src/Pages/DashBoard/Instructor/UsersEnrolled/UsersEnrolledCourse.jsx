@@ -26,7 +26,7 @@ const UsersEnrolledCourse = () => {
                 <title>Accent Adept | Paid Enrollment Overview</title>
             </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Paid Enrollment Overview</h2>
-            <table className="table border">
+            <table className="table overflow-x-scroll border">
                 {/* table header */}
                 <thead>
                     <tr>

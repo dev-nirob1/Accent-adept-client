@@ -66,7 +66,7 @@ const ManageUsers = () => {
                 <title>Accent Adept | Manage Users</title>
             </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Manage User</h2>
-            <table className="table border">
+            <table className="table overflow-x-scroll border">
                 {/* table header */}
                 <thead>
                     <tr>

@@ -4,7 +4,7 @@ import logo from './../../assets/logo.png'
 function Footer() {
     return (
         <footer className="bg-[#16697A] text-gray-50 py-10">
-            <div className=" flex flex-col items-center justify-center space-y-6">
+            <div className="flex flex-col items-center justify-center space-y-6 md:ml-10 lg:ml-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full lg:w-11/12">
                     <div className="text-center md:text-left mb-5">
                         <img className='w-32 mb-4 mx-auto' src={logo} alt="logo" />

@@ -27,8 +27,8 @@ const PaymentHistory = () => {
                         <span>Download</span>
                 </button>
             </div>
-            <div className="overflow-x-auto mt-5">
-                <table className="table">
+            <div className=" mt-5">
+                <table className="table overflow-x-scroll">
                     <thead>
                         <tr>
                             <th>TrxId</th>

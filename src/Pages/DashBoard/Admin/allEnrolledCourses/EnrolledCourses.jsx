@@ -23,7 +23,7 @@ const EnrolledCourses = () => {
             <div>
                 <h3 className="text-3xl font-semibold text-center">All Enrolled Courses</h3>
             </div>
-            <div className="overflow-x-auto mt-5">
+            <div className="overflow-x-scroll mt-5">
                 <table className="table">
                     <thead>
                         <tr>

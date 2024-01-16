@@ -51,13 +51,13 @@ const SelectedClass = () => {
             {
                 selectedCourses && Array.isArray(selectedCourses) && selectedCourses.length > 0
                     ?
-                    <div className="overflow-x-auto p-5 bg-gray-50">
+                    <div className="p-5 bg-gray-50">
                         <Helmet>
                             <title>Accent Adept | Selected Course</title>
                         </Helmet>
                         <h2 className='text-3xl font-semibold text-center my-8'>Your Selected Courses</h2>
 
-                        <table className="table border">
+                        <table className="overflow-x-scroll table border">
                             {/* table header */}
                             <thead>
                                 <tr>

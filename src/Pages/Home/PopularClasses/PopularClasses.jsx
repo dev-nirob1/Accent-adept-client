@@ -4,7 +4,7 @@ import ClassCard from "../../../SharedComponents/ClassCard";
 import LinkButton from "../../../SharedComponents/LinkButton";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import { motion } from 'framer-motion'
+
 import './popularClass.css'
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -12,20 +12,7 @@ import 'swiper/css/navigation';
 const PopularClasses = () => {
     const apiUrl = import.meta.env.VITE_API;
 
-    const variants = {
-        initial: {
-            x: -100,
-            opacity: 0
-        },
-        animate: {
-            x: 0,
-            opacity: 1,
-            transition: {
-                duration: 1,
-                staggerChildren: 0.1
-            }
-        }
-    }
+ 
     const [PopularClasses, setPopularClasses] = useState([])
     useEffect(() => {
         fetch(`${apiUrl}/popularClasses`)
@@ -33,7 +20,7 @@ const PopularClasses = () => {
             .then(data => setPopularClasses(data))
     }, [apiUrl])
     return (
-        <motion.div variants={variants} className="my-8 md:my-10 lg:my-16">
+        <div className="my-8 md:my-10 lg:my-16">
 
             <SectionTitle
                 heading="Explore Our Popular Classes"
@@ -79,7 +66,7 @@ const PopularClasses = () => {
                 <LinkButton name='See More' to={'classes'} />
             </Swiper>
 
-        </motion.div>
+        </div>
     );
 };
 
