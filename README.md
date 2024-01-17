@@ -1,5 +1,7 @@
 # Accent Adept #
 ### Live link : https://accent-adept.netlify.app/
+Admin-email: nirob1@gmail.com
+password: N!r@b1
 
 * *Accent Adept* is a website dedicated to foreign language learning, offering a range of paid courses.
 
