@@ -45,7 +45,9 @@ const Register = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                if (data.acknowledged) {
+                                console.log(data)
+                                if (data.upsertedCount > 0) {
+
                                     toast.success('Registration Succesfull')
                                 }
                                 reset()

@@ -12,10 +12,11 @@ const Payment = () => {
     const { id } = useParams()
 
     const { data: payment = [] } = useQuery({
-        queryKey: ['selectedCourse'],
+        queryKey: ['selectedCourse', id],
         queryFn: async () => {
-            const data = await axiosSecure.get(`/selectedCourse/${id}`)
-            return data.data
+            const res = await axiosSecure.get(`/selectedCourse/${id}`)
+            console.log(res.data)
+            return res.data
         }
     })
     const price = payment.price;
@@ -26,7 +27,7 @@ const Payment = () => {
     return (
         <div className="md:w-3/4 mx-auto">
             <Elements stripe={stripePromise}>
-                <CheckOutForm payment={payment} price={total}/>
+                <CheckOutForm payment={payment} price={total} />
             </Elements>
         </div>
     );
