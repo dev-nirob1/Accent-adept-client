@@ -3,9 +3,11 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "../../../SharedComponents/Loader";
+import EmptyState from "../../../SharedComponents/EmptyState";
 
 const EnrolledClass = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
     const { data: enrolledCourses = [] } = useQuery({
         queryKey: ['enrolledCourses', user?.email],
@@ -14,8 +16,11 @@ const EnrolledClass = () => {
             return data.data
         }
     })
+    if(loading){
+        return <Loader/>
+    }
     return (
-        <div className="border p-5 rounded-sm shadow">
+        <div className="p-5">
             <Helmet>
                 <title>Accent Adept | Enrolled Courses</title>
             </Helmet>
@@ -24,7 +29,7 @@ const EnrolledClass = () => {
                     <h3 className="text-3xl font-semibold text-center">Enrolled Courses</h3>
                 </div>
                 <div className="mt-5">
-                    <table className="table overflow-x-scroll">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>TransactionId</th>
@@ -35,6 +40,7 @@ const EnrolledClass = () => {
                         </thead>
                         <tbody>
                             {
+                                enrolledCourses.length > 0 ?
                                 enrolledCourses.map(course =>
                                     <tr key={course._id}>
                                         <td>TrxId: {course.transactionId}</td>
@@ -45,6 +51,8 @@ const EnrolledClass = () => {
                                         <td><p className="w-fit bg-green-400 rounded-md text-green-800 font-medium">enrolled</p></td>
                                     </tr>
                                 )
+                                : 
+                                <EmptyState/>
                             }
                         </tbody>
                     </table>

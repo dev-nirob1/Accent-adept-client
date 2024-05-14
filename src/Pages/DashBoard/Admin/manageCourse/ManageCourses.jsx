@@ -5,6 +5,8 @@ import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import EmptyState from "../../../../SharedComponents/EmptyState";
+import Loader from "../../../../SharedComponents/Loader";
 
 const ManageClasses = () => {
 
@@ -44,6 +46,9 @@ const ManageClasses = () => {
             console.error('Error updating course status:', error);
         }
     };
+    if(loading){
+        return <Loader/>
+    }
 
     return (
         <div>
@@ -51,7 +56,7 @@ const ManageClasses = () => {
                 <title>Accent Adept | Manage Courses</title>
             </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Manage Courses</h2>
-            <table className="table overflow-x-scroll border">
+            <table className="table overflow-x-auto border">
                 {/* table header */}
                 <thead>
                     <tr>
@@ -64,7 +69,10 @@ const ManageClasses = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
+                        manageCourses.length > 0 ?
                         manageCourses.map((course, index) => <ManageCoursesData key={course._id} handleStatus={handleStatus} course={course} index={index} handleDenied={handleDenied} />)
+                        : 
+                        <EmptyState/>
                     }
                 </tbody>
 

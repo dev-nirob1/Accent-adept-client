@@ -1,9 +1,12 @@
 import { useForm } from 'react-hook-form';
+import Loader from '../../../../SharedComponents/Loader';
 
 const AddForm = ({ onSubmit, handleImage1Change, handleImage2Change, loading, uploadimage1Text, uploadimage2Text }) => {
 
     const { handleSubmit, register, formState: { errors } } = useForm();
-
+    if(loading) {
+        return <Loader/>
+    }
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -258,7 +261,7 @@ const AddForm = ({ onSubmit, handleImage1Change, handleImage2Change, loading, up
                         className="bg-blue-500 w-1/2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         disabled={loading}
                     >
-                        {loading ? 'Adding Course...' : 'Add Course'}
+                        {loading ? <span className='h-3 w-3 animate-spin'></span> : 'Add Course'}
                     </button>
                 </div>
             </form>

@@ -6,6 +6,7 @@ import EmptyState from "../../../../SharedComponents/EmptyState";
 import Swal from 'sweetalert2'
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery, } from '@tanstack/react-query'
+import Loader from "../../../../SharedComponents/Loader";
 
 const AddedClass = () => {
     const { user, loading } = useContext(AuthContext)
@@ -45,38 +46,41 @@ const AddedClass = () => {
             }
         });
     }
+    if(loading){
+        return <Loader/>
+    }
 
     return (
         <>
 
             {
-                addedClass && Array.isArray(addedClass) && addedClass.length > 0 ?
-                    <div className="overflow-x-auto p-5 bg-gray-50">
-                        <Helmet>
-                            <title>Accent Adept | My Courses</title>
-                        </Helmet>
-                        <h2 className='text-3xl font-semibold text-center my-8'>Manage Your Added Course</h2>
-                        <table className="table overflow-x-scroll border">
-                            {/* table header */}
-                            <thead>
-                                <tr>
-                                    <th>Serial</th>
-                                    <th>Course Name</th>
-                                    <th>Instructor</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody className='md:text-base'>
-                                {
+                <div className="p-5">
+                    <Helmet>
+                        <title>Accent Adept | My Courses</title>
+                    </Helmet>
+                    <h2 className='text-3xl font-semibold text-center my-8'>Manage Your Added Course</h2>
+                    <table className="table overflow-x-auto border">
+                        {/* table header */}
+                        <thead>
+                            <tr>
+                                <th>Serial</th>
+                                <th>Course Name</th>
+                                <th>Instructor</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody className='md:text-base'>
+                            {
+                                addedClass.length > 0 ?
                                     addedClass.map((data, index) => <AddedClassData key={data._id} handleDelete={handleDelete} data={data} index={index} />)
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                    :
-                    <EmptyState></EmptyState>
+                                    :
+                                    <EmptyState />
+                            }
+                        </tbody>
+                    </table>
+                </div>
             }
         </>
     );

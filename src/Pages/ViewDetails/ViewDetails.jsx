@@ -5,9 +5,10 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast'
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import Loader from '../../SharedComponents/Loader';
 
 const ViewDetails = () => {
-    const { user, role } = useContext(AuthContext)
+    const { user, role, loading } = useContext(AuthContext)
     const navigate = useNavigate()
     const [axiosSecure] = useAxiosSecure()
     const { id } = useParams()
@@ -61,6 +62,9 @@ const ViewDetails = () => {
         window.scrollTo(0, 0)
     }, [])
 
+    if(loading){
+        return <Loader/>
+    }
     return (
         <div className="container mx-auto mb-8">
             <Helmet>

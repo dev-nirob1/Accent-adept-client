@@ -4,8 +4,10 @@ import { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import moment from 'moment';
+import Loader from "../../../SharedComponents/Loader";
+import EmptyState from "../../../SharedComponents/EmptyState";
 const PaymentHistory = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
     const { data: paymentHistory = [] } = useQuery({
         queryKey: ['payment-history', user?.email],
@@ -14,8 +16,11 @@ const PaymentHistory = () => {
             return data.data
         }
     })
+    if(loading){
+        return <Loader/>
+    }
     return (
-        <div className="border p-5 rounded-sm shadow">
+        <div className="p-5">
             <Helmet>
                 <title>Accent Adept | Payment History</title>
             </Helmet>
@@ -40,6 +45,7 @@ const PaymentHistory = () => {
                     </thead>
                     <tbody>
                         {
+                            paymentHistory.length > 0 ?
                             paymentHistory.map(history =>
                                 <tr key={history._id}>
                                     <td>TrxId: {history.transactionId}</td>
@@ -52,6 +58,8 @@ const PaymentHistory = () => {
                                     <td><p className="w-fit bg-green-400 rounded-md text-green-800 font-medium">successful</p></td>
                                 </tr>
                             )
+                            : 
+                            <EmptyState/>
                         }
                     </tbody>
                 </table>

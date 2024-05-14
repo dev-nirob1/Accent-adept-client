@@ -1,10 +1,12 @@
 import SectionTitle from "../../SharedComponents/SectionTitle";
 import ClassCard from "../../SharedComponents/ClassCard";
 import { Helmet } from "react-helmet-async";
-import { useEffect, useState } from "react";
-import EmptyState from "../../SharedComponents/EmptyState";
-import {motion} from 'framer-motion'
+import { useContext, useEffect, useState } from "react";
+import { motion } from 'framer-motion'
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Loader from "../../SharedComponents/Loader";
 const Classes = () => {
+    const { loading } = useContext(AuthContext)
     const [classes, setClasses] = useState([])
     useEffect(() => {
         fetch(`${import.meta.env.VITE_API}/classes`)
@@ -17,44 +19,45 @@ const Classes = () => {
         window.scrollTo(0, 0)
     }, [])
 
-        //animation
-        const variants = {
-            initial: {
-                y: -100,
-                opacity: 0
-            },
-            animate: {
-                y: 0,
-                opacity: 1,
-                transition: {
-                    duration: 1,
-                }
+    //animation
+    const variants = {
+        initial: {
+            y: -100,
+            opacity: 0
+        },
+        animate: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 1,
             }
         }
+    }
+    if (loading) {
+        return <Loader />
+    }
     return (
         <>
             {
-                classes && Array.isArray(classes) && classes.length > 0
-                    ?
-                    <div className="my-8 mx-2 md:my-16">
-                        <Helmet>
-                            <title>Accent Adept | Classes</title>
-                        </Helmet>
-                        <SectionTitle
-                            heading="Discover Our Exciting Classes"
-                            description="Explore our wide range of language classes designed to help you learn and master a new language. Each class is carefully crafted to enhance your language skills and cultural understanding."
-                        ></SectionTitle>
 
-                        <motion.div variants={variants} initial="initial" whileInView="animate" className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                            {
-                                classes && classes.map(classItem => (
-                                    <ClassCard key={classItem._id} classItem={classItem}></ClassCard>
-                                ))
-                            }
-                        </motion.div>
-                    </div>
-                    :
-                    <EmptyState></EmptyState>
+                <div className="my-8 mx-2 md:my-16">
+                    <Helmet>
+                        <title>Accent Adept | Classes</title>
+                    </Helmet>
+                    <SectionTitle
+                        heading="Discover Our Exciting Classes"
+                        description="Explore our wide range of language classes designed to help you learn and master a new language. Each class is carefully crafted to enhance your language skills and cultural understanding."
+                    ></SectionTitle>
+
+                    <motion.div variants={variants} initial="initial" whileInView="animate" className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {
+                            classes && classes.map(classItem => (
+                                <ClassCard key={classItem._id} classItem={classItem}></ClassCard>
+                            ))
+                        }
+                    </motion.div>
+                </div>
+
             }
         </>
     );

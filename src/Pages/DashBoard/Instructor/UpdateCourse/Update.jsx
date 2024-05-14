@@ -4,10 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import Loader from "../../../../SharedComponents/Loader";
 
 const Update = () => {
     const { id } = useParams()
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const navigate = useNavigate()
     const [axiosSecure] = useAxiosSecure()
 
@@ -43,6 +44,9 @@ const Update = () => {
         }
     };
 
+    if(loading){
+        return <Loader/>
+    }
     return (
         <form onSubmit={handleUpdate} className="border rounded-lg shadow p-6">
             <h3 className="text-center text-3xl font-semibold pt-5">Update Info</h3>
@@ -128,11 +132,12 @@ const Update = () => {
                 </div>
             </div>
             <button
-                type="submit"
-                className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md hover:bg-blue-600 focus:outline-none"
-            >
-                Update Information
-            </button>
+                        type="submit"
+                        className="bg-blue-500 w-1/2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        disabled={loading}
+                    >
+                        {loading ? <span className='h-3 w-3 animate-spin'></span> : 'Update Information'}
+                    </button>
         </form>
     );
 };

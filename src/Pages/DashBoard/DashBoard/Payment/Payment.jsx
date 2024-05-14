@@ -15,7 +15,6 @@ const Payment = () => {
         queryKey: ['selectedCourse', id],
         queryFn: async () => {
             const res = await axiosSecure.get(`/selectedCourse/${id}`)
-            console.log(res.data)
             return res.data
         }
     })

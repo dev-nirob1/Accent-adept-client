@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import UsersEnrolled from "./UsersEnrolled"
 import { Helmet } from "react-helmet-async";
+import Loader from "../../../../SharedComponents/Loader";
+import EmptyState from "../../../../SharedComponents/EmptyState";
 
 const UsersEnrolledCourse = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -18,15 +20,17 @@ const UsersEnrolledCourse = () => {
         }
     })
 
-
+    if (loading) {
+        return <Loader />
+    }
 
     return (
-        <div className="overflow-x-auto p-5 border shadow-lg">
+        <div className="p-5">
             <Helmet>
                 <title>Accent Adept | Paid Enrollment Overview</title>
             </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Paid Enrollment Overview</h2>
-            <table className="table overflow-x-scroll border">
+            <table className="table overflow-x-auto border">
                 {/* table header */}
                 <thead>
                     <tr>
@@ -40,10 +44,13 @@ const UsersEnrolledCourse = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
+                        enrolledCourse.length > 0 ?
                         enrolledCourse.map((data, index) => <UsersEnrolled
-                            key={data._id}
-                            data={data}
-                            index={index} />)
+                        key={data._id}
+                        data={data}
+                        index={index} />)
+                    :
+                    <EmptyState />
                     }
                 </tbody>
             </table>

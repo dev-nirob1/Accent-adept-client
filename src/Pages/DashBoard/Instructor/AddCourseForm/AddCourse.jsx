@@ -11,7 +11,7 @@ const AddCourse = () => {
     const [axiosSecure] = useAxiosSecure()
     const navigate = useNavigate()
     const { user } = useContext(AuthContext);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [uploadimage1Text, setUploadimage1Text] = useState('Upload Image');
     const [uploadimage2Text, setUploadimage2Text] = useState('Upload Image');
     const [file1, setFile1] = useState(null);

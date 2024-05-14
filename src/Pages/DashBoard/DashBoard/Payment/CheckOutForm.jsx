@@ -10,7 +10,7 @@ const CheckOutForm = ({ payment, price }) => {
     const navigate = useNavigate()
     const stripe = useStripe();
     const elements = useElements();
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
     const [processing, setProcessing] = useState(false)
     const [error, setError] = useState('')
@@ -86,7 +86,7 @@ const CheckOutForm = ({ payment, price }) => {
                 className: payment.className,
                 added_by: payment.hostEmail
             }
-            
+
             axiosSecure.post('/payments', paymentDetails)
                 .then(response => {
 
@@ -107,13 +107,13 @@ const CheckOutForm = ({ payment, price }) => {
 
     return (
         <div>
-            {processing ? <h3 className="text-3xl font-medium">Your are paying for: Loading...</h3>
+            {processing || loading ? <h3 className="text-3xl font-medium">Your are paying for: <span className="animate-spin h-3 w-3">loading...</span></h3>
                 : <div className="flex items-center justify-between">
                     <h3 className="text-3xl font-medium">Your are paying for: {payment.language}</h3>
                     <img className="h-16 w-24 rounded-lg" src={payment.image} alt="course image" />
                 </div>
             }
-            {processing ? <p className="text-lg font-semibold">total:{'Loading...'}</p>
+            {processing || loading ? <p className="text-lg font-semibold">total: <span className="animate-spin h-3 w-3">loading...</span> </p>
                 : <p className="text-lg font-semibold">total: {price}</p>
             }
             <form onSubmit={handleSubmit}>
@@ -138,7 +138,7 @@ const CheckOutForm = ({ payment, price }) => {
                 {transactionId && <p className="mt-3 text-green-600 text-center">Thanks for payment your transactionId : {transactionId}</p>}
 
                 <button className="px-5 py-2 rounded bg-indigo-700 text-white font-semibold" type="submit" disabled={!stripe || !elements}>
-                    {processing ? <div>loading..</div> : <span>Pay</span>}
+                    {processing || loading ? <span className="h-3 w-3 animate-spin">Loading</span> : <span>Pay</span>}
                 </button>
             </form>
         </div>

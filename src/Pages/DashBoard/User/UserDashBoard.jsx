@@ -6,7 +6,7 @@ const UserDashBoard = () => {
 
     return (
         <div>
-            <ul className="menu p-4 bg-blue-400 h-screen space-y-1 w-80 min-h-full text-white font-semibold text-lg">
+            <ul className="menu p-4 bg-blue-400 space-y-1 w-80 min-h-screen overflow-y-auto text-white font-semibold text-lg">
                 <ProfileInfo />
                 <li><NavLink to="students-home">Student Home</NavLink></li>
                 <li><NavLink to="selected-class">My Selected Courses</NavLink></li>

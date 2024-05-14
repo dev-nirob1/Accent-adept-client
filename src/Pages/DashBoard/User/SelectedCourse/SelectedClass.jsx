@@ -6,6 +6,7 @@ import EmptyState from "../../../../SharedComponents/EmptyState";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Loader from "../../../../SharedComponents/Loader";
 
 const SelectedClass = () => {
 
@@ -17,7 +18,7 @@ const SelectedClass = () => {
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/selectedCourses?email=${user?.email}`)
-            console.log('res from axios', res.data);
+            // console.log('res from axios', res.data);
             return res.data
         }
     })
@@ -34,7 +35,7 @@ const SelectedClass = () => {
             confirmButtonText: "Yes, Cancel it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                console.log(res)
+                // console.log(res)
                 if (res.data.deletedCount > 0) {
                     await refetch()
                     Swal.fire({
@@ -46,12 +47,14 @@ const SelectedClass = () => {
             }
         });
     }
+    if(loading){
+        return <Loader/>
+    }
     return (
         <>
             {
-                selectedCourses && Array.isArray(selectedCourses) && selectedCourses.length > 0
-                    ?
-                    <div className="p-5 bg-gray-50">
+                selectedCourses.length > 0 ?
+                    <div className="p-5">
                         <Helmet>
                             <title>Accent Adept | Selected Course</title>
                         </Helmet>

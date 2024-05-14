@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import EmptyState from "../../../../SharedComponents/EmptyState";
 
 const EnrolledCourses = () => {
     const { user } = useContext(AuthContext)
@@ -15,7 +16,7 @@ const EnrolledCourses = () => {
         }
     })
     return (
-        <div className="border p-5 rounded-sm shadow">
+        <div className="p-5">
         <Helmet>
             <title>Accent Adept | All Enrolled Courses</title>
         </Helmet>
@@ -23,7 +24,7 @@ const EnrolledCourses = () => {
             <div>
                 <h3 className="text-3xl font-semibold text-center">All Enrolled Courses</h3>
             </div>
-            <div className="overflow-x-scroll mt-5">
+            <div className="mt-5">
                 <table className="table">
                     <thead>
                         <tr>
@@ -36,6 +37,7 @@ const EnrolledCourses = () => {
                     </thead>
                     <tbody>
                         {
+                            enrolledCourses.length > 0 ?
                             enrolledCourses.map(course =>
                                 <tr key={course._id}>
                                     <td>{course.added_by}</td>
@@ -47,6 +49,7 @@ const EnrolledCourses = () => {
                                     <td><p className="w-fit bg-green-400 rounded-md text-green-800 font-medium">enrolled</p></td>
                                 </tr>
                             )
+                            : <EmptyState/>
                         }
                     </tbody>
                 </table>

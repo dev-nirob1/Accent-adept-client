@@ -7,7 +7,7 @@ const InstructorsDashboard = () => {
     return (
         <div>
 
-            <ul className="menu p-4 bg-blue-400 h-screen space-y-1 w-80 min-h-full text-gray-100 font-semibold text-lg">
+            <ul className="menu p-4 bg-blue-400 min-h-screen space-y-1 w-80 overflow-y-auto text-gray-100 font-semibold text-lg">
             <ProfileInfo />
                 <li><NavLink to="instructor-home">Instructor Home</NavLink></li>
                 <li><NavLink to="add-course">Add a Course</NavLink></li>

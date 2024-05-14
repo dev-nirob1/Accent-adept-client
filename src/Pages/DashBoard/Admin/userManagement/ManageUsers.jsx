@@ -6,6 +6,8 @@ import { useQuery, } from '@tanstack/react-query'
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import EmptyState from '../../../../SharedComponents/EmptyState';
+import Loader from '../../../../SharedComponents/Loader';
 
 const ManageUsers = () => {
     const { loading } = useContext(AuthContext)
@@ -60,6 +62,10 @@ const ManageUsers = () => {
         }
     }
 
+    if(loading){
+        return <Loader/>
+    }
+
     return (
         <div className="overflow-x-auto p-5">
             <Helmet>
@@ -79,7 +85,10 @@ const ManageUsers = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
+                        users?.length > 0 ?
                         users.map((user, index) => <UsersData key={user._id} handleMakeAdmin={handleMakeAdmin} handleMakeInstructor={handleMakeInstructor} handleDeleteUser={handleDeleteUser} user={user} index={index} />)
+                        : 
+                        <EmptyState/>
                     }
                 </tbody>
 

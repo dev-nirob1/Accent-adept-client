@@ -15,7 +15,6 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 const InstructorHome = () => {
 
-
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
             <Helmet>
