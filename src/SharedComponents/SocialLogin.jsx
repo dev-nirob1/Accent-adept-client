@@ -23,7 +23,7 @@ const SocialLogin = () => {
                 const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email }
 
                 if (loggedUser) {
-                    fetch(`${apiUrl}/users`, {
+                    fetch(`${apiUrl}/users/put`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

@@ -36,7 +36,7 @@ const Register = () => {
                     .then(() => {
                         const savedUser = { name: data.name, email: data.email, photo: data.photoUrl }
 
-                        fetch(`${apiUrl}/users`, {
+                        fetch(`${apiUrl}/users/put`, {
                             method: 'PUT',
                             headers: {
                                 'content-type': 'application/json'

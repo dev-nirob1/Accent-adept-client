@@ -9,6 +9,11 @@ html{
 .swiper-button-prev,
 .swiper-button-next {
   color: white !important;
+  border-radius: 50%;
+  padding: 30px;
+  position: absolute;
+  top: 35% !important;
+  background-color: #6d96e1;
 }
 
 .drawer-side a.active {
