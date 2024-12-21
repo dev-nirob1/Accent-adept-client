@@ -4,58 +4,64 @@ import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import EmptyState from "../../../../SharedComponents/EmptyState";
+import Loader from "../../../../SharedComponents/Loader";
 
 const EnrolledCourses = () => {
     const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
-    const { data: enrolledCourses = [] } = useQuery({
+    const { data: enrolledCourses = [], isLoading } = useQuery({
         queryKey: ['all-enrolledcourses', user?.email],
         queryFn: async () => {
             const data = await axiosSecure.get(`/all-enrolledcourses`)
             return data.data
         }
     })
+    
+    if(isLoading) return <Loader/>
+
     return (
         <div className="p-5">
-        <Helmet>
-            <title>Accent Adept | All Enrolled Courses</title>
-        </Helmet>
-        <div>
+            <Helmet>
+                <title>Accent Adept | All Enrolled Courses</title>
+            </Helmet>
             <div>
-                <h3 className="text-3xl font-semibold text-center">All Enrolled Courses</h3>
-            </div>
-            <div className="mt-5">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Added-By</th>
-                            <th>Transaction Id</th>
-                            <th>Course</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            enrolledCourses.length > 0 ?
-                            enrolledCourses.map(course =>
-                                <tr key={course._id}>
-                                    <td>{course.added_by}</td>
-                                    <td>TrxId: {course.transactionId}</td>
-                                    <td> {course.courseName}
-                                        <br />
-                                        <span className="badge badge-ghost badge-sm">{course.className}</span></td>
-                                    <td>$ {course.price}</td>
-                                    <td><p className="w-fit bg-green-400 rounded-md text-green-800 font-medium">enrolled</p></td>
-                                </tr>
-                            )
-                            : <EmptyState/>
-                        }
-                    </tbody>
-                </table>
+                <div>
+                    <h3 className="text-3xl font-semibold text-center">All Enrolled Courses</h3>
+                </div>
+
+                {enrolledCourses.length > 0 ? <div className="mt-5">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Added-By</th>
+                                <th>Transaction Id</th>
+                                <th>Course</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                enrolledCourses.map(course =>
+                                    <tr key={course._id}>
+                                        <td>{course.added_by}</td>
+                                        <td>TrxId: {course.transactionId}</td>
+                                        <td> {course.courseName}
+                                            <br />
+                                            <span className="badge badge-ghost badge-sm">{course.className}</span></td>
+                                        <td>$ {course.price}</td>
+                                        <td><p className="w-fit bg-green-400 rounded-md text-green-800 font-medium">enrolled</p></td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                    :
+                    <EmptyState />
+                }
             </div>
         </div>
-    </div>
     );
 };
 

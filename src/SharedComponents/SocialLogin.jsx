@@ -23,8 +23,8 @@ const SocialLogin = () => {
                 const savedUser = { name: loggedUser.displayName, photo: loggedUser.photoURL, email: loggedUser.email }
 
                 if (loggedUser) {
-                    fetch(`${apiUrl}/users/put`, {
-                        method: 'PUT',
+                    fetch(`${apiUrl}/users`, {
+                        method: 'POST',
                         headers: {
                             'content-type': 'application/json'
                         },
@@ -32,7 +32,9 @@ const SocialLogin = () => {
                     })
                         .then(res => res.json())
                         .then(response => {
-                            console.log('Server response:', response);
+                            if(response.insertedId){
+                                toast.success('Welcome to Accent Adept')
+                            }
                         })
                 }
             })

@@ -41,7 +41,6 @@ const AddCourse = () => {
 
         if (data.instructorImage && file2) {
             imageData2 = await uploadImage(file2, imageHostingUrl);
-            console.log(imageData2)
             const instructorImage = imageData2.data.display_url;
             console.log('instructor', instructorImage);
         }

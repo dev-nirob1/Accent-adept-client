@@ -13,7 +13,7 @@ const SelectedClass = () => {
     const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
 
-    const { data: selectedCourses = [], refetch } = useQuery({
+    const { data: selectedCourses = [], refetch, isLoading } = useQuery({
         queryKey: ['selectedCourses', user?.email],
         enabled: !loading,
         queryFn: async () => {
@@ -47,8 +47,8 @@ const SelectedClass = () => {
             }
         });
     }
-    if(loading){
-        return <Loader/>
+    if (isLoading) {
+        return <Loader />
     }
     return (
         <>

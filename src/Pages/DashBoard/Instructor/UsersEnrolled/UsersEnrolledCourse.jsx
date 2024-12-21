@@ -11,7 +11,7 @@ const UsersEnrolledCourse = () => {
     const [axiosSecure] = useAxiosSecure()
     const { user, loading } = useContext(AuthContext)
 
-    const { data: enrolledCourse = [] } = useQuery({
+    const { data: enrolledCourse = [], isLoading } = useQuery({
         queryKey: ['enrolledCourse', user?.email],
         enabled: !loading,
         queryFn: async () => {
@@ -20,7 +20,7 @@ const UsersEnrolledCourse = () => {
         }
     })
 
-    if (loading) {
+    if (isLoading) {
         return <Loader />
     }
 
@@ -30,7 +30,7 @@ const UsersEnrolledCourse = () => {
                 <title>Accent Adept | Paid Enrollment Overview</title>
             </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Paid Enrollment Overview</h2>
-            <table className="table overflow-x-auto border">
+            {enrolledCourse.length > 0 ? <table className="table overflow-x-auto border">
                 {/* table header */}
                 <thead>
                     <tr>
@@ -44,16 +44,16 @@ const UsersEnrolledCourse = () => {
                 </thead>
                 <tbody className='md:text-base'>
                     {
-                        enrolledCourse.length > 0 ?
                         enrolledCourse.map((data, index) => <UsersEnrolled
-                        key={data._id}
-                        data={data}
-                        index={index} />)
-                    :
-                    <EmptyState />
+                            key={data._id}
+                            data={data}
+                            index={index} />)
                     }
                 </tbody>
             </table>
+                :
+                <EmptyState />
+            }
         </div>
     );
 };

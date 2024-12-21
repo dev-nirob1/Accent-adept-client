@@ -1,17 +1,19 @@
 import { FaTrash, FaUsers } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
 import { GiTeacher } from "react-icons/gi";
+import { useContext } from "react";
+import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 
-const UsersData = ({ user, index, handleMakeAdmin, handleDeleteUser, handleMakeInstructor }) => {
-
-    const { name, email, role, photo, _id } = user;
+const UsersData = ({ data, index, handleMakeAdmin, handleDeleteUser, handleMakeInstructor }) => {
+    const { user } = useContext(AuthContext)
+    const { name, email, role, photo, _id } = data;
 
     return (
-        <tr>
+        <tr className={`${user?.email === email && 'bg-gray-200'}`}>
             <td>{index + 1}</td>
             <td>
                 <div className="flex items-center gap-3">
-                    <div className="avatar">
+                    <div className="avatar border">
                         <div className="mask rounded w-12 h-12">
                             <img src={photo} alt="user image" />
                         </div>

@@ -13,7 +13,7 @@ const ManageUsers = () => {
     const { loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [], refetch, isLoading } = useQuery({
         queryKey: ['users'],
         enabled: !loading,
         queryFn: async () => {
@@ -62,8 +62,8 @@ const ManageUsers = () => {
         }
     }
 
-    if(loading){
-        return <Loader/>
+    if (isLoading) {
+        return <Loader />
     }
 
     return (
@@ -72,27 +72,28 @@ const ManageUsers = () => {
                 <title>Accent Adept | Manage Users</title>
             </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Manage User</h2>
-            <table className="table overflow-x-scroll border">
-                {/* table header */}
-                <thead>
-                    <tr>
-                        <th>Serial</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody className='md:text-base'>
-                    {
-                        users?.length > 0 ?
-                        users.map((user, index) => <UsersData key={user._id} handleMakeAdmin={handleMakeAdmin} handleMakeInstructor={handleMakeInstructor} handleDeleteUser={handleDeleteUser} user={user} index={index} />)
-                        : 
-                        <EmptyState/>
-                    }
-                </tbody>
+            {users?.length > 0 ?
+                <table className="table overflow-x-scroll border">
+                    {/* table header */}
+                    <thead>
+                        <tr>
+                            <th>Serial</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody className='md:text-base'>
+                        {
+                            users.map((user, index) => <UsersData key={user._id} handleMakeAdmin={handleMakeAdmin} handleMakeInstructor={handleMakeInstructor} handleDeleteUser={handleDeleteUser} data={user} index={index} />)
+                        }
+                    </tbody>
 
-            </table>
+                </table>
+                :
+                <EmptyState />
+            }
         </div>
     );
 };

@@ -13,7 +13,7 @@ const ManageClasses = () => {
     const { loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
 
-    const { data: manageCourses = [], refetch } = useQuery({
+    const { data: manageCourses = [], refetch, isLoading } = useQuery({
         queryKey: ['courses'],
         enabled: !loading,
         queryFn: async () => {
@@ -46,8 +46,8 @@ const ManageClasses = () => {
             console.error('Error updating course status:', error);
         }
     };
-    if(loading){
-        return <Loader/>
+    if (isLoading) {
+        return <Loader />
     }
 
     return (
@@ -56,27 +56,29 @@ const ManageClasses = () => {
                 <title>Accent Adept | Manage Courses</title>
             </Helmet>
             <h2 className='text-3xl font-semibold text-center my-8'>Manage Courses</h2>
-            <table className="table overflow-x-auto border">
-                {/* table header */}
-                <thead>
-                    <tr>
-                        <th>Serial</th>
-                        <th>Image</th>
-                        <th>Host Email</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody className='md:text-base'>
-                    {
-                        manageCourses.length > 0 ?
-                        manageCourses.map((course, index) => <ManageCoursesData key={course._id} handleStatus={handleStatus} course={course} index={index} handleDenied={handleDenied} />)
-                        : 
-                        <EmptyState/>
-                    }
-                </tbody>
+            {
+                manageCourses.length > 0 ? <table className="table overflow-x-auto border">
+                    {/* table header */}
+                    <thead>
+                        <tr>
+                            <th>Serial</th>
+                            <th>Image</th>
+                            <th>Host Email</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody className='md:text-base'>
+                        {
+                            manageCourses.map((course, index) => <ManageCoursesData key={course._id} handleStatus={handleStatus} course={course} index={index} handleDenied={handleDenied} />)
 
-            </table>
+                        }
+                    </tbody>
+
+                </table>
+                    :
+                    <EmptyState />
+            }
         </div>
     );
 };

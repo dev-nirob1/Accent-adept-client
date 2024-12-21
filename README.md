@@ -1,5 +1,9 @@
 # Accent Adept #
 ### Live link : https://accent-adept.netlify.app/
+### Client Code : https://github.com/dev-nirob1/Accent-adept-client
+### Server Code : https://github.com/dev-nirob1/Accent-adept-server
+
+# Admin Credentials
 Admin-email: nirob1@gmail.com
 password: N!r@b1
 

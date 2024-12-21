@@ -12,7 +12,7 @@ const AddedClass = () => {
     const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
 
-    const { data: addedClass = [], refetch } = useQuery({
+    const { data: addedClass = [], refetch, isLoading } = useQuery({
         queryKey: ['courses', user?.email],
         enabled: !loading,
         queryFn: async () => {
@@ -46,7 +46,7 @@ const AddedClass = () => {
             }
         });
     }
-    if(loading){
+    if(isLoading){
         return <Loader/>
     }
 
@@ -59,7 +59,7 @@ const AddedClass = () => {
                         <title>Accent Adept | My Courses</title>
                     </Helmet>
                     <h2 className='text-3xl font-semibold text-center my-8'>Manage Your Added Course</h2>
-                    <table className="table overflow-x-auto border">
+                   {addedClass.length > 0 ? <table className="table overflow-x-auto border">
                         {/* table header */}
                         <thead>
                             <tr>
@@ -73,13 +73,12 @@ const AddedClass = () => {
                         </thead>
                         <tbody className='md:text-base'>
                             {
-                                addedClass.length > 0 ?
                                     addedClass.map((data, index) => <AddedClassData key={data._id} handleDelete={handleDelete} data={data} index={index} />)
-                                    :
-                                    <EmptyState />
                             }
                         </tbody>
-                    </table>
+                    </table> :
+                    <EmptyState/>
+                    }
                 </div>
             }
         </>

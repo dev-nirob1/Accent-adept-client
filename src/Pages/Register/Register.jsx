@@ -36,8 +36,8 @@ const Register = () => {
                     .then(() => {
                         const savedUser = { name: data.name, email: data.email, photo: data.photoUrl }
 
-                        fetch(`${apiUrl}/users/put`, {
-                            method: 'PUT',
+                        fetch(`${apiUrl}/users`, {
+                            method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
                             },
@@ -46,7 +46,7 @@ const Register = () => {
                             .then(res => res.json())
                             .then(data => {
                                 console.log(data)
-                                if (data.upsertedCount > 0) {
+                                if (data.insertedId) {
 
                                     toast.success('Registration Succesfull')
                                 }

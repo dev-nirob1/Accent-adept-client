@@ -9,6 +9,7 @@ import EmptyState from "../../../SharedComponents/EmptyState";
 const PaymentHistory = () => {
     const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
+
     const { data: paymentHistory = [] } = useQuery({
         queryKey: ['payment-history', user?.email],
         queryFn: async () => {
@@ -32,7 +33,7 @@ const PaymentHistory = () => {
                         <span>Download</span>
                 </button>
             </div>
-            <div className=" mt-5">
+            { paymentHistory.length > 0 ? <div className=" mt-5">
                 <table className="table overflow-x-scroll">
                     <thead>
                         <tr>
@@ -45,7 +46,6 @@ const PaymentHistory = () => {
                     </thead>
                     <tbody>
                         {
-                            paymentHistory.length > 0 ?
                             paymentHistory.map(history =>
                                 <tr key={history._id}>
                                     <td>TrxId: {history.transactionId}</td>
@@ -58,12 +58,13 @@ const PaymentHistory = () => {
                                     <td><p className="w-fit bg-green-400 rounded-md text-green-800 font-medium">successful</p></td>
                                 </tr>
                             )
-                            : 
-                            <EmptyState/>
                         }
                     </tbody>
                 </table>
             </div>
+            :
+            <EmptyState/>
+            }
         </div>
         </div >
     );
